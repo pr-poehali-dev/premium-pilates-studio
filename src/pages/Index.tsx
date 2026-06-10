@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMAGE = "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/bdbbd1ed-3942-4678-a782-223fceabd79d.jpg";
+const HERO_IMAGE = "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/d50db19d-5253-4e10-bf85-92fdc72af922.JPG";
 const PRICE_IMAGE = "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/9e154c6d-0a4a-4667-8ced-515f53e698c0.jpg";
 
 const NAV_LINKS = [
@@ -26,17 +26,19 @@ const TRAININGS = [
   {
     type: "Мини-группа",
     subtitle: "до 4 человек",
-    price: "от 2 200 ₽",
-    priceLabel: "разовое занятие",
-    features: ["Индивидуальный подход", "Атмосфера поддержки", "Общая мотивация", "Абонементы со скидкой"],
+    price: "1 000 ₽",
+    priceLabel: "первое занятие",
+    badge: "Для новичков",
+    features: ["Индивидуальный подход", "Атмосфера поддержки", "Общая мотивация", "Далее от 2 200 ₽"],
     accent: false,
   },
   {
     type: "Индивидуально",
     subtitle: "только вы и тренер",
-    price: "от 3 300 ₽",
-    priceLabel: "разовое занятие",
-    features: ["100% фокус на вас", "Персональная программа", "Быстрый прогресс", "Гибкое расписание"],
+    price: "1 500 ₽",
+    priceLabel: "первое занятие",
+    badge: "Для новичков",
+    features: ["100% фокус на вас", "Персональная программа", "Быстрый прогресс", "Далее от 3 300 ₽"],
     accent: true,
   },
 ];
@@ -319,18 +321,17 @@ export default function Index() {
                   boxShadow: t.accent ? "inset 0 0 80px rgba(184,92,69,0.05)" : "none",
                 }}
               >
-                {t.accent && (
-                  <div className="absolute top-5 right-5 font-body text-xs tracking-widest uppercase px-3 py-1" style={{ background: "var(--verve-gold)", color: "#fff" }}>
-                    Популярно
-                  </div>
-                )}
+                <div className="absolute top-5 right-5 font-body text-xs tracking-widest uppercase px-3 py-1" style={{ background: "var(--verve-gold)", color: "#fff" }}>
+                  Впервые у нас
+                </div>
                 <p className="font-body text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--verve-gold)" }}>{t.subtitle}</p>
                 <h3 className="font-display text-4xl font-light mb-6" style={{ color: "var(--verve-cream)" }}>{t.type}</h3>
                 <div className="gold-line mb-6" />
-                <div className="mb-8">
+                <div className="mb-2">
                   <span className="font-display text-3xl font-light" style={{ color: "var(--verve-gold)" }}>{t.price}</span>
                   <span className="font-body text-xs ml-2" style={{ color: "var(--verve-muted)" }}>/ {t.priceLabel}</span>
                 </div>
+                <p className="font-body text-xs mb-6" style={{ color: "var(--verve-muted)" }}>Специальная цена для первого визита</p>
                 <ul className="space-y-3 mb-8">
                   {t.features.map((f) => (
                     <li key={f} className="flex items-center gap-3 font-body text-sm" style={{ color: "rgba(28,20,16,0.7)" }}>
@@ -566,7 +567,7 @@ export default function Index() {
             </a>
           </div>
           <div className="grid grid-cols-2 gap-6 mt-12">
-            {[["2 200 ₽", "разовое в группе"], ["3 300 ₽", "разовое индивидуальное"]].map(([price, label]) => (
+            {[["1 000 ₽", "пробная в группе"], ["1 500 ₽", "пробная индивидуальная"]].map(([price, label]) => (
               <div key={label} className="p-6 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.15)" }}>
                 <div className="font-display text-3xl font-light mb-1" style={{ color: "var(--verve-gold)" }}>{price}</div>
                 <p className="font-body text-xs tracking-wider uppercase" style={{ color: "var(--verve-muted)" }}>{label}</p>
