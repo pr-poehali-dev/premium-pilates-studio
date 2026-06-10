@@ -340,7 +340,7 @@ export default function Index() {
                   ))}
                 </ul>
                 <a
-                  href="https://apps.apple.com/ru/app/verve-пилатес-на-реформерах/id6758667943"
+                  href="https://t.me/verve_pilates"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={t.accent ? "verve-btn-primary w-full flex items-center justify-center" : "verve-btn-outline w-full flex items-center justify-center"}
