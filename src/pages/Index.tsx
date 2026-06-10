@@ -55,10 +55,10 @@ const REFORMER_WORKS = [
 ];
 
 const TRAINERS = [
-  { name: "Анна", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер" },
-  { name: "София", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер" },
-  { name: "Валентина", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер" },
-  { name: "Ксения", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер" },
+  { name: "Анна", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/3e4e06d1-9279-4204-b339-32c3f71a5c00.jpg" },
+  { name: "София", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/d3e0b651-fc0b-499e-a9ee-a1e28adfe61e.jpg" },
+  { name: "Валентина", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/a59f91a6-adeb-41f2-9d58-d0f8df85f979.jpg" },
+  { name: "Ксения", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/73a01b38-d81a-4b99-9082-1026c056de06.jpg" },
 ];
 
 const GROUP_PRICES = [
@@ -461,14 +461,25 @@ export default function Index() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 reveal-section">
             {TRAINERS.map((tr) => (
-              <div key={tr.name} className="card-hover p-8 rounded-sm text-center" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
-                <div className="w-16 h-16 rounded-full mx-auto mb-5 flex items-center justify-center font-display text-2xl font-light" style={{ background: "rgba(184,92,69,0.1)", border: "1px solid rgba(184,92,69,0.35)", color: "var(--verve-gold)" }}>
-                  {tr.name[0]}
+              <div key={tr.name} className="card-hover rounded-sm overflow-hidden" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
+                <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
+                  <img
+                    src={tr.photo}
+                    alt={tr.name}
+                    className="w-full h-full object-cover object-top transition-transform duration-500"
+                    style={{ transform: "scale(1)" }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1.04)"; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"; }}
+                  />
+                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.7) 0%, transparent 50%)" }} />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h3 className="font-display text-2xl font-light" style={{ color: "#fff" }}>{tr.name}</h3>
+                  </div>
                 </div>
-                <h3 className="font-display text-2xl font-light mb-1" style={{ color: "var(--verve-cream)" }}>{tr.name}</h3>
-                <p className="font-body text-xs mb-3" style={{ color: "var(--verve-gold)" }}>{tr.spec}</p>
-                <div className="gold-line mb-3" />
-                <p className="font-body text-xs tracking-wider" style={{ color: "var(--verve-muted)" }}>{tr.cert}</p>
+                <div className="px-4 py-3">
+                  <p className="font-body text-xs mb-1" style={{ color: "var(--verve-gold)" }}>{tr.spec}</p>
+                  <p className="font-body text-xs tracking-wider" style={{ color: "var(--verve-muted)" }}>{tr.cert}</p>
+                </div>
               </div>
             ))}
           </div>
