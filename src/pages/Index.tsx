@@ -109,9 +109,9 @@ export default function Index() {
       <nav
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
         style={{
-          background: scrolled ? "rgba(15,13,10,0.95)" : "transparent",
+          background: scrolled ? "rgba(245,239,230,0.95)" : "transparent",
           backdropFilter: scrolled ? "blur(20px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(201,169,110,0.15)" : "none",
+          borderBottom: scrolled ? "1px solid rgba(184,92,69,0.2)" : "none",
         }}
       >
         <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
@@ -148,7 +148,7 @@ export default function Index() {
         {menuOpen && (
           <div
             className="md:hidden mobile-menu-enter px-6 pb-6 pt-2"
-            style={{ background: "rgba(15,13,10,0.98)", borderBottom: "1px solid rgba(201,169,110,0.15)" }}
+            style={{ background: "rgba(245,239,230,0.98)", borderBottom: "1px solid rgba(184,92,69,0.2)" }}
           >
             <div className="flex flex-col gap-5">
               {NAV_LINKS.map((l) => (
@@ -169,7 +169,7 @@ export default function Index() {
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_IMAGE})` }} />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, rgba(15,13,10,0.3) 0%, rgba(15,13,10,0.6) 50%, rgba(15,13,10,0.95) 100%)" }}
+          style={{ background: "linear-gradient(to bottom, rgba(15,13,10,0.15) 0%, rgba(15,13,10,0.5) 55%, rgba(15,13,10,0.88) 100%)" }}
         />
         <div
           className="absolute inset-0 opacity-20"
@@ -190,7 +190,7 @@ export default function Index() {
           </h1>
           <p
             className="font-body font-light text-lg mb-10 max-w-lg leading-relaxed animate-fade-up"
-            style={{ color: "rgba(240,232,220,0.65)", animationDelay: "0.4s", opacity: 0, animationFillMode: "forwards" }}
+            style={{ color: "rgba(255,255,255,0.8)", animationDelay: "0.4s", opacity: 0, animationFillMode: "forwards" }}
           >
             Премиальная студия в центре Рязани. Восстановление осанки и глубокого кора через работу на реформере.
           </p>
@@ -211,7 +211,7 @@ export default function Index() {
       </section>
 
       {/* MARQUEE */}
-      <div className="py-5 overflow-hidden border-y" style={{ borderColor: "rgba(201,169,110,0.2)" }}>
+      <div className="py-5 overflow-hidden border-y" style={{ borderColor: "rgba(184,92,69,0.2)" }}>
         <div className="marquee-track">
           {MARQUEE_ITEMS.map((item, i) => (
             <span key={i} className="font-display text-lg font-light italic mx-8" style={{ color: "var(--verve-gold)", opacity: 0.5 }}>
@@ -231,16 +231,16 @@ export default function Index() {
                 Место, где тело<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>обретает</em> баланс
               </h2>
               <div className="gold-line mb-8" />
-              <p className="font-body font-light leading-relaxed mb-6" style={{ color: "rgba(240,232,220,0.65)", fontSize: "1.05rem" }}>
+              <p className="font-body font-light leading-relaxed mb-6" style={{ color: "rgba(28,20,16,0.65)", fontSize: "1.05rem" }}>
                 VERVE — это не просто спортзал. Это пространство осознанного движения в самом центре Рязани, на площади Ленина. Мы создали студию, где каждая деталь работает на ваше тело и ваш комфорт.
               </p>
-              <p className="font-body font-light leading-relaxed" style={{ color: "rgba(240,232,220,0.65)", fontSize: "1.05rem" }}>
+              <p className="font-body font-light leading-relaxed" style={{ color: "rgba(28,20,16,0.65)", fontSize: "1.05rem" }}>
                 Пилатес на реформерах — это не модный тренд, а научно обоснованный метод работы с телом. Мы используем оборудование студийного класса и подходы ведущих мировых школ пилатеса.
               </p>
             </div>
             <div className="reveal-section grid grid-cols-2 gap-4">
               {BENEFITS.map((b) => (
-                <div key={b.title} className="card-hover p-5 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(201,169,110,0.1)" }}>
+                <div key={b.title} className="card-hover p-5 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
                   <div className="mb-3" style={{ color: "var(--verve-gold)" }}><Icon name={b.icon} size={20} fallback="Star" /></div>
                   <h4 className="font-body font-medium text-sm mb-2" style={{ color: "var(--verve-cream)" }}>{b.title}</h4>
                   <p className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>{b.desc}</p>
@@ -261,7 +261,7 @@ export default function Index() {
             </h2>
           </div>
           <div className="gold-line mb-16 reveal-section" />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px reveal-section" style={{ background: "rgba(201,169,110,0.15)" }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px reveal-section" style={{ background: "rgba(184,92,69,0.15)" }}>
             {REFORMER_WORKS.map((item) => (
               <div
                 key={item.title}
@@ -294,8 +294,8 @@ export default function Index() {
                 className="relative p-8 md:p-10 rounded-sm overflow-hidden card-hover"
                 style={{
                   background: t.accent ? "transparent" : "var(--verve-dark-3)",
-                  border: t.accent ? "1px solid var(--verve-gold)" : "1px solid rgba(201,169,110,0.15)",
-                  boxShadow: t.accent ? "inset 0 0 80px rgba(201,169,110,0.04)" : "none",
+                  border: t.accent ? "1px solid var(--verve-gold)" : "1px solid rgba(184,92,69,0.15)",
+                  boxShadow: t.accent ? "inset 0 0 80px rgba(184,92,69,0.05)" : "none",
                 }}
               >
                 {t.accent && (
@@ -312,7 +312,7 @@ export default function Index() {
                 </div>
                 <ul className="space-y-3 mb-8">
                   {t.features.map((f) => (
-                    <li key={f} className="flex items-center gap-3 font-body text-sm" style={{ color: "rgba(240,232,220,0.7)" }}>
+                    <li key={f} className="flex items-center gap-3 font-body text-sm" style={{ color: "rgba(28,20,16,0.7)" }}>
                       <span style={{ color: "var(--verve-gold)" }}>—</span> {f}
                     </li>
                   ))}
@@ -337,8 +337,8 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-3 gap-6 reveal-section">
             {TRAINERS.map((tr) => (
-              <div key={tr.name} className="card-hover p-8 rounded-sm text-center" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(201,169,110,0.1)" }}>
-                <div className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center font-display text-3xl font-light" style={{ background: "rgba(201,169,110,0.1)", border: "1px solid rgba(201,169,110,0.3)", color: "var(--verve-gold)" }}>
+              <div key={tr.name} className="card-hover p-8 rounded-sm text-center" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
+                <div className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center font-display text-3xl font-light" style={{ background: "rgba(184,92,69,0.1)", border: "1px solid rgba(184,92,69,0.35)", color: "var(--verve-gold)" }}>
                   {tr.name[0]}
                 </div>
                 <h3 className="font-display text-3xl font-light mb-2" style={{ color: "var(--verve-cream)" }}>{tr.name}</h3>
@@ -362,7 +362,7 @@ export default function Index() {
             </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 reveal-section">
-            <div className="col-span-2 rounded-sm relative overflow-hidden" style={{ minHeight: "320px", border: "1px solid rgba(201,169,110,0.1)" }}>
+            <div className="col-span-2 rounded-sm relative overflow-hidden" style={{ minHeight: "320px", border: "1px solid rgba(184,92,69,0.12)" }}>
               <img src={HERO_IMAGE} alt="Студия VERVE" className="w-full h-full object-cover" style={{ minHeight: "320px" }} />
               <div className="absolute inset-0 flex items-end p-6" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.8) 0%, transparent 60%)" }}>
                 <p className="font-display text-xl italic" style={{ color: "var(--verve-gold)" }}>Студия на реформерах</p>
@@ -374,7 +374,7 @@ export default function Index() {
               { icon: "Music", title: "Атмосферный звук", desc: "Плейлисты специально подобраны под темп тренировок" },
               { icon: "Droplets", title: "Комфорт после тренировки", desc: "Душевые, полотенца, натуральный чай" },
             ].map((card) => (
-              <div key={card.title} className="card-hover p-6 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(201,169,110,0.1)" }}>
+              <div key={card.title} className="card-hover p-6 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
                 <div className="mb-3" style={{ color: "var(--verve-gold)" }}><Icon name={card.icon} size={20} fallback="Star" /></div>
                 <h4 className="font-body font-medium text-sm mb-2" style={{ color: "var(--verve-cream)" }}>{card.title}</h4>
                 <p className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>{card.desc}</p>
@@ -395,13 +395,13 @@ export default function Index() {
           </div>
           <div className="grid md:grid-cols-2 gap-6 reveal-section">
             {REVIEWS.map((r) => (
-              <div key={r.name} className="card-hover p-7 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(201,169,110,0.1)" }}>
+              <div key={r.name} className="card-hover p-7 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: r.rate }).map((_, i) => (
                     <span key={i} style={{ color: "var(--verve-gold)" }}>★</span>
                   ))}
                 </div>
-                <p className="font-body font-light leading-relaxed mb-5" style={{ color: "rgba(240,232,220,0.75)", fontSize: "0.95rem" }}>«{r.text}»</p>
+                <p className="font-body font-light leading-relaxed mb-5" style={{ color: "rgba(28,20,16,0.7)", fontSize: "0.95rem" }}>«{r.text}»</p>
                 <div className="gold-line mb-4" />
                 <p className="font-body text-sm font-medium" style={{ color: "var(--verve-gold)" }}>{r.name}</p>
               </div>
@@ -417,7 +417,7 @@ export default function Index() {
           <h2 className="font-display font-light leading-tight mb-6" style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)" }}>
             Начни своё<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>движение</em>
           </h2>
-          <p className="font-body font-light text-lg mb-10 leading-relaxed" style={{ color: "rgba(240,232,220,0.6)" }}>
+          <p className="font-body font-light text-lg mb-10 leading-relaxed" style={{ color: "rgba(28,20,16,0.6)" }}>
             Запись через наше приложение или позвоните нам напрямую. Первая тренировка — специальная цена.
           </p>
           <div className="gold-line mb-10" />
@@ -433,7 +433,7 @@ export default function Index() {
           </div>
           <div className="grid grid-cols-2 gap-6 mt-12">
             {[["1 000 ₽", "пробная в группе"], ["1 500 ₽", "пробная индивидуальная"]].map(([price, label]) => (
-              <div key={label} className="p-6 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(201,169,110,0.15)" }}>
+              <div key={label} className="p-6 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.15)" }}>
                 <div className="font-display text-3xl font-light mb-1" style={{ color: "var(--verve-gold)" }}>{price}</div>
                 <p className="font-body text-xs tracking-wider uppercase" style={{ color: "var(--verve-muted)" }}>{label}</p>
               </div>
@@ -457,18 +457,18 @@ export default function Index() {
               { icon: "Clock", title: "Режим работы", lines: ["Пн–Пт: 7:00–22:00", "Сб–Вс: 9:00–20:00"] },
               { icon: "Phone", title: "Связь", lines: ["Телефон", "Приложение VERVE"] },
             ].map((c) => (
-              <div key={c.title} className="card-hover p-8 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(201,169,110,0.1)" }}>
+              <div key={c.title} className="card-hover p-8 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
                 <div className="mb-4" style={{ color: "var(--verve-gold)" }}><Icon name={c.icon} size={22} fallback="MapPin" /></div>
                 <h4 className="font-body font-medium text-sm mb-3" style={{ color: "var(--verve-gold)" }}>{c.title}</h4>
                 {c.lines.map((line) => (
-                  <p key={line} className="font-body font-light text-sm" style={{ color: "rgba(240,232,220,0.7)" }}>{line}</p>
+                  <p key={line} className="font-body font-light text-sm" style={{ color: "rgba(28,20,16,0.7)" }}>{line}</p>
                 ))}
               </div>
             ))}
           </div>
           <div
             className="mt-6 rounded-sm overflow-hidden reveal-section relative"
-            style={{ height: "280px", background: "var(--verve-dark-3)", border: "1px solid rgba(201,169,110,0.1)" }}
+            style={{ height: "280px", background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}
           >
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
               <div style={{ color: "var(--verve-gold)" }}><Icon name="MapPin" size={32} fallback="MapPin" /></div>
@@ -484,7 +484,7 @@ export default function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-10 px-6" style={{ borderTop: "1px solid rgba(201,169,110,0.15)", background: "var(--verve-dark)" }}>
+      <footer className="py-10 px-6" style={{ borderTop: "1px solid rgba(184,92,69,0.2)", background: "var(--verve-dark)" }}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <span className="font-display text-2xl tracking-[0.3em] font-light" style={{ color: "var(--verve-gold)" }}>VERVE</span>
           <p className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>© 2024 VERVE Pilates Studio · Рязань, пл. Ленина</p>

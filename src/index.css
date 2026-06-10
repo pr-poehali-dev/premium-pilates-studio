@@ -36,11 +36,11 @@
 
     --verve-gold: #b85c45;
     --verve-gold-light: #d4806c;
-    --verve-dark: #0f0d0a;
-    --verve-dark-2: #141110;
-    --verve-dark-3: #1c1715;
-    --verve-cream: #f0e8dc;
-    --verve-muted: #8a7d6b;
+    --verve-dark: #f5efe6;
+    --verve-dark-2: #ede5d8;
+    --verve-dark-3: #e4d9c8;
+    --verve-cream: #1c1410;
+    --verve-muted: #7a6a58;
   }
 }
 
@@ -59,6 +59,11 @@
     background-color: var(--verve-dark);
     color: var(--verve-cream);
     overflow-x: hidden;
+  }
+
+  /* Светлая тема — переопределяем scrollbar */
+  ::-webkit-scrollbar-track {
+    background: var(--verve-dark);
   }
 
   h1,
@@ -115,7 +120,7 @@
   .verve-btn-primary {
     @apply font-body font-medium tracking-widest uppercase text-xs px-8 py-4;
     background-color: var(--verve-gold);
-    color: var(--verve-dark);
+    color: #fff;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     letter-spacing: 0.2em;
   }
@@ -123,7 +128,7 @@
   .verve-btn-primary:hover {
     background-color: var(--verve-gold-light);
     transform: translateY(-1px);
-    box-shadow: 0 8px 32px rgba(201, 169, 110, 0.25);
+    box-shadow: 0 8px 32px rgba(184, 92, 69, 0.3);
   }
 
   .verve-btn-outline {
@@ -137,7 +142,7 @@
 
   .verve-btn-outline:hover {
     background-color: var(--verve-gold);
-    color: var(--verve-dark);
+    color: #fff;
     transform: translateY(-1px);
   }
 
@@ -198,6 +203,9 @@
     color: var(--verve-muted);
     transition: color 0.3s ease;
     letter-spacing: 0.15em;
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
   .nav-link:hover {
