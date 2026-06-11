@@ -29,7 +29,7 @@ const TRAININGS = [
     price: "1 000 ₽",
     priceLabel: "первое занятие",
     badge: "Для новичков",
-    features: ["Индивидуальный подход", "Атмосфера поддержки", "Общая мотивация", "Далее от 2 200 ₽"],
+    features: ["Индивидуальный подход", "Атмосфера поддержки", "Общая мотивация", "Далее от 1 730 ₽"],
     accent: false,
   },
   {
@@ -38,7 +38,7 @@ const TRAININGS = [
     price: "1 500 ₽",
     priceLabel: "первое занятие",
     badge: "Для новичков",
-    features: ["100% фокус на вас", "Персональная программа", "Быстрый прогресс", "Далее от 3 300 ₽"],
+    features: ["100% фокус на вас", "Персональная программа", "Быстрый прогресс", "Далее от 2 590 ₽"],
     accent: true,
   },
 ];
@@ -72,9 +72,9 @@ const GROUP_PRICES = [
 const SOLO_PRICES = [
   { name: "Разовое занятие", price: "3 300 ₽", gift: "", perClass: "" },
   { name: "4 занятия", price: "13 200 ₽", gift: "", perClass: "3 300 ₽" },
-  { name: "6 занятий", price: "19 800 ₽", gift: "+1", perClass: "2 829 ₽" },
+  { name: "6 занятий", price: "19 800 ₽", gift: "+1", perClass: "2 830 ₽" },
   { name: "9 занятий", price: "29 700 ₽", gift: "+2", perClass: "2 700 ₽" },
-  { name: "11 занятий", price: "36 300 ₽", gift: "+3", perClass: "2 593 ₽" },
+  { name: "11 занятий", price: "36 300 ₽", gift: "+3", perClass: "2 590 ₽" },
 ];
 
 const REVIEWS = [
@@ -223,7 +223,7 @@ export default function Index() {
           </div>
 
           <div className="mt-10 md:mt-16 flex gap-5 md:gap-10 animate-fade-up" style={{ animationDelay: "0.7s", opacity: 0, animationFillMode: "forwards" }}>
-            {[["Краснорядская 3", "Рязань"], ["4", "тренера"], ["9–21", "без выходных"]].map(([val, label]) => (
+            {[["Краснорядская 3", "Рязань"], ["мини-группы", "до 4х человек"], ["индивидуальные", "тренировки"]].map(([val, label]) => (
               <div key={label}>
                 <div className="font-display text-lg md:text-2xl font-light" style={{ color: "var(--verve-gold)" }}>{val}</div>
                 <div className="font-body text-xs tracking-wider uppercase mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>{label}</div>
@@ -578,11 +578,21 @@ export default function Index() {
             </a>
           </div>
           <div className="grid grid-cols-2 gap-4 md:gap-6 mt-10 md:mt-12">
-            {[["1 000 ₽", "пробная в группе"], ["1 500 ₽", "пробная индивидуальная"]].map(([price, label]) => (
-              <div key={label} className="p-4 md:p-6 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.15)" }}>
+            {[
+              { price: "1 000 ₽", label: "пробная в группе", href: "https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на пробную тренировку в мини-группе за 1000р" },
+              { price: "1 500 ₽", label: "пробная индивидуальная", href: "https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на индивидуальную тренировку за 1500р" },
+            ].map(({ price, label, href }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 md:p-6 rounded-sm card-hover block"
+                style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.15)", textDecoration: "none" }}
+              >
                 <div className="font-display text-2xl md:text-3xl font-light mb-1" style={{ color: "var(--verve-gold)" }}>{price}</div>
                 <p className="font-body text-xs tracking-wider uppercase" style={{ color: "var(--verve-muted)" }}>{label}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>
