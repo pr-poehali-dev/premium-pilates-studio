@@ -195,7 +195,7 @@ export default function Index() {
 
         <div className="relative max-w-7xl mx-auto px-6 w-full">
           <p className="font-body text-xs tracking-[0.4em] uppercase mb-6 animate-fade-up" style={{ color: "var(--verve-gold)", animationDelay: "0.1s", opacity: 0, animationFillMode: "forwards" }}>
-            Студия пилатеса на реформерах · Рязань
+            Пилатес на реформерах · Рязань
           </p>
           <h1
             className="font-display font-light leading-[0.92] mb-8 animate-fade-up"
@@ -209,21 +209,17 @@ export default function Index() {
             className="font-body font-light text-base md:text-lg mb-10 max-w-lg leading-relaxed animate-fade-up"
             style={{ color: "rgba(255,255,255,0.8)", animationDelay: "0.4s", opacity: 0, animationFillMode: "forwards" }}
           >
-            Премиальная студия в центре Рязани. Восстановление осанки и глубокого кора через работу на реформере.
+            Восстановление осанки и глубокого кора через работу на реформере.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-up" style={{ animationDelay: "0.55s", opacity: 0, animationFillMode: "forwards" }}>
-            <a href="https://apps.apple.com/ru/app/verve-пилатес-на-реформерах/id6758667943" target="_blank" rel="noopener noreferrer" className="verve-btn-primary flex items-center justify-center gap-3" style={{ textDecoration: "none" }}>
-              <Icon name="Smartphone" size={16} />
-              Записаться онлайн
-            </a>
-            <a href="https://t.me/verve_pilates" target="_blank" rel="noopener noreferrer" className="verve-btn-outline flex items-center justify-center gap-3" style={{ textDecoration: "none", color: "#fff", borderColor: "#fff" }}>
-              <Icon name="MessageCircle" size={16} />
-              Написать в Telegram
-            </a>
+            <button onClick={() => scrollTo("#training")} className="verve-btn-primary flex items-center justify-center gap-3">
+              <Icon name="Gift" size={16} />
+              Дарим пробную тренировку
+            </button>
           </div>
 
           <div className="mt-10 md:mt-16 flex gap-5 md:gap-10 animate-fade-up" style={{ animationDelay: "0.7s", opacity: 0, animationFillMode: "forwards" }}>
-            {[["Краснорядская 3", "Рязань"], ["мини-группы", "до 4х человек"], ["индивидуальные", "тренировки"]].map(([val, label]) => (
+            {[["4 человека", "мини-группы"], ["вы и тренер", "индивидуальные"]].map(([val, label]) => (
               <div key={label}>
                 <div className="font-display text-lg md:text-2xl font-light" style={{ color: "var(--verve-gold)" }}>{val}</div>
                 <div className="font-body text-xs tracking-wider uppercase mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>{label}</div>
