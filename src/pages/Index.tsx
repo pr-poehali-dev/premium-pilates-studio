@@ -112,6 +112,7 @@ export default function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [priceTab, setPriceTab] = useState<"group" | "solo">("group");
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   useReveal();
 
   useEffect(() => {
@@ -612,6 +613,75 @@ export default function Index() {
                 <p className="font-body font-light leading-relaxed mb-5" style={{ color: "rgba(28,20,16,0.7)", fontSize: "0.95rem" }}>«{r.text}»</p>
                 <div className="gold-line mb-4" />
                 <p className="font-body text-sm font-medium" style={{ color: "var(--verve-gold)" }}>{r.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
+        <div className="max-w-3xl mx-auto">
+          <div className="reveal-section text-center mb-10 md:mb-14">
+            <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Вопросы и ответы</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-light leading-tight">
+              Всё, что вы<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>хотели спросить</em>
+            </h2>
+          </div>
+          <div className="reveal-section flex flex-col gap-2">
+            {[
+              {
+                q: "Я никогда не занималась пилатесом. Это сложно?",
+                a: "Нет. Реформер — это не тренажёрный зал и не групповая аэробика. Тренер ведёт вас с нуля: объясняет каждое движение, следит за техникой, подбирает нагрузку под ваше тело. На первой тренировке всё понятно даже без опыта.",
+              },
+              {
+                q: "Мне нельзя нагружать спину. Подойдёт ли мне?",
+                a: "Пилатес на реформерах — один из немногих видов физической активности, который рекомендуют при проблемах со спиной. Он работает с глубокими мышцами-стабилизаторами, снимает нагрузку с позвоночника и восстанавливает правильное положение тела. Перед занятием скажите тренеру о своих ограничениях — программу адаптируют.",
+              },
+              {
+                q: "Сколько занятий нужно, чтобы почувствовать результат?",
+                a: "Большинство клиентов замечают первые изменения после 3–5 занятий: спина меньше болит, улучшается осанка, тело становится более управляемым. Видимые изменения — через 8–10 занятий при регулярности 1–2 раза в неделю.",
+              },
+              {
+                q: "Чем мини-группа отличается от индивидуальной?",
+                a: "В мини-группе до 4 человек — тренер следит за каждым, но есть живая энергия команды и поддержка. Это более доступный по цене формат с отличным результатом. Индивидуальная — 100% внимание тренера, программа строится только под ваше тело и цели. Подходит тем, кто восстанавливается после травм или хочет максимально быстрого прогресса.",
+              },
+              {
+                q: "Что мне нужно взять на первое занятие?",
+                a: "Удобная спортивная одежда и носки с нескользящей подошвой (или спортивные носки — можно купить у нас). Всё остальное есть в студии: коврики, оборудование, душевые, полотенца. После тренировки вас ждёт напиток в подарок.",
+              },
+              {
+                q: "А вдруг мне не понравится?",
+                a: "Именно поэтому мы сделали первое занятие по цене 1 000 ₽ — чтобы вы могли попробовать без риска. Никаких обязательств и давления. Пришли, почувствовали, решили. По опыту — 9 из 10 возвращаются.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="rounded-sm overflow-hidden"
+                style={{ border: "1px solid rgba(184,92,69,0.15)", background: openFaq === i ? "var(--verve-dark-3)" : "var(--verve-dark)" }}
+              >
+                <button
+                  className="w-full flex items-center justify-between gap-4 px-5 py-5 text-left transition-all duration-200"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  style={{ background: "none", border: "none", cursor: "pointer" }}
+                >
+                  <span className="font-body font-medium text-sm sm:text-base leading-snug" style={{ color: "var(--verve-cream)" }}>{item.q}</span>
+                  <span
+                    className="shrink-0 flex items-center justify-center w-7 h-7 rounded-sm transition-transform duration-300"
+                    style={{
+                      background: openFaq === i ? "var(--verve-gold)" : "rgba(184,92,69,0.12)",
+                      transform: openFaq === i ? "rotate(45deg)" : "rotate(0deg)",
+                    }}
+                  >
+                    <Icon name="Plus" size={14} style={{ color: openFaq === i ? "#fff" : "var(--verve-gold)" }} />
+                  </span>
+                </button>
+                {openFaq === i && (
+                  <div className="px-5 pb-5">
+                    <div className="gold-line mb-4" />
+                    <p className="font-body font-light text-sm leading-relaxed" style={{ color: "rgba(245,239,230,0.65)" }}>{item.a}</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
