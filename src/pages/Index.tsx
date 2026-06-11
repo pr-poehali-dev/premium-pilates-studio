@@ -510,9 +510,9 @@ export default function Index() {
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 reveal-section">
-            <div className="sm:col-span-2 rounded-sm relative overflow-hidden" style={{ minHeight: "240px", border: "1px solid rgba(184,92,69,0.12)" }}>
+            <div className="sm:col-span-2 relative overflow-hidden rounded-xl" style={{ minHeight: "240px", border: "1px solid rgba(184,92,69,0.12)" }}>
               <img src={HERO_IMAGE} alt="Студия VERVE" className="w-full h-full object-cover" style={{ minHeight: "320px" }} />
-              <div className="absolute inset-0 flex items-end p-6" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.8) 0%, transparent 60%)" }}>
+              <div className="absolute inset-0 flex items-end p-6 rounded-lg" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.8) 0%, transparent 60%)" }}>
                 <p className="font-display text-xl italic" style={{ color: "var(--verve-gold)" }}>Студия на реформерах</p>
               </div>
             </div>
@@ -646,11 +646,11 @@ export default function Index() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="rounded-sm overflow-hidden"
+                className="overflow-hidden rounded-xl"
                 style={{ border: "1px solid rgba(184,92,69,0.15)", background: openFaq === i ? "var(--verve-dark-3)" : "var(--verve-dark)" }}
               >
                 <button
-                  className="w-full flex items-center justify-between gap-4 px-5 py-5 text-left transition-all duration-200"
+                  className="w-full flex items-center justify-between gap-4 px-5 py-5 text-left transition-all duration-200 rounded-xl"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   style={{ background: "none", border: "none", cursor: "pointer" }}
                 >
@@ -753,7 +753,7 @@ export default function Index() {
                 href={s.href}
                 target={s.href.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className="card-hover flex items-center gap-3 p-3 sm:p-4 rounded-sm"
+                className="card-hover flex items-center gap-3 p-3 sm:p-4 rounded-none"
                 style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)", textDecoration: "none" }}
               >
                 <div className="shrink-0" style={{ color: "var(--verve-gold)" }}><Icon name={s.icon} size={18} fallback="Link" /></div>
