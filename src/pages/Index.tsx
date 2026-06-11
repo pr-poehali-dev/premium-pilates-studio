@@ -151,7 +151,7 @@ export default function Index() {
             ))}
           </div>
 
-          <button className="hidden md:block verve-btn-primary" onClick={() => scrollTo("#booking")}>
+          <button className="hidden md:block verve-btn-primary rounded-xl" onClick={() => scrollTo("#booking")}>
             Записаться
           </button>
 
@@ -211,7 +211,7 @@ export default function Index() {
             Восстановление осанки и глубокого кора через работу на реформере.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-up" style={{ animationDelay: "0.55s", opacity: 0, animationFillMode: "forwards" }}>
-            <button onClick={() => scrollTo("#training")} className="verve-btn-primary flex items-center justify-center gap-3">
+            <button className="verve-btn-primary flex items-center justify-center gap-3 rounded-xl" onClick={() => scrollTo("#training")} className="verve-btn-primary flex items-center justify-center gap-3">
               <Icon name="Gift" size={16} />
               Дарим пробную тренировку
             </button>
@@ -258,7 +258,7 @@ export default function Index() {
             </div>
             <div className="reveal-section grid grid-cols-1 sm:grid-cols-2 gap-3">
               {BENEFITS.map((b) => (
-                <div key={b.title} className="card-hover p-3 sm:p-4 md:p-5 rounded-lg" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
+                <div key={b.title} className="card-hover p-3 sm:p-4 md:p-5 rounded-xl" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
                   <div className="mb-3" style={{ color: "var(--verve-gold)" }}><Icon name={b.icon} size={20} fallback="Star" /></div>
                   <h4 className="font-body font-medium text-sm mb-2" style={{ color: "var(--verve-cream)" }}>{b.title}</h4>
                   <p className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>{b.desc}</p>
@@ -310,7 +310,7 @@ export default function Index() {
             {/* Верхняя строка */}
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10">
               <div className="md:max-w-xl">
-                <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-sm" style={{ background: "rgba(184,92,69,0.12)", border: "1px solid rgba(184,92,69,0.3)" }}>
+                <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-xl" style={{ background: "rgba(184,92,69,0.12)", border: "1px solid rgba(184,92,69,0.3)" }}>
                   <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ background: "var(--verve-gold)" }} />
                   <span className="font-body text-xs tracking-[0.3em] uppercase" style={{ color: "var(--verve-gold)" }}>Только сейчас</span>
                 </div>
@@ -331,7 +331,7 @@ export default function Index() {
                     href="https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на пробную тренировку в мини-группе за 1000р"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-lg"
+                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-xl"
                     style={{ background: "var(--verve-gold)", textDecoration: "none" }}
                   >
                     <div>
@@ -347,7 +347,7 @@ export default function Index() {
                     href="https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на индивидуальную тренировку за 1500р"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-lg"
+                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-xl"
                     style={{ background: "rgba(184,92,69,0.08)", border: "1px solid rgba(184,92,69,0.3)", textDecoration: "none" }}
                   >
                     <div>
@@ -370,7 +370,7 @@ export default function Index() {
 
       {/* PRICING */}
       <section id="pricing" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto rounded-0">
           <div className="reveal-section text-center mb-10 md:mb-14">
             <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Абонементы</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-2">
@@ -408,7 +408,7 @@ export default function Index() {
           {/* Price table */}
           <div className="reveal-section rounded-sm overflow-hidden" style={{ border: "1px solid rgba(184,92,69,0.15)" }}>
             {/* Header */}
-            <div className="grid grid-cols-3 px-3 md:px-6 py-3 rounded-lg" style={{ background: "var(--verve-dark-3)", borderBottom: "1px solid rgba(184,92,69,0.15)" }}>
+            <div className="grid grid-cols-3 px-3 md:px-6 py-3 rounded-xl" style={{ background: "var(--verve-dark-3)", borderBottom: "1px solid rgba(184,92,69,0.15)" }}>
               <span className="font-body text-xs tracking-widest uppercase" style={{ color: "var(--verve-muted)" }}>Абонемент</span>
               <span className="font-body text-xs tracking-widest uppercase text-center" style={{ color: "var(--verve-muted)" }}>Цена</span>
               <span className="font-body text-xs tracking-widest uppercase text-right" style={{ color: "var(--verve-muted)" }}>За занятие</span>
@@ -416,7 +416,7 @@ export default function Index() {
             {prices.map((row, i) => (
               <div
                 key={row.name}
-                className="grid grid-cols-3 px-3 md:px-6 py-4 md:py-5 items-center transition-all duration-200 rounded-lg"
+                className="grid grid-cols-3 px-3 md:px-6 py-4 md:py-5 items-center transition-all duration-200 rounded-xl"
                 style={{
                   background: i % 2 === 0 ? "var(--verve-dark)" : "var(--verve-dark-2)",
                   borderBottom: i < prices.length - 1 ? "1px solid rgba(184,92,69,0.08)" : "none",
@@ -438,7 +438,7 @@ export default function Index() {
             ))}
             {/* Для двоих */}
             <div
-              className="px-6 py-5 flex items-center justify-between rounded-lg"
+              className="px-6 py-5 flex items-center justify-between rounded-xl"
               style={{ background: "var(--verve-dark-3)", borderTop: "1px solid rgba(184,92,69,0.2)" }}
             >
               <div>
@@ -454,7 +454,7 @@ export default function Index() {
               href="https://apps.apple.com/ru/app/verve-пилатес-на-реформерах/id6758667943"
               target="_blank"
               rel="noopener noreferrer"
-              className="verve-btn-primary inline-flex items-center gap-3"
+              className="verve-btn-primary inline-flex items-center gap-3 text-xs rounded-xl"
               style={{ textDecoration: "none" }}
             >
               <Icon name="Smartphone" size={16} />
@@ -475,7 +475,7 @@ export default function Index() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 reveal-section">
             {TRAINERS.map((tr) => (
-              <div key={tr.name} className="card-hover rounded-sm overflow-hidden" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
+              <div key={tr.name} className="card-hover overflow-hidden rounded-xl" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
                 <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
                   <img
                     src={tr.photo}
@@ -490,7 +490,7 @@ export default function Index() {
                     <h3 className="font-display text-lg md:text-2xl font-light" style={{ color: "#fff" }}>{tr.name}</h3>
                   </div>
                 </div>
-                <div className="px-2 md:px-4 py-2 md:py-3">
+                <div className="px-2 md:px-4 py-2 md:py-3 rounded-0">
                   <p className="font-body text-xs mb-1 leading-tight" style={{ color: "var(--verve-gold)" }}>{tr.spec}</p>
                   <p className="font-body text-xs tracking-wider leading-tight" style={{ color: "var(--verve-muted)" }}>{tr.cert}</p>
                 </div>
@@ -576,7 +576,7 @@ export default function Index() {
                   href={t.btnHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="verve-btn-primary w-full flex items-center justify-center"
+                  className="verve-btn-primary w-full flex items-center justify-center rounded-xl"
                   style={{ textDecoration: "none" }}
                 >
                   {t.btnLabel}
