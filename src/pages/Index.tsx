@@ -324,26 +324,26 @@ export default function Index() {
                   <em className="italic" style={{ color: "var(--verve-gold)" }}>заслуживает</em><br />
                   попробовать
                 </h3>
-                <p className="font-body font-light text-base leading-relaxed" style={{ color: "rgba(245,239,230,0.55)", maxWidth: "36rem" }}>
+                <p className="font-body font-light text-base leading-relaxed" style={{ color: "rgba(245,239,230,0.75)", maxWidth: "36rem" }}>
                   Первая тренировка — по цене кофе с собой. Без абонемента, без обязательств. Просто приходи и почувствуй.
                 </p>
               </div>
 
               {/* Правая колонка — цены + кнопки */}
-              <div className="shrink-0 w-full md:w-auto">
+              <div className="w-full md:w-80 shrink-0">
                 <div className="flex flex-col gap-3">
                   <a
                     href="https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на пробную тренировку в мини-группе за 1000р"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative overflow-hidden flex items-center justify-between gap-6 px-7 py-5 rounded-sm transition-all duration-300"
+                    className="flex items-center justify-between gap-4 px-5 py-4 md:px-7 md:py-5 rounded-sm transition-all duration-300"
                     style={{ background: "var(--verve-gold)", textDecoration: "none" }}
                   >
                     <div>
-                      <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(255,255,255,0.7)" }}>Мини-группа</p>
-                      <p className="font-display text-2xl font-light" style={{ color: "#fff" }}>1 000 ₽</p>
+                      <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(255,255,255,0.75)" }}>Мини-группа</p>
+                      <p className="font-display text-xl md:text-2xl font-light" style={{ color: "#fff" }}>1 000 ₽</p>
                     </div>
-                    <div className="flex items-center gap-2 font-body text-sm font-medium" style={{ color: "#fff" }}>
+                    <div className="flex items-center gap-2 font-body text-sm font-medium whitespace-nowrap" style={{ color: "#fff" }}>
                       Записаться
                       <Icon name="ArrowRight" size={16} />
                     </div>
@@ -352,14 +352,14 @@ export default function Index() {
                     href="https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на индивидуальную тренировку за 1500р"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between gap-6 px-7 py-5 rounded-sm transition-all duration-300"
-                    style={{ background: "rgba(184,92,69,0.08)", border: "1px solid rgba(184,92,69,0.25)", textDecoration: "none" }}
+                    className="flex items-center justify-between gap-4 px-5 py-4 md:px-7 md:py-5 rounded-sm transition-all duration-300"
+                    style={{ background: "rgba(184,92,69,0.08)", border: "1px solid rgba(184,92,69,0.3)", textDecoration: "none" }}
                   >
                     <div>
-                      <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(245,239,230,0.45)" }}>Индивидуально</p>
-                      <p className="font-display text-2xl font-light" style={{ color: "var(--verve-cream)" }}>1 500 ₽</p>
+                      <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(245,239,230,0.7)" }}>Индивидуально</p>
+                      <p className="font-display text-xl md:text-2xl font-light" style={{ color: "var(--verve-cream)" }}>1 500 ₽</p>
                     </div>
-                    <div className="flex items-center gap-2 font-body text-sm font-medium" style={{ color: "var(--verve-gold)" }}>
+                    <div className="flex items-center gap-2 font-body text-sm font-medium whitespace-nowrap" style={{ color: "var(--verve-gold)" }}>
                       Записаться
                       <Icon name="ArrowRight" size={16} />
                     </div>
@@ -524,7 +524,7 @@ export default function Index() {
             {[
               { icon: "Layers", title: "Профессиональное оборудование", desc: "Реформеры студийного класса ведущих брендов" },
               { icon: "Droplets", title: "Раздевалка с душевыми", desc: "Просторная раздевалка и душевые — всё для комфорта после тренировки" },
-              { icon: "Sparkles", title: "Бьюти-зона", desc: "Всё необходимое, чтобы привести себя в порядок: мисты для лица, уходовые средства, фен Bork" },
+              { icon: "Sparkles", title: "Бьюти-зона", desc: "Всё, чтобы выглядеть на все 100: от мистов для лица до фена Bork" },
               { icon: "Coffee", title: "Меню напитков", desc: "Капучино, матча, латте и сезонные напитки — в подарок для каждого гостя" },
             ].map((card) => (
               <div key={card.title} className="card-hover p-6 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
@@ -681,24 +681,8 @@ export default function Index() {
               Найдите нас<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>в центре</em> Рязани
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6 reveal-section">
-            {[
-              { icon: "MapPin", title: "Адрес", lines: ["Краснорядская 3", "Рязань"] },
-              { icon: "Clock", title: "Режим работы", lines: ["Ежедневно: 9:00–21:00", "Без выходных"] },
-              { icon: "Phone", title: "Телефон", lines: ["+7 (920) 973-45-63"] },
-            ].map((c) => (
-              <div key={c.title} className="card-hover p-8 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
-                <div className="mb-4" style={{ color: "var(--verve-gold)" }}><Icon name={c.icon} size={22} fallback="MapPin" /></div>
-                <h4 className="font-body font-medium text-sm mb-3" style={{ color: "var(--verve-gold)" }}>{c.title}</h4>
-                {c.lines.map((line) => (
-                  <p key={line} className="font-body font-light text-sm" style={{ color: "rgba(28,20,16,0.7)" }}>{line}</p>
-                ))}
-              </div>
-            ))}
-          </div>
-
           {/* Social links */}
-          <div className="mt-4 md:mt-6 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 reveal-section">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 reveal-section">
             {[
               { icon: "Phone", label: "Позвонить", href: "tel:+79209734563" },
               { icon: "MessageCircle", label: "Telegram запись", href: "https://t.me/verve_pilates" },
@@ -760,6 +744,9 @@ export default function Index() {
             </a>
             <a href="https://t.me/vervepilates_rzn" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-sm" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
               <Icon name="Send" size={18} />
+            </a>
+            <a href="https://vk.com/vervepilates" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-sm" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
+              <Icon name="Users" size={18} />
             </a>
             <a href="tel:+79209734563" className="card-hover p-2 rounded-sm" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
               <Icon name="Phone" size={18} />
