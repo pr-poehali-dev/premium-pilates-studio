@@ -331,7 +331,7 @@ export default function Index() {
                     href="https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на пробную тренировку в мини-группе за 1000р"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 rounded-sm transition-all duration-300"
+                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-lg"
                     style={{ background: "var(--verve-gold)", textDecoration: "none" }}
                   >
                     <div>
@@ -347,7 +347,7 @@ export default function Index() {
                     href="https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на индивидуальную тренировку за 1500р"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 rounded-sm transition-all duration-300"
+                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-lg"
                     style={{ background: "rgba(184,92,69,0.08)", border: "1px solid rgba(184,92,69,0.3)", textDecoration: "none" }}
                   >
                     <div>
@@ -383,7 +383,7 @@ export default function Index() {
           <div className="reveal-section flex justify-center mb-10">
             <div className="flex rounded-sm overflow-hidden" style={{ border: "1px solid rgba(184,92,69,0.3)" }}>
               <button
-                className="font-body text-xs tracking-widest uppercase px-8 py-3 transition-all duration-300"
+                className="font-body text-xs tracking-widest uppercase px-8 py-3 transition-all duration-300 rounded-lg"
                 style={{
                   background: priceTab === "group" ? "var(--verve-gold)" : "transparent",
                   color: priceTab === "group" ? "#fff" : "var(--verve-gold)",
@@ -393,7 +393,7 @@ export default function Index() {
                 Группа
               </button>
               <button
-                className="font-body text-xs tracking-widest uppercase px-8 py-3 transition-all duration-300"
+                className="font-body text-xs tracking-widest uppercase px-8 py-3 transition-all duration-300 rounded-lg"
                 style={{
                   background: priceTab === "solo" ? "var(--verve-gold)" : "transparent",
                   color: priceTab === "solo" ? "#fff" : "var(--verve-gold)",
@@ -408,7 +408,7 @@ export default function Index() {
           {/* Price table */}
           <div className="reveal-section rounded-sm overflow-hidden" style={{ border: "1px solid rgba(184,92,69,0.15)" }}>
             {/* Header */}
-            <div className="grid grid-cols-3 px-3 md:px-6 py-3" style={{ background: "var(--verve-dark-3)", borderBottom: "1px solid rgba(184,92,69,0.15)" }}>
+            <div className="grid grid-cols-3 px-3 md:px-6 py-3 rounded-lg" style={{ background: "var(--verve-dark-3)", borderBottom: "1px solid rgba(184,92,69,0.15)" }}>
               <span className="font-body text-xs tracking-widest uppercase" style={{ color: "var(--verve-muted)" }}>Абонемент</span>
               <span className="font-body text-xs tracking-widest uppercase text-center" style={{ color: "var(--verve-muted)" }}>Цена</span>
               <span className="font-body text-xs tracking-widest uppercase text-right" style={{ color: "var(--verve-muted)" }}>За занятие</span>
@@ -416,7 +416,7 @@ export default function Index() {
             {prices.map((row, i) => (
               <div
                 key={row.name}
-                className="grid grid-cols-3 px-3 md:px-6 py-4 md:py-5 items-center transition-all duration-200"
+                className="grid grid-cols-3 px-3 md:px-6 py-4 md:py-5 items-center transition-all duration-200 rounded-lg"
                 style={{
                   background: i % 2 === 0 ? "var(--verve-dark)" : "var(--verve-dark-2)",
                   borderBottom: i < prices.length - 1 ? "1px solid rgba(184,92,69,0.08)" : "none",
@@ -438,7 +438,7 @@ export default function Index() {
             ))}
             {/* Для двоих */}
             <div
-              className="px-6 py-5 flex items-center justify-between"
+              className="px-6 py-5 flex items-center justify-between rounded-lg"
               style={{ background: "var(--verve-dark-3)", borderTop: "1px solid rgba(184,92,69,0.2)" }}
             >
               <div>
