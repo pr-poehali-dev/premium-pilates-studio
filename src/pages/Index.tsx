@@ -197,7 +197,7 @@ export default function Index() {
           style={{ background: "linear-gradient(to bottom, rgba(15,13,10,0.3) 0%, rgba(15,13,10,0.65) 50%, rgba(15,13,10,0.95) 100%)" }}
         />
 
-        <div className="relative max-w-7xl mx-auto px-6 w-full">
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 w-full">
           <p className="font-body text-xs tracking-[0.4em] uppercase mb-6 animate-fade-up" style={{ color: "var(--verve-gold)", animationDelay: "0.1s", opacity: 0, animationFillMode: "forwards" }}>
             Пилатес на реформерах · Рязань
           </p>
@@ -250,7 +250,7 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div className="reveal-section">
               <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>О студии</p>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-8">
+              <h2 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-light leading-tight mb-8">
                 Место, где тело<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>обретает</em> баланс
               </h2>
               <div className="gold-line mb-8" />
@@ -261,9 +261,9 @@ export default function Index() {
                 Мини-группы до 4 человек — каждый получает внимание тренера. Индивидуальные — 100% фокус на вашем теле и целях.
               </p>
             </div>
-            <div className="reveal-section grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+            <div className="reveal-section grid grid-cols-1 sm:grid-cols-2 gap-3">
               {BENEFITS.map((b) => (
-                <div key={b.title} className="card-hover p-4 md:p-5 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
+                <div key={b.title} className="card-hover p-3 sm:p-4 md:p-5 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
                   <div className="mb-3" style={{ color: "var(--verve-gold)" }}><Icon name={b.icon} size={20} fallback="Star" /></div>
                   <h4 className="font-body font-medium text-sm mb-2" style={{ color: "var(--verve-cream)" }}>{b.title}</h4>
                   <p className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>{b.desc}</p>
@@ -288,13 +288,13 @@ export default function Index() {
             {REFORMER_WORKS.map((item) => (
               <div
                 key={item.title}
-                className="flex flex-col items-center justify-center py-7 md:py-10 px-3 md:px-4 text-center transition-all duration-300"
+                className="flex flex-col items-center justify-center py-5 md:py-8 px-2 md:px-4 text-center transition-all duration-300"
                 style={{ background: "var(--verve-dark)" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--verve-dark-3)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--verve-dark)"; }}
               >
                 <div className="mb-4" style={{ color: "var(--verve-gold)" }}><Icon name={item.icon} size={24} fallback="Circle" /></div>
-                <span className="font-body text-sm font-medium" style={{ color: "var(--verve-cream)" }}>{item.title}</span>
+                <span className="font-body text-xs md:text-sm font-medium leading-tight" style={{ color: "var(--verve-cream)" }}>{item.title}</span>
               </div>
             ))}
           </div>
@@ -311,20 +311,20 @@ export default function Index() {
           {/* Золотое свечение справа */}
           <div className="absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none" style={{ background: "radial-gradient(ellipse at 80% 50%, rgba(184,92,69,0.12) 0%, transparent 70%)" }} />
 
-          <div className="relative px-6 py-12 md:px-16 md:py-16">
+          <div className="relative px-4 py-10 sm:px-8 sm:py-12 md:px-16 md:py-16">
             {/* Верхняя строка */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
-              <div className="max-w-xl">
-                <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-sm" style={{ background: "rgba(184,92,69,0.12)", border: "1px solid rgba(184,92,69,0.3)" }}>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10">
+              <div className="md:max-w-xl">
+                <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-sm" style={{ background: "rgba(184,92,69,0.12)", border: "1px solid rgba(184,92,69,0.3)" }}>
                   <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ background: "var(--verve-gold)" }} />
                   <span className="font-body text-xs tracking-[0.3em] uppercase" style={{ color: "var(--verve-gold)" }}>Только сейчас</span>
                 </div>
-                <h3 className="font-display font-light leading-[0.9] mb-5" style={{ fontSize: "clamp(2.4rem, 7vw, 5rem)", color: "var(--verve-cream)" }}>
+                <h3 className="font-display font-light leading-[0.9] mb-4" style={{ fontSize: "clamp(2rem, 7vw, 5rem)", color: "var(--verve-cream)" }}>
                   Твоё тело<br />
                   <em className="italic" style={{ color: "var(--verve-gold)" }}>заслуживает</em><br />
                   попробовать
                 </h3>
-                <p className="font-body font-light text-base leading-relaxed" style={{ color: "rgba(28,20,16,0.6)", maxWidth: "36rem" }}>
+                <p className="font-body font-light text-sm sm:text-base leading-relaxed" style={{ color: "rgba(28,20,16,0.6)" }}>
                   Первая тренировка — по цене кофе с собой. Без абонемента, без обязательств. Просто приходи и почувствуй.
                 </p>
               </div>
@@ -336,32 +336,32 @@ export default function Index() {
                     href="https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на пробную тренировку в мини-группе за 1000р"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between gap-4 px-5 py-4 md:px-7 md:py-5 rounded-sm transition-all duration-300"
+                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 rounded-sm transition-all duration-300"
                     style={{ background: "var(--verve-gold)", textDecoration: "none" }}
                   >
                     <div>
                       <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(255,255,255,0.75)" }}>Мини-группа</p>
-                      <p className="font-display text-xl md:text-2xl font-light" style={{ color: "#fff" }}>1 000 ₽</p>
+                      <p className="font-display text-lg md:text-2xl font-light" style={{ color: "#fff" }}>1 000 ₽</p>
                     </div>
-                    <div className="flex items-center gap-2 font-body text-sm font-medium whitespace-nowrap" style={{ color: "#fff" }}>
+                    <div className="flex items-center gap-1.5 font-body text-sm font-medium shrink-0" style={{ color: "#fff" }}>
                       Записаться
-                      <Icon name="ArrowRight" size={16} />
+                      <Icon name="ArrowRight" size={15} />
                     </div>
                   </a>
                   <a
                     href="https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на индивидуальную тренировку за 1500р"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-between gap-4 px-5 py-4 md:px-7 md:py-5 rounded-sm transition-all duration-300"
+                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 rounded-sm transition-all duration-300"
                     style={{ background: "rgba(184,92,69,0.08)", border: "1px solid rgba(184,92,69,0.3)", textDecoration: "none" }}
                   >
                     <div>
                       <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(28,20,16,0.55)" }}>Индивидуально</p>
-                      <p className="font-display text-xl md:text-2xl font-light" style={{ color: "var(--verve-cream)" }}>1 500 ₽</p>
+                      <p className="font-display text-lg md:text-2xl font-light" style={{ color: "var(--verve-cream)" }}>1 500 ₽</p>
                     </div>
-                    <div className="flex items-center gap-2 font-body text-sm font-medium whitespace-nowrap" style={{ color: "var(--verve-gold)" }}>
+                    <div className="flex items-center gap-1.5 font-body text-sm font-medium shrink-0" style={{ color: "var(--verve-gold)" }}>
                       Записаться
-                      <Icon name="ArrowRight" size={16} />
+                      <Icon name="ArrowRight" size={15} />
                     </div>
                   </a>
                 </div>
@@ -622,10 +622,10 @@ export default function Index() {
       <section id="booking" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
         <div className="max-w-3xl mx-auto text-center reveal-section">
           <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Запись</p>
-          <h2 className="font-display font-light leading-tight mb-6" style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)" }}>
+          <h2 className="font-display font-light leading-tight mb-6" style={{ fontSize: "clamp(2rem, 7vw, 5rem)" }}>
             Начни своё<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>движение</em>
           </h2>
-          <p className="font-body font-light text-lg mb-10 leading-relaxed" style={{ color: "rgba(28,20,16,0.6)" }}>
+          <p className="font-body font-light text-sm sm:text-base md:text-lg mb-10 leading-relaxed" style={{ color: "rgba(28,20,16,0.6)" }}>
             Записывайтесь через приложение или напишите администратору в Telegram. Отвечаем быстро.
           </p>
           <div className="gold-line mb-10" />
@@ -651,7 +651,7 @@ export default function Index() {
               Написать администратору
             </a>
           </div>
-          <div className="grid grid-cols-2 gap-4 md:gap-6 mt-10 md:mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6 mt-8 md:mt-12">
             {[
               { price: "1 000 ₽", label: "пробная в группе", href: "https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на пробную тренировку в мини-группе за 1000р" },
               { price: "1 500 ₽", label: "пробная индивидуальная", href: "https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на индивидуальную тренировку за 1500р" },
@@ -664,7 +664,7 @@ export default function Index() {
                 className="p-4 md:p-6 rounded-sm card-hover block"
                 style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.15)", textDecoration: "none" }}
               >
-                <div className="font-display text-2xl md:text-3xl font-light mb-1" style={{ color: "var(--verve-gold)" }}>{price}</div>
+                <div className="font-display text-xl md:text-3xl font-light mb-1" style={{ color: "var(--verve-gold)" }}>{price}</div>
                 <p className="font-body text-xs tracking-wider uppercase" style={{ color: "var(--verve-muted)" }}>{label}</p>
               </a>
             ))}
@@ -682,7 +682,7 @@ export default function Index() {
             </h2>
           </div>
           {/* Social links */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 reveal-section">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 reveal-section">
             {[
               { icon: "Phone", label: "Позвонить", href: "tel:+79209734563" },
               { icon: "MessageCircle", label: "Telegram запись", href: "https://t.me/verve_pilates" },
@@ -694,10 +694,10 @@ export default function Index() {
                 href={s.href}
                 target={s.href.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className="card-hover flex items-center gap-3 p-4 rounded-sm"
+                className="card-hover flex items-center gap-3 p-3 sm:p-4 rounded-sm"
                 style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)", textDecoration: "none" }}
               >
-                <div style={{ color: "var(--verve-gold)" }}><Icon name={s.icon} size={18} fallback="Link" /></div>
+                <div className="shrink-0" style={{ color: "var(--verve-gold)" }}><Icon name={s.icon} size={18} fallback="Link" /></div>
                 <span className="font-body text-sm" style={{ color: "var(--verve-cream)" }}>{s.label}</span>
               </a>
             ))}
@@ -710,7 +710,7 @@ export default function Index() {
           >
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
               <div style={{ color: "var(--verve-gold)" }}><Icon name="MapPin" size={32} fallback="MapPin" /></div>
-              <p className="font-display text-2xl italic" style={{ color: "var(--verve-gold)" }}>Краснорядская 3, Рязань</p>
+              <p className="font-display text-lg sm:text-2xl italic text-center px-4" style={{ color: "var(--verve-gold)" }}>Краснорядская 3, Рязань</p>
               <p className="font-body text-xs tracking-wider" style={{ color: "var(--verve-muted)" }}>VERVE Pilates Studio</p>
               <a
                 href="https://yandex.ru/maps/?text=Рязань+Краснорядская+3"
