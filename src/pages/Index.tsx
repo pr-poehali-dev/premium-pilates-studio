@@ -796,7 +796,7 @@ export default function Index() {
             <span className="font-display text-2xl tracking-[0.3em] font-light block mb-1" style={{ color: "var(--verve-gold)" }}>VERVE</span>
             <p className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>Pilates Reformer Studio · Рязань</p>
           </div>
-          <p className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>© 2024 VERVE · Краснорядская 3 · 9:00–21:00</p>
+          <p className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>© 2026 VERVE · Краснорядская 3 · 9:00–21:00</p>
           <div className="flex gap-4">
             <a href="https://t.me/verve_pilates" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-sm" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
               <Icon name="MessageCircle" size={18} />
