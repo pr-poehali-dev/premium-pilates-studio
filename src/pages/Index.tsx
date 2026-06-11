@@ -381,9 +381,9 @@ export default function Index() {
 
           {/* Tab switcher */}
           <div className="reveal-section flex justify-center mb-10">
-            <div className="flex rounded-sm overflow-hidden" style={{ border: "1px solid rgba(184,92,69,0.3)" }}>
+            <div className="flex overflow-hidden rounded-xl" style={{ border: "1px solid rgba(184,92,69,0.3)" }}>
               <button
-                className="font-body text-xs tracking-widest uppercase px-8 py-3 transition-all duration-300 rounded-lg"
+                className="font-body tracking-widest uppercase px-8 py-3 transition-all duration-300 text-xs rounded-xl"
                 style={{
                   background: priceTab === "group" ? "var(--verve-gold)" : "transparent",
                   color: priceTab === "group" ? "#fff" : "var(--verve-gold)",
