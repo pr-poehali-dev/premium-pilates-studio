@@ -31,6 +31,8 @@ const TRAININGS = [
     badge: "Для новичков",
     features: ["Индивидуальный подход", "Атмосфера поддержки", "Общая мотивация", "Далее от 1 730 ₽"],
     accent: false,
+    btnLabel: "Хочу на групповую!",
+    btnHref: "https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на пробную тренировку в мини-группе за 1000р",
   },
   {
     type: "Индивидуально",
@@ -40,6 +42,8 @@ const TRAININGS = [
     badge: "Для новичков",
     features: ["100% фокус на вас", "Персональная программа", "Быстрый прогресс", "Далее от 2 590 ₽"],
     accent: true,
+    btnLabel: "Хочу на индив!",
+    btnHref: "https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на индивидуальную тренировку за 1500р",
   },
 ];
 
@@ -317,8 +321,8 @@ export default function Index() {
                   boxShadow: t.accent ? "inset 0 0 80px rgba(184,92,69,0.05)" : "none",
                 }}
               >
-                <div className="absolute top-5 right-5 font-body text-xs tracking-widest uppercase px-3 py-1" style={{ background: "var(--verve-gold)", color: "#fff" }}>
-                  Впервые у нас
+                <div className="absolute top-5 right-5 text-xl">
+                  🧡
                 </div>
                 <p className="font-body text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--verve-gold)" }}>{t.subtitle}</p>
                 <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-light mb-4 md:mb-6" style={{ color: "var(--verve-cream)" }}>{t.type}</h3>
@@ -336,13 +340,13 @@ export default function Index() {
                   ))}
                 </ul>
                 <a
-                  href="https://t.me/verve_pilates"
+                  href={t.btnHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={t.accent ? "verve-btn-primary w-full flex items-center justify-center" : "verve-btn-outline w-full flex items-center justify-center"}
+                  className="verve-btn-primary w-full flex items-center justify-center"
                   style={{ textDecoration: "none" }}
                 >
-                  Записаться
+                  {t.btnLabel}
                 </a>
               </div>
             ))}
