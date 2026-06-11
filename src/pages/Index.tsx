@@ -19,7 +19,7 @@ const BENEFITS = [
   { icon: "Users", title: "Мини-группы до 4 человек", desc: "Максимальное внимание тренера каждому участнику" },
   { icon: "Award", title: "Сертифицированные тренеры", desc: "Все специалисты прошли профессиональную подготовку" },
   { icon: "MapPin", title: "Центр Рязани", desc: "Краснорядская 3 — удобная локация в сердце города" },
-  { icon: "Smartphone", title: "Онлайн-запись", desc: "Своё приложение для удобного бронирования тренировок" },
+  { icon: "Smartphone", title: "Своё приложение", desc: "Смотрите расписание, бронируйте и переносите тренировки онлайн — быстро и без звонков" },
 ];
 
 const TRAININGS = [
@@ -194,7 +194,7 @@ export default function Index() {
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_IMAGE})` }} />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, rgba(15,13,10,0.15) 0%, rgba(15,13,10,0.5) 55%, rgba(15,13,10,0.88) 100%)" }}
+          style={{ background: "linear-gradient(to bottom, rgba(15,13,10,0.3) 0%, rgba(15,13,10,0.65) 50%, rgba(15,13,10,0.95) 100%)" }}
         />
 
         <div className="relative max-w-7xl mx-auto px-6 w-full">
@@ -297,6 +297,46 @@ export default function Index() {
                 <span className="font-body text-sm font-medium" style={{ color: "var(--verve-cream)" }}>{item.title}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PROMO BANNER */}
+      <section className="px-4 md:px-6 py-0">
+        <div
+          className="max-w-7xl mx-auto rounded-sm overflow-hidden reveal-section"
+          style={{ background: "linear-gradient(135deg, var(--verve-gold) 0%, #c0573a 60%, #8b3a24 100%)" }}
+        >
+          <div className="px-6 py-10 md:px-16 md:py-14 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="text-center md:text-left">
+              <p className="font-body text-xs tracking-[0.35em] uppercase mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>Специальное предложение</p>
+              <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-3" style={{ color: "#fff" }}>
+                Первая тренировка<br /><em className="italic">за 1 000 ₽</em>
+              </h3>
+              <p className="font-body font-light text-base md:text-lg max-w-md" style={{ color: "rgba(255,255,255,0.85)" }}>
+                Приходите и почувствуйте разницу уже на первом занятии — мы уверены в результате. Мини-группа или индивидуально — выбирайте свой формат.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 w-full md:w-auto shrink-0">
+              <a
+                href="https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на пробную тренировку в мини-группе за 1000р"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body font-medium text-sm tracking-wider px-8 py-4 rounded-sm text-center transition-all duration-300 whitespace-nowrap"
+                style={{ background: "#fff", color: "var(--verve-gold)", textDecoration: "none" }}
+              >
+                Хочу на групповую — 1 000 ₽
+              </a>
+              <a
+                href="https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на индивидуальную тренировку за 1500р"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body font-medium text-sm tracking-wider px-8 py-4 rounded-sm text-center transition-all duration-300 whitespace-nowrap"
+                style={{ background: "rgba(255,255,255,0.15)", color: "#fff", textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)" }}
+              >
+                Хочу индивидуально — 1 500 ₽
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -504,8 +544,8 @@ export default function Index() {
             </div>
             {[
               { icon: "Layers", title: "Профессиональное оборудование", desc: "Реформеры студийного класса ведущих брендов" },
-              { icon: "Sun", title: "Продуманное освещение", desc: "Свет создаёт правильное настроение для практики" },
-              { icon: "Music", title: "Атмосферный звук", desc: "Плейлисты специально подобраны под темп тренировок" },
+              { icon: "Droplets", title: "Раздевалка с душевыми", desc: "Просторная раздевалка и душевые — всё для комфорта после тренировки" },
+              { icon: "Sparkles", title: "Бьюти-зона", desc: "Всё необходимое, чтобы привести себя в порядок: мисты для лица, уходовые средства, фен Bork" },
               { icon: "Coffee", title: "Меню напитков", desc: "Капучино, матча, латте и сезонные напитки — в подарок для каждого гостя" },
             ].map((card) => (
               <div key={card.title} className="card-hover p-6 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
