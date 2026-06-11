@@ -123,6 +123,7 @@
     color: #fff;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     letter-spacing: 0.2em;
+    border-radius: 8px;
   }
 
   .verve-btn-primary:hover {
@@ -138,6 +139,7 @@
     background: transparent;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     letter-spacing: 0.2em;
+    border-radius: 8px;
   }
 
   .verve-btn-outline:hover {
