@@ -305,15 +305,15 @@ export default function Index() {
       <section className="px-4 md:px-6 py-0">
         <div
           className="max-w-7xl mx-auto rounded-sm overflow-hidden reveal-section"
-          style={{ background: "linear-gradient(135deg, var(--verve-gold) 0%, #c0573a 60%, #8b3a24 100%)" }}
+          style={{ background: "linear-gradient(135deg, #1a1410 0%, #2a1e16 40%, #1c1510 100%)", border: "1px solid rgba(184,92,69,0.25)" }}
         >
           <div className="px-6 py-10 md:px-16 md:py-14 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="text-center md:text-left">
-              <p className="font-body text-xs tracking-[0.35em] uppercase mb-3" style={{ color: "rgba(255,255,255,0.7)" }}>Специальное предложение</p>
-              <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-3" style={{ color: "#fff" }}>
-                Первая тренировка<br /><em className="italic">за 1 000 ₽</em>
+              <p className="font-body text-xs tracking-[0.35em] uppercase mb-3" style={{ color: "var(--verve-gold)" }}>Специальное предложение</p>
+              <h3 className="font-display text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-3" style={{ color: "var(--verve-cream)" }}>
+                Первая тренировка<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>за 1 000 ₽</em>
               </h3>
-              <p className="font-body font-light text-base md:text-lg max-w-md" style={{ color: "rgba(255,255,255,0.85)" }}>
+              <p className="font-body font-light text-base md:text-lg max-w-md" style={{ color: "rgba(245,239,230,0.65)" }}>
                 Приходите и почувствуйте разницу уже на первом занятии — мы уверены в результате. Мини-группа или индивидуально — выбирайте свой формат.
               </p>
             </div>
@@ -323,7 +323,7 @@ export default function Index() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-body font-medium text-sm tracking-wider px-8 py-4 rounded-sm text-center transition-all duration-300 whitespace-nowrap"
-                style={{ background: "#fff", color: "var(--verve-gold)", textDecoration: "none" }}
+                style={{ background: "var(--verve-gold)", color: "#fff", textDecoration: "none" }}
               >
                 Хочу на групповую — 1 000 ₽
               </a>
@@ -332,64 +332,11 @@ export default function Index() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-body font-medium text-sm tracking-wider px-8 py-4 rounded-sm text-center transition-all duration-300 whitespace-nowrap"
-                style={{ background: "rgba(255,255,255,0.15)", color: "#fff", textDecoration: "none", border: "1px solid rgba(255,255,255,0.4)" }}
+                style={{ background: "transparent", color: "var(--verve-gold)", textDecoration: "none", border: "1px solid rgba(184,92,69,0.5)" }}
               >
                 Хочу индивидуально — 1 500 ₽
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TRAININGS */}
-      <section id="training" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="reveal-section mb-10 md:mb-16">
-            <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Форматы тренировок</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
-              Выберите свой<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>формат</em>
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6 reveal-section">
-            {TRAININGS.map((t) => (
-              <div
-                key={t.type}
-                className="relative p-5 sm:p-8 md:p-10 rounded-sm overflow-hidden card-hover"
-                style={{
-                  background: t.accent ? "transparent" : "var(--verve-dark-3)",
-                  border: t.accent ? "1px solid var(--verve-gold)" : "1px solid rgba(184,92,69,0.15)",
-                  boxShadow: t.accent ? "inset 0 0 80px rgba(184,92,69,0.05)" : "none",
-                }}
-              >
-                <div className="absolute top-5 right-5 text-xl">
-                  🧡
-                </div>
-                <p className="font-body text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--verve-gold)" }}>{t.subtitle}</p>
-                <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-light mb-4 md:mb-6" style={{ color: "var(--verve-cream)" }}>{t.type}</h3>
-                <div className="gold-line mb-6" />
-                <div className="mb-2">
-                  <span className="font-display text-2xl sm:text-3xl font-light" style={{ color: "var(--verve-gold)" }}>{t.price}</span>
-                  <span className="font-body text-xs ml-2" style={{ color: "var(--verve-muted)" }}>/ {t.priceLabel}</span>
-                </div>
-                <p className="font-body text-xs mb-6" style={{ color: "var(--verve-muted)" }}>Специальная цена для первого визита</p>
-                <ul className="space-y-3 mb-8">
-                  {t.features.map((f) => (
-                    <li key={f} className="flex items-center gap-3 font-body text-sm" style={{ color: "rgba(28,20,16,0.7)" }}>
-                      <span style={{ color: "var(--verve-gold)" }}>—</span> {f}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={t.btnHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="verve-btn-primary w-full flex items-center justify-center"
-                  style={{ textDecoration: "none" }}
-                >
-                  {t.btnLabel}
-                </a>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -552,6 +499,56 @@ export default function Index() {
                 <div className="mb-3" style={{ color: "var(--verve-gold)" }}><Icon name={card.icon} size={20} fallback="Star" /></div>
                 <h4 className="font-body font-medium text-sm mb-2" style={{ color: "var(--verve-cream)" }}>{card.title}</h4>
                 <p className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>{card.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TRAININGS */}
+      <section id="training" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="reveal-section mb-10 md:mb-16">
+            <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Форматы тренировок</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
+              Выберите свой<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>формат</em>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 reveal-section">
+            {TRAININGS.map((t) => (
+              <div
+                key={t.type}
+                className="relative p-5 sm:p-8 md:p-10 rounded-sm overflow-hidden card-hover"
+                style={{
+                  background: t.accent ? "transparent" : "var(--verve-dark-3)",
+                  border: t.accent ? "1px solid var(--verve-gold)" : "1px solid rgba(184,92,69,0.15)",
+                  boxShadow: t.accent ? "inset 0 0 80px rgba(184,92,69,0.05)" : "none",
+                }}
+              >
+                <p className="font-body text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--verve-gold)" }}>{t.subtitle}</p>
+                <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-light mb-4 md:mb-6" style={{ color: "var(--verve-cream)" }}>{t.type}</h3>
+                <div className="gold-line mb-6" />
+                <div className="mb-2">
+                  <span className="font-display text-2xl sm:text-3xl font-light" style={{ color: "var(--verve-gold)" }}>{t.price}</span>
+                  <span className="font-body text-xs ml-2" style={{ color: "var(--verve-muted)" }}>/ {t.priceLabel}</span>
+                </div>
+                <p className="font-body text-xs mb-6" style={{ color: "var(--verve-muted)" }}>Специальная цена для первого визита</p>
+                <ul className="space-y-3 mb-8">
+                  {t.features.map((f) => (
+                    <li key={f} className="flex items-center gap-3 font-body text-sm" style={{ color: "rgba(28,20,16,0.7)" }}>
+                      <span style={{ color: "var(--verve-gold)" }}>—</span> {f}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={t.btnHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="verve-btn-primary w-full flex items-center justify-center"
+                  style={{ textDecoration: "none" }}
+                >
+                  {t.btnLabel}
+                </a>
               </div>
             ))}
           </div>
