@@ -753,7 +753,7 @@ export default function Index() {
                 href={s.href}
                 target={s.href.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className="card-hover flex items-center gap-3 p-3 sm:p-4 rounded-none"
+                className="card-hover flex items-center gap-3 p-3 sm:p-4 rounded-xl"
                 style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)", textDecoration: "none" }}
               >
                 <div className="shrink-0" style={{ color: "var(--verve-gold)" }}><Icon name={s.icon} size={18} fallback="Link" /></div>
@@ -798,16 +798,16 @@ export default function Index() {
           </div>
           <p className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>© 2026 VERVE · Краснорядская 3 · 9:00–21:00</p>
           <div className="flex gap-4">
-            <a href="https://t.me/verve_pilates" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-sm" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
+            <a href="https://t.me/verve_pilates" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-lg" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
               <Icon name="MessageCircle" size={18} />
             </a>
-            <a href="https://t.me/vervepilates_rzn" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-sm" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
+            <a href="https://t.me/vervepilates_rzn" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-lg" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
               <Icon name="Send" size={18} />
             </a>
-            <a href="https://vk.com/vervepilates" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-sm" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
+            <a href="https://vk.com/vervepilates" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-lg" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
               <Icon name="Users" size={18} />
             </a>
-            <a href="tel:+79209734563" className="card-hover p-2 rounded-sm" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
+            <a href="tel:+79209734563" className="card-hover p-2 rounded-lg" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
               <Icon name="Phone" size={18} />
             </a>
           </div>
