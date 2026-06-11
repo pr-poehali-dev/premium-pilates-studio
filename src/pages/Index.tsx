@@ -176,7 +176,7 @@ export default function Index() {
                   {l.label}
                 </button>
               ))}
-              <button className="verve-btn-primary mt-2" onClick={() => scrollTo("#booking")}>
+              <button className="verve-btn-primary mt-2 rounded-xl" onClick={() => scrollTo("#booking")}>
                 Записаться
               </button>
             </div>
@@ -522,7 +522,7 @@ export default function Index() {
               { icon: "Sparkles", title: "Бьюти-зона", desc: "Всё, чтобы выглядеть на все 100: от мистов для лица до фена Bork" },
               { icon: "Coffee", title: "Меню напитков", desc: "Капучино, матча, латте и сезонные напитки — в подарок для каждого гостя" },
             ].map((card) => (
-              <div key={card.title} className="card-hover p-6 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
+              <div key={card.title} className="card-hover p-6 rounded-xl" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
                 <div className="mb-3" style={{ color: "var(--verve-gold)" }}><Icon name={card.icon} size={20} fallback="Star" /></div>
                 <h4 className="font-body font-medium text-sm mb-2" style={{ color: "var(--verve-cream)" }}>{card.title}</h4>
                 <p className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>{card.desc}</p>
@@ -545,7 +545,7 @@ export default function Index() {
             {TRAININGS.map((t) => (
               <div
                 key={t.type}
-                className="relative p-5 sm:p-8 md:p-10 rounded-sm overflow-hidden card-hover"
+                className="relative p-5 sm:p-8 md:p-10 overflow-hidden card-hover rounded-xl"
                 style={{
                   background: t.accent ? "transparent" : "var(--verve-dark-3)",
                   border: t.accent ? "1px solid var(--verve-gold)" : "1px solid rgba(184,92,69,0.15)",
@@ -693,7 +693,7 @@ export default function Index() {
               href="https://apps.apple.com/ru/app/verve-пилатес-на-реформерах/id6758667943"
               target="_blank"
               rel="noopener noreferrer"
-              className="verve-btn-primary flex items-center justify-center gap-3"
+              className="verve-btn-primary flex items-center justify-center gap-3 rounded-xl"
               style={{ textDecoration: "none" }}
             >
               <Icon name="Smartphone" size={16} />
@@ -703,7 +703,7 @@ export default function Index() {
               href="https://t.me/verve_pilates"
               target="_blank"
               rel="noopener noreferrer"
-              className="verve-btn-outline flex items-center justify-center gap-3"
+              className="verve-btn-outline flex items-center justify-center gap-3 rounded-xl"
               style={{ textDecoration: "none" }}
             >
               <Icon name="MessageCircle" size={16} />
@@ -720,7 +720,7 @@ export default function Index() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-4 md:p-6 rounded-sm card-hover block"
+                className="p-4 md:p-6 card-hover block rounded-xl"
                 style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.15)", textDecoration: "none" }}
               >
                 <div className="font-display text-xl md:text-3xl font-light mb-1" style={{ color: "var(--verve-gold)" }}>{price}</div>
