@@ -135,9 +135,9 @@ export default function Index() {
           borderBottom: scrolled ? "1px solid rgba(184,92,69,0.2)" : "none",
         }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 py-4 md:px-6 md:py-5 flex items-center justify-between">
           <button
-            className="font-display text-2xl tracking-[0.3em] font-light"
+            className="font-display text-xl md:text-2xl tracking-[0.3em] font-light"
             style={{ color: "var(--verve-gold)", background: "none", border: "none", cursor: "pointer" }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
@@ -199,14 +199,14 @@ export default function Index() {
           </p>
           <h1
             className="font-display font-light leading-[0.92] mb-8 animate-fade-up"
-            style={{ fontSize: "clamp(3.5rem, 12vw, 9rem)", color: "#fff", animationDelay: "0.25s", opacity: 0, animationFillMode: "forwards" }}
+            style={{ fontSize: "clamp(2.8rem, 11vw, 9rem)", color: "#fff", animationDelay: "0.25s", opacity: 0, animationFillMode: "forwards" }}
           >
             Движение<br />
             <em className="italic" style={{ color: "var(--verve-gold)" }}>рождает</em><br />
             силу
           </h1>
           <p
-            className="font-body font-light text-lg mb-10 max-w-lg leading-relaxed animate-fade-up"
+            className="font-body font-light text-base md:text-lg mb-10 max-w-lg leading-relaxed animate-fade-up"
             style={{ color: "rgba(255,255,255,0.8)", animationDelay: "0.4s", opacity: 0, animationFillMode: "forwards" }}
           >
             Премиальная студия в центре Рязани. Восстановление осанки и глубокого кора через работу на реформере.
@@ -222,10 +222,10 @@ export default function Index() {
             </a>
           </div>
 
-          <div className="mt-16 flex gap-10 animate-fade-up" style={{ animationDelay: "0.7s", opacity: 0, animationFillMode: "forwards" }}>
+          <div className="mt-10 md:mt-16 flex gap-5 md:gap-10 animate-fade-up" style={{ animationDelay: "0.7s", opacity: 0, animationFillMode: "forwards" }}>
             {[["Краснорядская 3", "Рязань"], ["4", "тренера"], ["9–21", "без выходных"]].map(([val, label]) => (
               <div key={label}>
-                <div className="font-display text-2xl font-light" style={{ color: "var(--verve-gold)" }}>{val}</div>
+                <div className="font-display text-lg md:text-2xl font-light" style={{ color: "var(--verve-gold)" }}>{val}</div>
                 <div className="font-body text-xs tracking-wider uppercase mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>{label}</div>
               </div>
             ))}
@@ -237,20 +237,20 @@ export default function Index() {
       <div className="py-5 overflow-hidden border-y" style={{ borderColor: "rgba(184,92,69,0.2)" }}>
         <div className="marquee-track">
           {MARQUEE_ITEMS.map((item, i) => (
-            <span key={i} className="font-display text-lg font-light italic mx-8" style={{ color: "var(--verve-gold)", opacity: 0.6 }}>
-              {item} <span className="not-italic mx-4" style={{ color: "var(--verve-gold)", opacity: 0.3 }}>·</span>
+            <span key={i} className="font-display text-sm md:text-lg font-light italic mx-4 md:mx-8" style={{ color: "var(--verve-gold)", opacity: 0.6 }}>
+              {item} <span className="not-italic mx-2 md:mx-4" style={{ color: "var(--verve-gold)", opacity: 0.3 }}>·</span>
             </span>
           ))}
         </div>
       </div>
 
       {/* ABOUT */}
-      <section id="about" className="py-28 px-6" style={{ background: "var(--verve-dark-2)" }}>
+      <section id="about" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div className="reveal-section">
               <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>О студии</p>
-              <h2 className="font-display text-5xl md:text-6xl font-light leading-tight mb-8">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-8">
                 Место, где тело<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>обретает</em> баланс
               </h2>
               <div className="gold-line mb-8" />
@@ -261,9 +261,9 @@ export default function Index() {
                 Пилатес на реформерах — это научно обоснованный метод работы с телом. Мы используем оборудование студийного класса и работаем без выходных с 9 до 21.
               </p>
             </div>
-            <div className="reveal-section grid grid-cols-2 gap-4">
+            <div className="reveal-section grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
               {BENEFITS.map((b) => (
-                <div key={b.title} className="card-hover p-5 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
+                <div key={b.title} className="card-hover p-4 md:p-5 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
                   <div className="mb-3" style={{ color: "var(--verve-gold)" }}><Icon name={b.icon} size={20} fallback="Star" /></div>
                   <h4 className="font-body font-medium text-sm mb-2" style={{ color: "var(--verve-cream)" }}>{b.title}</h4>
                   <p className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>{b.desc}</p>
@@ -275,11 +275,11 @@ export default function Index() {
       </section>
 
       {/* REFORMER WORKS */}
-      <section id="reformer" className="py-28 px-6" style={{ background: "var(--verve-dark)" }}>
+      <section id="reformer" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
         <div className="max-w-7xl mx-auto">
-          <div className="reveal-section text-center mb-16">
+          <div className="reveal-section text-center mb-10 md:mb-16">
             <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Пилатес на реформерах</p>
-            <h2 className="font-display text-5xl md:text-6xl font-light leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
               С чем работает<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>реформер</em>
             </h2>
           </div>
@@ -288,7 +288,7 @@ export default function Index() {
             {REFORMER_WORKS.map((item) => (
               <div
                 key={item.title}
-                className="flex flex-col items-center justify-center py-10 px-4 text-center transition-all duration-300"
+                className="flex flex-col items-center justify-center py-7 md:py-10 px-3 md:px-4 text-center transition-all duration-300"
                 style={{ background: "var(--verve-dark)" }}
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--verve-dark-3)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--verve-dark)"; }}
@@ -302,11 +302,11 @@ export default function Index() {
       </section>
 
       {/* TRAININGS */}
-      <section id="training" className="py-28 px-6" style={{ background: "var(--verve-dark-2)" }}>
+      <section id="training" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
         <div className="max-w-7xl mx-auto">
-          <div className="reveal-section mb-16">
+          <div className="reveal-section mb-10 md:mb-16">
             <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Форматы тренировок</p>
-            <h2 className="font-display text-5xl md:text-6xl font-light leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
               Выберите свой<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>формат</em>
             </h2>
           </div>
@@ -314,7 +314,7 @@ export default function Index() {
             {TRAININGS.map((t) => (
               <div
                 key={t.type}
-                className="relative p-8 md:p-10 rounded-sm overflow-hidden card-hover"
+                className="relative p-5 sm:p-8 md:p-10 rounded-sm overflow-hidden card-hover"
                 style={{
                   background: t.accent ? "transparent" : "var(--verve-dark-3)",
                   border: t.accent ? "1px solid var(--verve-gold)" : "1px solid rgba(184,92,69,0.15)",
@@ -325,10 +325,10 @@ export default function Index() {
                   Впервые у нас
                 </div>
                 <p className="font-body text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--verve-gold)" }}>{t.subtitle}</p>
-                <h3 className="font-display text-4xl font-light mb-6" style={{ color: "var(--verve-cream)" }}>{t.type}</h3>
+                <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-light mb-4 md:mb-6" style={{ color: "var(--verve-cream)" }}>{t.type}</h3>
                 <div className="gold-line mb-6" />
                 <div className="mb-2">
-                  <span className="font-display text-3xl font-light" style={{ color: "var(--verve-gold)" }}>{t.price}</span>
+                  <span className="font-display text-2xl sm:text-3xl font-light" style={{ color: "var(--verve-gold)" }}>{t.price}</span>
                   <span className="font-body text-xs ml-2" style={{ color: "var(--verve-muted)" }}>/ {t.priceLabel}</span>
                 </div>
                 <p className="font-body text-xs mb-6" style={{ color: "var(--verve-muted)" }}>Специальная цена для первого визита</p>
@@ -355,11 +355,11 @@ export default function Index() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="py-28 px-6" style={{ background: "var(--verve-dark)" }}>
+      <section id="pricing" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
         <div className="max-w-4xl mx-auto">
-          <div className="reveal-section text-center mb-14">
+          <div className="reveal-section text-center mb-10 md:mb-14">
             <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Абонементы</p>
-            <h2 className="font-display text-5xl md:text-6xl font-light leading-tight mb-2">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-2">
               Меню<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>восстановления</em>
             </h2>
             <p className="font-body text-sm mt-4" style={{ color: "var(--verve-muted)" }}>При покупке абонемента от 6 занятий — бонусные занятия в подарок</p>
@@ -394,7 +394,7 @@ export default function Index() {
           {/* Price table */}
           <div className="reveal-section rounded-sm overflow-hidden" style={{ border: "1px solid rgba(184,92,69,0.15)" }}>
             {/* Header */}
-            <div className="grid grid-cols-3 px-6 py-3" style={{ background: "var(--verve-dark-3)", borderBottom: "1px solid rgba(184,92,69,0.15)" }}>
+            <div className="grid grid-cols-3 px-3 md:px-6 py-3" style={{ background: "var(--verve-dark-3)", borderBottom: "1px solid rgba(184,92,69,0.15)" }}>
               <span className="font-body text-xs tracking-widest uppercase" style={{ color: "var(--verve-muted)" }}>Абонемент</span>
               <span className="font-body text-xs tracking-widest uppercase text-center" style={{ color: "var(--verve-muted)" }}>Цена</span>
               <span className="font-body text-xs tracking-widest uppercase text-right" style={{ color: "var(--verve-muted)" }}>За занятие</span>
@@ -402,7 +402,7 @@ export default function Index() {
             {prices.map((row, i) => (
               <div
                 key={row.name}
-                className="grid grid-cols-3 px-6 py-5 items-center transition-all duration-200"
+                className="grid grid-cols-3 px-3 md:px-6 py-4 md:py-5 items-center transition-all duration-200"
                 style={{
                   background: i % 2 === 0 ? "var(--verve-dark)" : "var(--verve-dark-2)",
                   borderBottom: i < prices.length - 1 ? "1px solid rgba(184,92,69,0.08)" : "none",
@@ -410,16 +410,16 @@ export default function Index() {
                 onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--verve-dark-3)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = i % 2 === 0 ? "var(--verve-dark)" : "var(--verve-dark-2)"; }}
               >
-                <div className="flex items-center gap-3">
-                  <span className="font-body text-sm" style={{ color: "var(--verve-cream)" }}>{row.name}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                  <span className="font-body text-xs md:text-sm" style={{ color: "var(--verve-cream)" }}>{row.name}</span>
                   {row.gift && (
-                    <span className="font-body text-xs px-2 py-0.5 rounded-sm" style={{ background: "rgba(184,92,69,0.15)", color: "var(--verve-gold)" }}>
+                    <span className="font-body text-xs px-1.5 py-0.5 rounded-sm w-fit" style={{ background: "rgba(184,92,69,0.15)", color: "var(--verve-gold)" }}>
                       {row.gift} в подарок
                     </span>
                   )}
                 </div>
-                <span className="font-display text-lg font-light text-center" style={{ color: "var(--verve-gold)" }}>{row.price}</span>
-                <span className="font-body text-sm text-right" style={{ color: row.perClass ? "var(--verve-muted)" : "transparent" }}>{row.perClass || "—"}</span>
+                <span className="font-display text-base md:text-lg font-light text-center" style={{ color: "var(--verve-gold)" }}>{row.price}</span>
+                <span className="font-body text-xs md:text-sm text-right" style={{ color: row.perClass ? "var(--verve-muted)" : "transparent" }}>{row.perClass || "—"}</span>
               </div>
             ))}
             {/* Для двоих */}
@@ -451,15 +451,15 @@ export default function Index() {
       </section>
 
       {/* TRAINERS */}
-      <section id="trainers" className="py-28 px-6" style={{ background: "var(--verve-dark-2)" }}>
+      <section id="trainers" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
         <div className="max-w-7xl mx-auto">
-          <div className="reveal-section text-center mb-16">
+          <div className="reveal-section text-center mb-10 md:mb-16">
             <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Наша команда</p>
-            <h2 className="font-display text-5xl md:text-6xl font-light leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
               Сертифицированные<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>тренеры</em>
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 reveal-section">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 reveal-section">
             {TRAINERS.map((tr) => (
               <div key={tr.name} className="card-hover rounded-sm overflow-hidden" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
                 <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
@@ -472,13 +472,13 @@ export default function Index() {
                     onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"; }}
                   />
                   <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.7) 0%, transparent 50%)" }} />
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="font-display text-2xl font-light" style={{ color: "#fff" }}>{tr.name}</h3>
+                  <div className="absolute bottom-0 left-0 right-0 p-2 md:p-4">
+                    <h3 className="font-display text-lg md:text-2xl font-light" style={{ color: "#fff" }}>{tr.name}</h3>
                   </div>
                 </div>
-                <div className="px-4 py-3">
-                  <p className="font-body text-xs mb-1" style={{ color: "var(--verve-gold)" }}>{tr.spec}</p>
-                  <p className="font-body text-xs tracking-wider" style={{ color: "var(--verve-muted)" }}>{tr.cert}</p>
+                <div className="px-2 md:px-4 py-2 md:py-3">
+                  <p className="font-body text-xs mb-1 leading-tight" style={{ color: "var(--verve-gold)" }}>{tr.spec}</p>
+                  <p className="font-body text-xs tracking-wider leading-tight" style={{ color: "var(--verve-muted)" }}>{tr.cert}</p>
                 </div>
               </div>
             ))}
@@ -487,16 +487,16 @@ export default function Index() {
       </section>
 
       {/* ATMOSPHERE */}
-      <section id="atmosphere" className="py-28 px-6" style={{ background: "var(--verve-dark)" }}>
+      <section id="atmosphere" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
         <div className="max-w-7xl mx-auto">
-          <div className="reveal-section mb-16">
+          <div className="reveal-section mb-10 md:mb-16">
             <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Атмосфера</p>
-            <h2 className="font-display text-5xl md:text-6xl font-light leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
               Эстетика<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>в деталях</em>
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 reveal-section">
-            <div className="col-span-2 rounded-sm relative overflow-hidden" style={{ minHeight: "320px", border: "1px solid rgba(184,92,69,0.12)" }}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 reveal-section">
+            <div className="sm:col-span-2 rounded-sm relative overflow-hidden" style={{ minHeight: "240px", border: "1px solid rgba(184,92,69,0.12)" }}>
               <img src={HERO_IMAGE} alt="Студия VERVE" className="w-full h-full object-cover" style={{ minHeight: "320px" }} />
               <div className="absolute inset-0 flex items-end p-6" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.8) 0%, transparent 60%)" }}>
                 <p className="font-display text-xl italic" style={{ color: "var(--verve-gold)" }}>Студия на реформерах</p>
@@ -519,11 +519,11 @@ export default function Index() {
       </section>
 
       {/* REVIEWS */}
-      <section id="reviews" className="py-28 px-6" style={{ background: "var(--verve-dark-2)" }}>
+      <section id="reviews" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
         <div className="max-w-7xl mx-auto">
-          <div className="reveal-section text-center mb-16">
+          <div className="reveal-section text-center mb-10 md:mb-16">
             <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Отзывы</p>
-            <h2 className="font-display text-5xl md:text-6xl font-light leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
               Говорят наши<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>клиенты</em>
             </h2>
           </div>
@@ -545,7 +545,7 @@ export default function Index() {
       </section>
 
       {/* BOOKING */}
-      <section id="booking" className="py-28 px-6" style={{ background: "var(--verve-dark)" }}>
+      <section id="booking" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
         <div className="max-w-3xl mx-auto text-center reveal-section">
           <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Запись</p>
           <h2 className="font-display font-light leading-tight mb-6" style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)" }}>
@@ -577,10 +577,10 @@ export default function Index() {
               Написать администратору
             </a>
           </div>
-          <div className="grid grid-cols-2 gap-6 mt-12">
+          <div className="grid grid-cols-2 gap-4 md:gap-6 mt-10 md:mt-12">
             {[["1 000 ₽", "пробная в группе"], ["1 500 ₽", "пробная индивидуальная"]].map(([price, label]) => (
-              <div key={label} className="p-6 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.15)" }}>
-                <div className="font-display text-3xl font-light mb-1" style={{ color: "var(--verve-gold)" }}>{price}</div>
+              <div key={label} className="p-4 md:p-6 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.15)" }}>
+                <div className="font-display text-2xl md:text-3xl font-light mb-1" style={{ color: "var(--verve-gold)" }}>{price}</div>
                 <p className="font-body text-xs tracking-wider uppercase" style={{ color: "var(--verve-muted)" }}>{label}</p>
               </div>
             ))}
@@ -589,11 +589,11 @@ export default function Index() {
       </section>
 
       {/* CONTACTS */}
-      <section id="contacts" className="py-28 px-6" style={{ background: "var(--verve-dark-2)" }}>
+      <section id="contacts" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
         <div className="max-w-7xl mx-auto">
-          <div className="reveal-section mb-16">
+          <div className="reveal-section mb-10 md:mb-16">
             <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Контакты</p>
-            <h2 className="font-display text-5xl md:text-6xl font-light leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
               Найдите нас<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>в центре</em> Рязани
             </h2>
           </div>
@@ -614,7 +614,7 @@ export default function Index() {
           </div>
 
           {/* Social links */}
-          <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4 reveal-section">
+          <div className="mt-4 md:mt-6 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 reveal-section">
             {[
               { icon: "Phone", label: "Позвонить", href: "tel:+79209734563" },
               { icon: "MessageCircle", label: "Telegram запись", href: "https://t.me/verve_pilates" },
@@ -663,8 +663,8 @@ export default function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-10 px-6" style={{ borderTop: "1px solid rgba(184,92,69,0.2)", background: "var(--verve-dark)" }}>
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <footer className="py-8 md:py-10 px-4 md:px-6" style={{ borderTop: "1px solid rgba(184,92,69,0.2)", background: "var(--verve-dark)" }}>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left">
           <div>
             <span className="font-display text-2xl tracking-[0.3em] font-light block mb-1" style={{ color: "var(--verve-gold)" }}>VERVE</span>
             <p className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>Pilates Reformer Studio · Рязань</p>
