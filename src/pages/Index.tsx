@@ -255,10 +255,10 @@ export default function Index() {
               </h2>
               <div className="gold-line mb-8" />
               <p className="font-body font-light leading-relaxed mb-6" style={{ color: "rgba(28,20,16,0.65)", fontSize: "1.05rem" }}>
-                VERVE — это не просто спортзал. Это пространство осознанного движения в самом центре Рязани, на Краснорядской 3. Мы создали студию, где каждая деталь работает на ваше тело и ваш комфорт.
+                Реформер — не тренажёр из спортзала. Это оборудование, которое работает с глубокими мышцами: выравнивает осанку, восстанавливает кор, убирает зажимы. Мягко, но с результатом.
               </p>
               <p className="font-body font-light leading-relaxed" style={{ color: "rgba(28,20,16,0.65)", fontSize: "1.05rem" }}>
-                Пилатес на реформерах — это научно обоснованный метод работы с телом. Мы используем оборудование студийного класса и работаем без выходных с 9 до 21.
+                Мини-группы до 4 человек — каждый получает внимание тренера. Индивидуальные — 100% фокус на вашем теле и целях.
               </p>
             </div>
             <div className="reveal-section grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
@@ -324,7 +324,7 @@ export default function Index() {
                   <em className="italic" style={{ color: "var(--verve-gold)" }}>заслуживает</em><br />
                   попробовать
                 </h3>
-                <p className="font-body font-light text-base leading-relaxed" style={{ color: "rgba(245,239,230,0.75)", maxWidth: "36rem" }}>
+                <p className="font-body font-light text-base leading-relaxed" style={{ color: "rgba(28,20,16,0.6)", maxWidth: "36rem" }}>
                   Первая тренировка — по цене кофе с собой. Без абонемента, без обязательств. Просто приходи и почувствуй.
                 </p>
               </div>
@@ -356,7 +356,7 @@ export default function Index() {
                     style={{ background: "rgba(184,92,69,0.08)", border: "1px solid rgba(184,92,69,0.3)", textDecoration: "none" }}
                   >
                     <div>
-                      <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(245,239,230,0.7)" }}>Индивидуально</p>
+                      <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(28,20,16,0.55)" }}>Индивидуально</p>
                       <p className="font-display text-xl md:text-2xl font-light" style={{ color: "var(--verve-cream)" }}>1 500 ₽</p>
                     </div>
                     <div className="flex items-center gap-2 font-body text-sm font-medium whitespace-nowrap" style={{ color: "var(--verve-gold)" }}>
@@ -558,8 +558,8 @@ export default function Index() {
                 }}
               >
                 {t.accent && (
-                  <div className="absolute top-5 right-5 font-body text-xs tracking-widest uppercase px-3 py-1 rounded-sm" style={{ background: "var(--verve-gold)", color: "#fff" }}>
-                    Топ выбор
+                  <div className="absolute top-5 right-5 font-body text-xs tracking-widest uppercase px-2 py-1 rounded-sm" style={{ background: "var(--verve-gold)", color: "#fff" }}>
+                    Топ
                   </div>
                 )}
                 <p className="font-body text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--verve-gold)" }}>{t.subtitle}</p>
