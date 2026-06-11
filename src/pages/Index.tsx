@@ -81,12 +81,6 @@ const SOLO_PRICES = [
   { name: "11 занятий", price: "36 300 ₽", gift: "+3", perClass: "2 590 ₽" },
 ];
 
-const REVIEWS = [
-  { name: "Екатерина", text: "Занимаюсь 3 месяца — спина болеть перестала совсем. Тренер объясняет каждое движение, следит за техникой. Студия красивая, атмосфера невероятная.", rate: 5 },
-  { name: "Наталья", text: "Пришла после травмы позвоночника. Уже после 10 занятий почувствовала разницу. Очень бережный подход, никаких резких движений.", rate: 5 },
-  { name: "Ирина", text: "Самая эстетичная студия в Рязани. Реформеры, свет, музыка — всё на уровне. Тренеры — профессионалы высшего класса.", rate: 5 },
-  { name: "Светлана", text: "Долго искала что-то для осанки. VERVE — находка. Мини-группа создаёт особую атмосферу, чувствуешь поддержку.", rate: 5 },
-];
 
 const MARQUEE_ITEMS = [
   "REFORMER PILATES", "POSTURE RECOVERY", "MUSCLE CORE", "MINI GROUPS", "PREMIUM STUDIO", "CERTIFIED TRAINERS",
@@ -595,26 +589,21 @@ export default function Index() {
 
       {/* REVIEWS */}
       <section id="reviews" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="reveal-section text-center mb-10 md:mb-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="reveal-section text-center mb-10 md:mb-14">
             <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Отзывы</p>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
               Говорят наши<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>клиенты</em>
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 reveal-section">
-            {REVIEWS.map((r) => (
-              <div key={r.name} className="card-hover p-7 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: r.rate }).map((_, i) => (
-                    <span key={i} style={{ color: "var(--verve-gold)" }}>★</span>
-                  ))}
-                </div>
-                <p className="font-body font-light leading-relaxed mb-5" style={{ color: "rgba(28,20,16,0.7)", fontSize: "0.95rem" }}>«{r.text}»</p>
-                <div className="gold-line mb-4" />
-                <p className="font-body text-sm font-medium" style={{ color: "var(--verve-gold)" }}>{r.name}</p>
-              </div>
-            ))}
+          <div className="reveal-section rounded-sm overflow-hidden" style={{ border: "1px solid rgba(184,92,69,0.15)" }}>
+            <iframe
+              src="https://yandex.ru/maps-reviews-widget/187842926696?comments"
+              width="100%"
+              height="520"
+              style={{ border: "none", display: "block" }}
+              title="Отзывы VERVE Pilates на Яндекс Картах"
+            />
           </div>
         </div>
       </section>
