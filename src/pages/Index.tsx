@@ -679,7 +679,7 @@ export default function Index() {
                 {openFaq === i && (
                   <div className="px-5 pb-5">
                     <div className="gold-line mb-4" />
-                    <p className="font-body font-light text-sm leading-relaxed" style={{ color: "rgba(245,239,230,0.65)" }}>{item.a}</p>
+                    <p className="font-body font-light text-sm leading-relaxed" style={{ color: "rgba(28,20,16,0.7)" }}>{item.a}</p>
                   </div>
                 )}
               </div>
