@@ -185,7 +185,7 @@ export default function Index() {
       </nav>
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-end pb-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-end pb-20 overflow-hidden rounded-b-[2rem] md:rounded-b-[3rem]">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_IMAGE})` }} />
         <div
           className="absolute inset-0"
@@ -229,7 +229,7 @@ export default function Index() {
       </section>
 
       {/* MARQUEE */}
-      <div className="py-5 overflow-hidden border-y" style={{ borderColor: "rgba(184,92,69,0.2)" }}>
+      <div className="py-5 overflow-hidden border-y rounded-t-[2rem] md:rounded-t-[3rem]" style={{ borderColor: "rgba(184,92,69,0.2)", marginTop: "-2rem" }}>
         <div className="marquee-track">
           {MARQUEE_ITEMS.map((item, i) => (
             <span key={i} className="font-display text-sm md:text-lg font-light italic mx-4 md:mx-8" style={{ color: "var(--verve-gold)", opacity: 0.6 }}>
