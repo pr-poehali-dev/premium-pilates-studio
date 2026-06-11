@@ -393,7 +393,7 @@ export default function Index() {
                 Группа
               </button>
               <button
-                className="font-body text-xs tracking-widest uppercase px-8 py-3 transition-all duration-300 rounded-lg"
+                className="font-body text-xs tracking-widest uppercase px-8 py-3 transition-all duration-300 rounded-xl"
                 style={{
                   background: priceTab === "solo" ? "var(--verve-gold)" : "transparent",
                   color: priceTab === "solo" ? "#fff" : "var(--verve-gold)",
@@ -512,7 +512,7 @@ export default function Index() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 reveal-section">
             <div className="sm:col-span-2 relative overflow-hidden rounded-xl" style={{ minHeight: "240px", border: "1px solid rgba(184,92,69,0.12)" }}>
               <img src={HERO_IMAGE} alt="Студия VERVE" className="w-full h-full object-cover" style={{ minHeight: "320px" }} />
-              <div className="absolute inset-0 flex items-end p-6 rounded-lg" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.8) 0%, transparent 60%)" }}>
+              <div className="absolute inset-0 flex items-end p-6 rounded-xl" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.8) 0%, transparent 60%)" }}>
                 <p className="font-display text-xl italic" style={{ color: "var(--verve-gold)" }}>Студия на реформерах</p>
               </div>
             </div>
@@ -553,7 +553,7 @@ export default function Index() {
                 }}
               >
                 {t.accent && (
-                  <div className="absolute top-5 right-5 font-body text-xs tracking-widest uppercase px-2 py-1 rounded-sm" style={{ background: "var(--verve-gold)", color: "#fff" }}>
+                  <div className="absolute top-5 right-5 font-body text-xs tracking-widest uppercase px-2 py-1 rounded-lg" style={{ background: "var(--verve-gold)", color: "#fff" }}>
                     Топ
                   </div>
                 )}
