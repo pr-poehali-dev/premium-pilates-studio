@@ -258,7 +258,7 @@ export default function Index() {
             </div>
             <div className="reveal-section grid grid-cols-1 sm:grid-cols-2 gap-3">
               {BENEFITS.map((b) => (
-                <div key={b.title} className="card-hover p-3 sm:p-4 md:p-5 rounded-sm" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
+                <div key={b.title} className="card-hover p-3 sm:p-4 md:p-5 rounded-lg" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
                   <div className="mb-3" style={{ color: "var(--verve-gold)" }}><Icon name={b.icon} size={20} fallback="Star" /></div>
                   <h4 className="font-body font-medium text-sm mb-2" style={{ color: "var(--verve-cream)" }}>{b.title}</h4>
                   <p className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>{b.desc}</p>
