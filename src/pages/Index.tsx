@@ -87,8 +87,58 @@ const MARQUEE_ITEMS = [
   "REFORMER PILATES", "POSTURE RECOVERY", "MUSCLE CORE", "MINI GROUPS", "PREMIUM STUDIO", "CERTIFIED TRAINERS",
 ];
 
+function TrainerVideoModal({ tr, onClose }: { tr: { name: string; video: string }; onClose: () => void }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    videoRef.current?.play().catch(() => {});
+    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", handleKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center"
+      style={{ background: "rgba(0,0,0,0.85)" }}
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-sm mx-4 rounded-2xl overflow-hidden"
+        style={{ aspectRatio: "9/16", maxHeight: "85vh" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <video
+          ref={videoRef}
+          src={tr.video}
+          className="w-full h-full object-cover"
+          controls
+          playsInline
+          autoPlay
+        />
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 flex items-center justify-center rounded-full"
+          style={{ width: 36, height: 36, background: "rgba(0,0,0,0.6)", color: "#fff" }}
+        >
+          <Icon name="X" size={18} />
+        </button>
+        <div className="absolute bottom-0 left-0 right-0 px-4 py-3" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)" }}>
+          <p className="font-display text-lg font-light" style={{ color: "#fff" }}>{tr.name}</p>
+          <p className="font-body text-xs" style={{ color: "var(--verve-gold)" }}>Видео-визитка</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function TrainerCard({ tr }: { tr: { name: string; spec: string; cert: string; photo: string; video: string } }) {
   const [showVideo, setShowVideo] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const touchStartX = useRef(0);
 
@@ -113,44 +163,68 @@ function TrainerCard({ tr }: { tr: { name: string; spec: string; cert: string; p
   }, [showVideo]);
 
   return (
-    <div
-      className="card-hover overflow-hidden rounded-xl cursor-pointer select-none"
-      style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-      onMouseEnter={() => setShowVideo(true)}
-      onMouseLeave={() => setShowVideo(false)}
-    >
-      <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
-        <img
-          src={tr.photo}
-          alt={tr.name}
-          className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500"
-          style={{ opacity: showVideo ? 0 : 1 }}
-        />
-        <video
-          ref={videoRef}
-          src={tr.video}
-          className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500"
-          style={{ opacity: showVideo ? 1 : 0 }}
-          muted
-          loop
-          playsInline
-        />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.7) 0%, transparent 50%)" }} />
-        <div className="absolute bottom-0 left-0 right-0 p-2 md:p-4">
-          <h3 className="font-display text-lg md:text-2xl font-light" style={{ color: "#fff" }}>{tr.name}</h3>
+    <>
+      {modalOpen && <TrainerVideoModal tr={tr} onClose={() => setModalOpen(false)} />}
+      <div
+        className="card-hover overflow-hidden rounded-xl cursor-pointer select-none"
+        style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        onMouseEnter={() => setShowVideo(true)}
+        onMouseLeave={() => setShowVideo(false)}
+      >
+        <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
+          <img
+            src={tr.photo}
+            alt={tr.name}
+            className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500"
+            style={{ opacity: showVideo ? 0 : 1 }}
+          />
+          <video
+            ref={videoRef}
+            src={tr.video}
+            className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500"
+            style={{ opacity: showVideo ? 1 : 0 }}
+            muted
+            loop
+            playsInline
+          />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.7) 0%, transparent 50%)" }} />
+
+          {/* Иконка воспроизведения на фото */}
+          <div
+            className="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
+            style={{ opacity: showVideo ? 0 : 1, pointerEvents: "none" }}
+          >
+            <div className="flex items-center justify-center rounded-full"
+              style={{ width: 44, height: 44, background: "rgba(0,0,0,0.45)", border: "1.5px solid rgba(255,255,255,0.5)" }}>
+              <Icon name="Play" size={20} style={{ color: "#fff", marginLeft: 3 }} />
+            </div>
+          </div>
+
+          {/* Кнопка развернуть */}
+          <button
+            className="absolute top-2 right-2 flex items-center justify-center rounded-full transition-opacity duration-300"
+            style={{ width: 30, height: 30, background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.3)", opacity: showVideo ? 1 : 0, color: "#fff" }}
+            onClick={(e) => { e.stopPropagation(); setModalOpen(true); }}
+          >
+            <Icon name="Maximize2" size={14} />
+          </button>
+
+          <div className="absolute bottom-0 left-0 right-0 p-2 md:p-4">
+            <h3 className="font-display text-lg md:text-2xl font-light" style={{ color: "#fff" }}>{tr.name}</h3>
+          </div>
+          <div className="absolute top-2 left-2 flex gap-1">
+            <div className="rounded-full" style={{ width: 6, height: 6, background: showVideo ? "rgba(255,255,255,0.4)" : "var(--verve-gold)" }} />
+            <div className="rounded-full" style={{ width: 6, height: 6, background: showVideo ? "var(--verve-gold)" : "rgba(255,255,255,0.4)" }} />
+          </div>
         </div>
-        <div className="absolute top-2 right-2 flex gap-1">
-          <div className="rounded-full" style={{ width: 6, height: 6, background: showVideo ? "rgba(255,255,255,0.4)" : "var(--verve-gold)" }} />
-          <div className="rounded-full" style={{ width: 6, height: 6, background: showVideo ? "var(--verve-gold)" : "rgba(255,255,255,0.4)" }} />
+        <div className="px-2 md:px-4 py-2 md:py-3">
+          <p className="font-body text-xs mb-1 leading-tight" style={{ color: "var(--verve-gold)" }}>{tr.spec}</p>
+          <p className="font-body text-xs tracking-wider leading-tight" style={{ color: "var(--verve-muted)" }}>{tr.cert}</p>
         </div>
       </div>
-      <div className="px-2 md:px-4 py-2 md:py-3">
-        <p className="font-body text-xs mb-1 leading-tight" style={{ color: "var(--verve-gold)" }}>{tr.spec}</p>
-        <p className="font-body text-xs tracking-wider leading-tight" style={{ color: "var(--verve-muted)" }}>{tr.cert}</p>
-      </div>
-    </div>
+    </>
   );
 }
 
