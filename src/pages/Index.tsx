@@ -418,7 +418,7 @@ export default function Index() {
             Восстановление осанки и глубокого кора через работу на реформере.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-up" style={{ animationDelay: "0.55s", opacity: 0, animationFillMode: "forwards" }}>
-            <button className="verve-btn-primary flex items-center justify-center gap-3 rounded-xl" onClick={() => scrollTo("#training")} className="verve-btn-primary flex items-center justify-center gap-3">
+            <button className="verve-btn-primary flex items-center justify-center gap-3 rounded-xl" onClick={() => scrollTo("#promo")} className="verve-btn-primary flex items-center justify-center gap-3">
               <Icon name="Gift" size={16} />
               Дарим пробную тренировку
             </button>
@@ -504,7 +504,7 @@ export default function Index() {
       </section>
 
       {/* PROMO BANNER */}
-      <section className="px-4 md:px-6 py-0">
+      <section id="promo" className="px-4 md:px-6 py-0">
         <div className="max-w-7xl mx-auto reveal-section relative overflow-hidden rounded-sm" style={{ background: "var(--verve-dark)" }}>
           {/* Декоративная линия сверху */}
           <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, var(--verve-gold), transparent)" }} />
