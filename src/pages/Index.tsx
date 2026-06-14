@@ -425,12 +425,14 @@ export default function Index() {
           </div>
 
           <div className="mt-10 md:mt-16 flex gap-5 md:gap-10 animate-fade-up" style={{ animationDelay: "0.7s", opacity: 0, animationFillMode: "forwards" }}>
-            {[["4 человека", "мини-группы"], ["вы и тренер", "индивидуальные"]].map(([val, label]) => (
-              <div key={label}>
-                <div className="font-display text-lg md:text-2xl font-light" style={{ color: "var(--verve-gold)" }}>{val}</div>
-                <div className="font-body text-xs tracking-wider uppercase mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>{label}</div>
-              </div>
-            ))}
+            <a href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+              <div className="font-display text-lg md:text-2xl font-light" style={{ color: "var(--verve-gold)" }}>4 человека</div>
+              <div className="font-body text-xs tracking-wider uppercase mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>мини-группы</div>
+            </a>
+            <div>
+              <div className="font-display text-lg md:text-2xl font-light" style={{ color: "var(--verve-gold)" }}>вы и тренер</div>
+              <div className="font-body text-xs tracking-wider uppercase mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>индивидуальные</div>
+            </div>
           </div>
         </div>
       </section>
@@ -464,13 +466,20 @@ export default function Index() {
               </p>
             </div>
             <div className="reveal-section grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {BENEFITS.map((b) => (
-                <div key={b.title} className="card-hover p-3 sm:p-4 md:p-5 rounded-xl" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
-                  <div className="mb-3" style={{ color: "var(--verve-gold)" }}><Icon name={b.icon} size={20} fallback="Star" /></div>
-                  <h4 className="font-body font-medium text-sm mb-2" style={{ color: "var(--verve-cream)" }}>{b.title}</h4>
-                  <p className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>{b.desc}</p>
-                </div>
-              ))}
+              {BENEFITS.map((b) => {
+                const isGroup = b.title === "Мини-группы до 4 человек";
+                const Wrapper = isGroup ? "a" : "div";
+                const wrapperProps = isGroup ? { href: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р", target: "_blank", rel: "noopener noreferrer", style: { textDecoration: "none" } } : {};
+                return (
+                  <Wrapper key={b.title} {...wrapperProps}>
+                    <div className="card-hover p-3 sm:p-4 md:p-5 rounded-xl" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
+                      <div className="mb-3" style={{ color: "var(--verve-gold)" }}><Icon name={b.icon} size={20} fallback="Star" /></div>
+                      <h4 className="font-body font-medium text-sm mb-2" style={{ color: "var(--verve-cream)" }}>{b.title}</h4>
+                      <p className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>{b.desc}</p>
+                    </div>
+                  </Wrapper>
+                );
+              })}
             </div>
           </div>
         </div>
