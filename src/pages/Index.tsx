@@ -955,7 +955,7 @@ export default function Index() {
               <p className="font-display text-lg sm:text-2xl italic text-center px-4" style={{ color: "var(--verve-gold)" }}>Краснорядская 3, Рязань</p>
               <p className="font-body text-xs tracking-wider" style={{ color: "var(--verve-muted)" }}>VERVE Pilates Studio</p>
               <a
-                href="https://yandex.ru/maps/?text=Рязань+Краснорядская+3"
+                href="https://yandex.ru/maps/-/CPtLzDOm"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="verve-btn-outline mt-2 text-xs"
