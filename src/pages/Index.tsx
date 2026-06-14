@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/d50db19d-5253-4e10-bf85-92fdc72af922.JPG";
@@ -59,10 +59,10 @@ const REFORMER_WORKS = [
 ];
 
 const TRAINERS = [
-  { name: "Анна", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/3e4e06d1-9279-4204-b339-32c3f71a5c00.jpg" },
-  { name: "София", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/d3e0b651-fc0b-499e-a9ee-a1e28adfe61e.jpg" },
-  { name: "Валентина", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/a59f91a6-adeb-41f2-9d58-d0f8df85f979.jpg" },
-  { name: "Ксения", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/73a01b38-d81a-4b99-9082-1026c056de06.jpg" },
+  { name: "Анна", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/3e4e06d1-9279-4204-b339-32c3f71a5c00.jpg", video: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/83f4813b-9449-4442-bbce-d19fc57c1c49.MOV" },
+  { name: "София", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/d3e0b651-fc0b-499e-a9ee-a1e28adfe61e.jpg", video: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/18fe9eb1-5df6-41dc-8135-d416e3b9a672.MOV" },
+  { name: "Валентина", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/a59f91a6-adeb-41f2-9d58-d0f8df85f979.jpg", video: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/18fe9eb1-5df6-41dc-8135-d416e3b9a672.MOV" },
+  { name: "Ксения", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/73a01b38-d81a-4b99-9082-1026c056de06.jpg", video: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/159fbfaa-ac26-4793-ade8-8e259dcdfbc7.MOV" },
 ];
 
 const GROUP_PRICES = [
@@ -86,6 +86,73 @@ const MARQUEE_ITEMS = [
   "REFORMER PILATES", "POSTURE RECOVERY", "MUSCLE CORE", "MINI GROUPS", "PREMIUM STUDIO", "CERTIFIED TRAINERS",
   "REFORMER PILATES", "POSTURE RECOVERY", "MUSCLE CORE", "MINI GROUPS", "PREMIUM STUDIO", "CERTIFIED TRAINERS",
 ];
+
+function TrainerCard({ tr }: { tr: { name: string; spec: string; cert: string; photo: string; video: string } }) {
+  const [showVideo, setShowVideo] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const touchStartX = useRef(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 40) {
+      setShowVideo((v) => !v);
+    }
+  };
+
+  useEffect(() => {
+    if (showVideo && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    } else if (!showVideo && videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  }, [showVideo]);
+
+  return (
+    <div
+      className="card-hover overflow-hidden rounded-xl cursor-pointer select-none"
+      style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onMouseEnter={() => setShowVideo(true)}
+      onMouseLeave={() => setShowVideo(false)}
+    >
+      <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
+        <img
+          src={tr.photo}
+          alt={tr.name}
+          className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500"
+          style={{ opacity: showVideo ? 0 : 1 }}
+        />
+        <video
+          ref={videoRef}
+          src={tr.video}
+          className="absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500"
+          style={{ opacity: showVideo ? 1 : 0 }}
+          muted
+          loop
+          playsInline
+        />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.7) 0%, transparent 50%)" }} />
+        <div className="absolute bottom-0 left-0 right-0 p-2 md:p-4">
+          <h3 className="font-display text-lg md:text-2xl font-light" style={{ color: "#fff" }}>{tr.name}</h3>
+        </div>
+        <div className="absolute top-2 right-2 flex gap-1">
+          <div className="rounded-full" style={{ width: 6, height: 6, background: showVideo ? "rgba(255,255,255,0.4)" : "var(--verve-gold)" }} />
+          <div className="rounded-full" style={{ width: 6, height: 6, background: showVideo ? "var(--verve-gold)" : "rgba(255,255,255,0.4)" }} />
+        </div>
+      </div>
+      <div className="px-2 md:px-4 py-2 md:py-3">
+        <p className="font-body text-xs mb-1 leading-tight" style={{ color: "var(--verve-gold)" }}>{tr.spec}</p>
+        <p className="font-body text-xs tracking-wider leading-tight" style={{ color: "var(--verve-muted)" }}>{tr.cert}</p>
+      </div>
+    </div>
+  );
+}
 
 function useReveal() {
   useEffect(() => {
@@ -475,26 +542,7 @@ export default function Index() {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 reveal-section">
             {TRAINERS.map((tr) => (
-              <div key={tr.name} className="card-hover overflow-hidden rounded-xl" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
-                <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
-                  <img
-                    src={tr.photo}
-                    alt={tr.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-500"
-                    style={{ transform: "scale(1)" }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1.04)"; }}
-                    onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"; }}
-                  />
-                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.7) 0%, transparent 50%)" }} />
-                  <div className="absolute bottom-0 left-0 right-0 p-2 md:p-4">
-                    <h3 className="font-display text-lg md:text-2xl font-light" style={{ color: "#fff" }}>{tr.name}</h3>
-                  </div>
-                </div>
-                <div className="px-2 md:px-4 py-2 md:py-3 rounded-0">
-                  <p className="font-body text-xs mb-1 leading-tight" style={{ color: "var(--verve-gold)" }}>{tr.spec}</p>
-                  <p className="font-body text-xs tracking-wider leading-tight" style={{ color: "var(--verve-muted)" }}>{tr.cert}</p>
-                </div>
-              </div>
+              <TrainerCard key={tr.name} tr={tr} />
             ))}
           </div>
         </div>
