@@ -950,24 +950,24 @@ export default function Index() {
             className="mt-6 rounded-sm overflow-hidden reveal-section relative"
             style={{ height: "280px", background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}
           >
+            <div
+              className="absolute inset-0 opacity-5 pointer-events-none"
+              style={{ backgroundImage: `repeating-linear-gradient(0deg, rgba(184,92,69,0.4) 0px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, rgba(184,92,69,0.4) 0px, transparent 1px, transparent 40px)` }}
+            />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
               <div style={{ color: "var(--verve-gold)" }}><Icon name="MapPin" size={32} fallback="MapPin" /></div>
               <p className="font-display text-lg sm:text-2xl italic text-center px-4" style={{ color: "var(--verve-gold)" }}>Краснорядская 3, Рязань</p>
               <p className="font-body text-xs tracking-wider" style={{ color: "var(--verve-muted)" }}>VERVE Pilates Studio</p>
               <a
-                href="https://yandex.ru/maps/-/CPtLzDOm"
+                href="https://yandex.ru/maps/org/verve_pilates_na_reformerakh/187842926696?si=5zgz4thw8gwzwkfm37cq6k4fmc"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="verve-btn-outline mt-2 text-xs"
-                style={{ textDecoration: "none", padding: "8px 20px" }}
+                style={{ textDecoration: "none", padding: "8px 20px", position: "relative", zIndex: 1 }}
               >
                 Открыть на карте
               </a>
             </div>
-            <div
-              className="absolute inset-0 opacity-5"
-              style={{ backgroundImage: `repeating-linear-gradient(0deg, rgba(184,92,69,0.4) 0px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, rgba(184,92,69,0.4) 0px, transparent 1px, transparent 40px)` }}
-            />
           </div>
         </div>
       </section>
