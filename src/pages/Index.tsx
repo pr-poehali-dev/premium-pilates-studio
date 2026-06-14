@@ -87,6 +87,72 @@ const MARQUEE_ITEMS = [
   "REFORMER PILATES", "POSTURE RECOVERY", "MUSCLE CORE", "MINI GROUPS", "PREMIUM STUDIO", "CERTIFIED TRAINERS",
 ];
 
+const ATMOSPHERE_VIDEOS = [
+  "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/ffac7142-c348-4d33-85c3-b147d54aceab.MOV",
+  "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/3328703d-0b47-4a85-9fb5-98011951c3d2.MOV",
+];
+
+function AtmosphereVideoCarousel() {
+  const [current, setCurrent] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const goTo = (idx: number) => {
+    setCurrent(idx);
+  };
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+      videoRef.current.play().catch(() => {});
+    }
+  }, [current]);
+
+  return (
+    <div className="sm:col-span-2 relative overflow-hidden rounded-xl" style={{ minHeight: "240px", border: "1px solid rgba(184,92,69,0.12)" }}>
+      <video
+        ref={videoRef}
+        key={ATMOSPHERE_VIDEOS[current]}
+        src={ATMOSPHERE_VIDEOS[current]}
+        className="w-full h-full object-cover"
+        style={{ minHeight: "320px" }}
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+      <div className="absolute inset-0 flex items-end p-6 rounded-xl pointer-events-none" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.8) 0%, transparent 60%)" }}>
+        <p className="font-display text-xl italic" style={{ color: "var(--verve-gold)" }}>Студия на реформерах</p>
+      </div>
+      {/* Dots */}
+      <div className="absolute bottom-4 right-4 flex gap-2">
+        {ATMOSPHERE_VIDEOS.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            className="rounded-full transition-all duration-300"
+            style={{ width: i === current ? 20 : 8, height: 8, background: i === current ? "var(--verve-gold)" : "rgba(255,255,255,0.4)" }}
+          />
+        ))}
+      </div>
+      {/* Arrows */}
+      <button
+        onClick={() => goTo((current - 1 + ATMOSPHERE_VIDEOS.length) % ATMOSPHERE_VIDEOS.length)}
+        className="absolute left-3 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full"
+        style={{ width: 36, height: 36, background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.3)", color: "#fff" }}
+      >
+        <Icon name="ChevronLeft" size={18} />
+      </button>
+      <button
+        onClick={() => goTo((current + 1) % ATMOSPHERE_VIDEOS.length)}
+        className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full"
+        style={{ width: 36, height: 36, background: "rgba(0,0,0,0.45)", border: "1px solid rgba(255,255,255,0.3)", color: "#fff" }}
+      >
+        <Icon name="ChevronRight" size={18} />
+      </button>
+    </div>
+  );
+}
+
 function TrainerVideoModal({ tr, onClose }: { tr: { name: string; video: string }; onClose: () => void }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -632,12 +698,7 @@ export default function Index() {
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 reveal-section">
-            <div className="sm:col-span-2 relative overflow-hidden rounded-xl" style={{ minHeight: "240px", border: "1px solid rgba(184,92,69,0.12)" }}>
-              <img src={HERO_IMAGE} alt="Студия VERVE" className="w-full h-full object-cover" style={{ minHeight: "320px" }} />
-              <div className="absolute inset-0 flex items-end p-6 rounded-xl" style={{ background: "linear-gradient(to top, rgba(15,13,10,0.8) 0%, transparent 60%)" }}>
-                <p className="font-display text-xl italic" style={{ color: "var(--verve-gold)" }}>Студия на реформерах</p>
-              </div>
-            </div>
+            <AtmosphereVideoCarousel />
             {[
               { icon: "Layers", title: "Профессиональное оборудование", desc: "Реформеры студийного класса ведущих брендов" },
               { icon: "Droplets", title: "Раздевалка с душевыми", desc: "Просторная раздевалка и душевые — всё для комфорта после тренировки" },
