@@ -535,7 +535,7 @@ export default function Index() {
               <div className="w-full md:w-80 shrink-0">
                 <div className="flex flex-col gap-3">
                   <a
-                    href="https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на пробную тренировку в мини-группе за 1000р"
+                    href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-xl"
@@ -551,7 +551,7 @@ export default function Index() {
                     </div>
                   </a>
                   <a
-                    href="https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на индивидуальную тренировку за 1500р"
+                    href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20индивидуальную%20тренировку%20за%201500р"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-xl"
