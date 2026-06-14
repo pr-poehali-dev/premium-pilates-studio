@@ -61,7 +61,7 @@ const REFORMER_WORKS = [
 const TRAINERS = [
   { name: "Анна", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/3e4e06d1-9279-4204-b339-32c3f71a5c00.jpg", video: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/83f4813b-9449-4442-bbce-d19fc57c1c49.MOV" },
   { name: "София", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/d3e0b651-fc0b-499e-a9ee-a1e28adfe61e.jpg", video: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/18fe9eb1-5df6-41dc-8135-d416e3b9a672.MOV" },
-  { name: "Валентина", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/a59f91a6-adeb-41f2-9d58-d0f8df85f979.jpg", video: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/18fe9eb1-5df6-41dc-8135-d416e3b9a672.MOV" },
+  { name: "Валентина", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/a59f91a6-adeb-41f2-9d58-d0f8df85f979.jpg", video: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/3b34ef74-9b9b-436c-b1c1-65e574789ef6.MOV" },
   { name: "Ксения", spec: "Пилатес на реформерах", cert: "Сертифицированный тренер", photo: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/73a01b38-d81a-4b99-9082-1026c056de06.jpg", video: "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/159fbfaa-ac26-4793-ade8-8e259dcdfbc7.MOV" },
 ];
 
