@@ -88,8 +88,8 @@ const MARQUEE_ITEMS = [
 ];
 
 const ATMOSPHERE_VIDEOS = [
-  "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/ffac7142-c348-4d33-85c3-b147d54aceab.MOV",
   "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/3328703d-0b47-4a85-9fb5-98011951c3d2.MOV",
+  "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/ffac7142-c348-4d33-85c3-b147d54aceab.MOV",
 ];
 
 function AtmosphereVideoCarousel() {
