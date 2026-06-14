@@ -32,7 +32,7 @@ const TRAININGS = [
     features: ["Индивидуальный подход", "Атмосфера поддержки", "Общая мотивация", "Далее от 1 730 ₽"],
     accent: false,
     btnLabel: "Хочу на групповую!",
-    btnHref: "https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на пробную тренировку в мини-группе за 1000р",
+    btnHref: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р",
   },
   {
     type: "Индивидуально",
@@ -43,7 +43,7 @@ const TRAININGS = [
     features: ["100% фокус на вас", "Персональная программа", "Быстрый прогресс", "Далее от 2 590 ₽"],
     accent: true,
     btnLabel: "Хочу на индив!",
-    btnHref: "https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на индивидуальную тренировку за 1500р",
+    btnHref: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20индивидуальную%20тренировку%20за%201500р",
   },
 ];
 
@@ -883,7 +883,7 @@ export default function Index() {
               Скачать приложение
             </a>
             <a
-              href="https://t.me/verve_pilates"
+              href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20записаться%20на%20тренировку"
               target="_blank"
               rel="noopener noreferrer"
               className="verve-btn-outline flex items-center justify-center gap-3 rounded-xl"
@@ -895,8 +895,8 @@ export default function Index() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6 mt-8 md:mt-12">
             {[
-              { price: "1 000 ₽", label: "пробная в группе", href: "https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на пробную тренировку в мини-группе за 1000р" },
-              { price: "1 500 ₽", label: "пробная индивидуальная", href: "https://t.me/verve_pilates?text=Здравствуйте! Запишите меня на индивидуальную тренировку за 1500р" },
+              { price: "1 000 ₽", label: "пробная в группе", href: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р" },
+              { price: "1 500 ₽", label: "пробная индивидуальная", href: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20индивидуальную%20тренировку%20за%201500р" },
             ].map(({ price, label, href }) => (
               <a
                 key={label}
@@ -927,7 +927,7 @@ export default function Index() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 reveal-section">
             {[
               { icon: "Phone", label: "Позвонить", href: "tel:+79209734563" },
-              { icon: "MessageCircle", label: "Telegram запись", href: "https://t.me/verve_pilates" },
+              { icon: "MessageCircle", label: "Telegram запись", href: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20записаться%20на%20тренировку" },
               { icon: "Send", label: "Telegram канал", href: "https://t.me/vervepilates_rzn" },
               { icon: "Smartphone", label: "Приложение", href: "https://apps.apple.com/ru/app/verve-пилатес-на-реформерах/id6758667943" },
             ].map((s) => (
@@ -981,7 +981,7 @@ export default function Index() {
           </div>
           <p className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>© 2026 VERVE · Краснорядская 3 · 9:00–21:00</p>
           <div className="flex gap-4">
-            <a href="https://t.me/verve_pilates" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-lg" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
+            <a href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20записаться%20на%20тренировку" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-lg" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
               <Icon name="MessageCircle" size={18} />
             </a>
             <a href="https://t.me/vervepilates_rzn" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-lg" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
