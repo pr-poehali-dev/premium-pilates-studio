@@ -408,7 +408,7 @@ export default function Index() {
             style={{ fontSize: "clamp(2.8rem, 11vw, 9rem)", color: "#fff", animationDelay: "0.25s", opacity: 0, animationFillMode: "forwards" }}
           >
             Пилатес на реформерах.<br />
-            <em className="italic" style={{ color: "var(--verve-gold)" }}>Рязань,</em><br />
+            <em className="italic" style={{ color: "var(--verve-gold)" }}>пл. Ленина</em><br />
             пл. Ленина
           </h1>
           <p
