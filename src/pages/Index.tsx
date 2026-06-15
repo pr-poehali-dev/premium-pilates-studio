@@ -448,11 +448,11 @@ export default function Index() {
       </div>
 
       {/* WHY REFORMER */}
-      <section className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-cream)" }}>
+      <section className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
         <div className="max-w-7xl mx-auto">
           <div className="reveal-section mb-10 md:mb-16">
             <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Почему реформер</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight" style={{ color: "var(--verve-dark)" }}>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
               Лучше, чем<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>другие направления?</em>
             </h2>
           </div>
@@ -482,16 +482,16 @@ export default function Index() {
                 cons: ["Риск травм", "Нет работы с осанкой", "Не подходит при болях в спине"],
               },
             ].map(({ title, highlight, pros, cons }) => (
-              <div key={title} className="rounded-2xl p-6 flex flex-col gap-4" style={{ background: highlight ? "var(--verve-dark)" : "rgba(0,0,0,0.06)", border: highlight ? "1px solid rgba(184,92,69,0.4)" : "1px solid rgba(0,0,0,0.08)" }}>
-                <p className="font-body font-medium text-xs tracking-[0.3em] uppercase" style={{ color: highlight ? "var(--verve-gold)" : "rgba(0,0,0,0.4)" }}>{title}</p>
+              <div key={title} className="rounded-2xl p-6 flex flex-col gap-4" style={{ background: highlight ? "rgba(184,92,69,0.12)" : "var(--verve-dark-3)", border: highlight ? "1px solid rgba(184,92,69,0.4)" : "1px solid rgba(184,92,69,0.1)" }}>
+                <p className="font-body font-medium text-xs tracking-[0.3em] uppercase" style={{ color: highlight ? "var(--verve-gold)" : "var(--verve-muted)" }}>{title}</p>
                 <ul className="flex flex-col gap-2">
                   {pros?.map((p) => (
-                    <li key={p} className="flex items-start gap-2 font-body text-sm" style={{ color: highlight ? "var(--verve-cream)" : "rgba(0,0,0,0.6)" }}>
+                    <li key={p} className="flex items-start gap-2 font-body text-sm" style={{ color: highlight ? "var(--verve-cream)" : "rgba(255,255,255,0.5)" }}>
                       <span style={{ color: "var(--verve-gold)", marginTop: "1px", flexShrink: 0 }}>✓</span>{p}
                     </li>
                   ))}
                   {cons?.map((c) => (
-                    <li key={c} className="flex items-start gap-2 font-body text-sm" style={{ color: "rgba(0,0,0,0.3)" }}>
+                    <li key={c} className="flex items-start gap-2 font-body text-sm" style={{ color: "rgba(255,255,255,0.25)" }}>
                       <span style={{ marginTop: "1px", flexShrink: 0 }}>—</span>{c}
                     </li>
                   ))}
