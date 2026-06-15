@@ -408,8 +408,7 @@ export default function Index() {
             style={{ fontSize: "clamp(2.8rem, 11vw, 9rem)", color: "#fff", animationDelay: "0.25s", opacity: 0, animationFillMode: "forwards" }}
           >
             Пилатес на реформерах.<br />
-            <em className="italic" style={{ color: "var(--verve-gold)" }}>пл. Ленина</em><br />
-            пл. Ленина
+            <em className="italic" style={{ color: "var(--verve-gold)" }}>пл. Ленина</em>
           </h1>
           <p
             className="font-body font-light text-base md:text-lg mb-10 max-w-lg leading-relaxed animate-fade-up"
