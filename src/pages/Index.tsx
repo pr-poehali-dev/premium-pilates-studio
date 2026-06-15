@@ -448,6 +448,33 @@ export default function Index() {
         </div>
       </div>
 
+      {/* ATMOSPHERE */}
+      <section id="atmosphere" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="reveal-section mb-10 md:mb-16">
+            <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Атмосфера</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
+              Эстетика<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>в деталях</em>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 reveal-section">
+            <AtmosphereVideoCarousel />
+            {[
+              { icon: "Layers", title: "Профессиональное оборудование", desc: "Реформеры студийного класса ведущих брендов" },
+              { icon: "Droplets", title: "Раздевалка с душевыми", desc: "Просторная раздевалка и душевые — всё для комфорта после тренировки" },
+              { icon: "Sparkles", title: "Бьюти-зона", desc: "Всё, чтобы выглядеть на все 100: от мистов для лица до фена Bork" },
+              { icon: "Coffee", title: "Меню напитков", desc: "Капучино, матча, латте и сезонные напитки — в подарок для каждого гостя" },
+            ].map((card) => (
+              <div key={card.title} className="card-hover p-6 rounded-xl" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
+                <div className="mb-3" style={{ color: "var(--verve-gold)" }}><Icon name={card.icon} size={20} fallback="Star" /></div>
+                <h4 className="font-body font-medium text-sm mb-2" style={{ color: "var(--verve-cream)" }}>{card.title}</h4>
+                <p className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>{card.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ABOUT */}
       <section id="about" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
         <div className="max-w-7xl mx-auto">
@@ -692,33 +719,6 @@ export default function Index() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 reveal-section">
             {TRAINERS.map((tr) => (
               <TrainerCard key={tr.name} tr={tr} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ATMOSPHERE */}
-      <section id="atmosphere" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="reveal-section mb-10 md:mb-16">
-            <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Атмосфера</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
-              Эстетика<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>в деталях</em>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 reveal-section">
-            <AtmosphereVideoCarousel />
-            {[
-              { icon: "Layers", title: "Профессиональное оборудование", desc: "Реформеры студийного класса ведущих брендов" },
-              { icon: "Droplets", title: "Раздевалка с душевыми", desc: "Просторная раздевалка и душевые — всё для комфорта после тренировки" },
-              { icon: "Sparkles", title: "Бьюти-зона", desc: "Всё, чтобы выглядеть на все 100: от мистов для лица до фена Bork" },
-              { icon: "Coffee", title: "Меню напитков", desc: "Капучино, матча, латте и сезонные напитки — в подарок для каждого гостя" },
-            ].map((card) => (
-              <div key={card.title} className="card-hover p-6 rounded-xl" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
-                <div className="mb-3" style={{ color: "var(--verve-gold)" }}><Icon name={card.icon} size={20} fallback="Star" /></div>
-                <h4 className="font-body font-medium text-sm mb-2" style={{ color: "var(--verve-cream)" }}>{card.title}</h4>
-                <p className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>{card.desc}</p>
-              </div>
             ))}
           </div>
         </div>
