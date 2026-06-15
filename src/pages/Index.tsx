@@ -456,47 +456,48 @@ export default function Index() {
               Лучше, чем<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>другие направления?</em>
             </h2>
           </div>
-          <div className="reveal-section overflow-x-auto">
-            <table className="w-full font-body text-sm" style={{ borderCollapse: "collapse" }}>
-              <thead>
-                <tr>
-                  <th className="text-left py-4 px-5 font-medium text-xs tracking-widest uppercase" style={{ color: "var(--verve-muted)", width: "30%" }}></th>
-                  {[
-                    { label: "Реформер", highlight: true },
-                    { label: "Йога", highlight: false },
-                    { label: "Стретчинг", highlight: false },
-                    { label: "Фитнес / тренажёры", highlight: false },
-                  ].map(({ label, highlight }) => (
-                    <th key={label} className="text-center py-4 px-3 font-medium text-xs tracking-widest uppercase rounded-t-xl" style={{ color: highlight ? "var(--verve-gold)" : "var(--verve-muted)", background: highlight ? "rgba(184,92,69,0.1)" : "transparent", border: highlight ? "1px solid rgba(184,92,69,0.2)" : "none", borderBottom: "none" }}>
-                      {label}
-                    </th>
+          <div className="reveal-section grid grid-cols-1 md:grid-cols-4 gap-4">
+            {[
+              {
+                title: "Реформер",
+                highlight: true,
+                pros: ["Работа с глубокими мышцами", "Коррекция осанки", "Безопасно при болях в спине", "Индивидуальная нагрузка", "Видимый результат за 5–8 занятий", "Эстетика и форма тела"],
+              },
+              {
+                title: "Йога",
+                highlight: false,
+                pros: ["Гибкость и растяжка", "Медитация и дыхание"],
+                cons: ["Нет силовой нагрузки", "Нет работы с осанкой", "Долгий путь к результату"],
+              },
+              {
+                title: "Стретчинг",
+                highlight: false,
+                pros: ["Улучшает гибкость"],
+                cons: ["Только растяжка", "Нет укрепления мышц", "Нет коррекции тела"],
+              },
+              {
+                title: "Фитнес / тренажёры",
+                highlight: false,
+                pros: ["Рост мышц", "Кардио-нагрузка"],
+                cons: ["Риск травм", "Нет работы с осанкой", "Не подходит при болях в спине"],
+              },
+            ].map(({ title, highlight, pros, cons }) => (
+              <div key={title} className="rounded-2xl p-6 flex flex-col gap-4" style={{ background: highlight ? "rgba(184,92,69,0.12)" : "var(--verve-dark-3)", border: highlight ? "1px solid rgba(184,92,69,0.4)" : "1px solid rgba(184,92,69,0.1)" }}>
+                <p className="font-body font-medium text-xs tracking-[0.3em] uppercase" style={{ color: highlight ? "var(--verve-gold)" : "var(--verve-muted)" }}>{title}</p>
+                <ul className="flex flex-col gap-2">
+                  {pros?.map((p) => (
+                    <li key={p} className="flex items-start gap-2 font-body text-sm" style={{ color: highlight ? "var(--verve-cream)" : "rgba(255,255,255,0.5)" }}>
+                      <span style={{ color: "var(--verve-gold)", marginTop: "1px", flexShrink: 0 }}>✓</span>{p}
+                    </li>
                   ))}
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  ["Работа с глубокими мышцами", true, false, false, false],
-                  ["Коррекция осанки", true, true, false, false],
-                  ["Подходит при болях в спине", true, true, false, false],
-                  ["Индивидуальная нагрузка", true, false, false, true],
-                  ["Без риска травм", true, true, true, false],
-                  ["Видимый результат за 5–8 занятий", true, false, false, false],
-                  ["Работа над эстетикой тела", true, false, false, true],
-                ].map(([label, ...vals], i) => (
-                  <tr key={i} style={{ borderTop: "1px solid rgba(184,92,69,0.1)" }}>
-                    <td className="py-4 px-5 font-body text-sm" style={{ color: "var(--verve-cream)" }}>{label}</td>
-                    {(vals as boolean[]).map((val, j) => (
-                      <td key={j} className="text-center py-4 px-3" style={{ background: j === 0 ? "rgba(184,92,69,0.07)" : "transparent", border: j === 0 ? "1px solid rgba(184,92,69,0.2)" : "none", borderTop: "none", borderBottom: "none" }}>
-                        {val
-                          ? <span style={{ color: "var(--verve-gold)", fontSize: "1.1rem" }}>✓</span>
-                          : <span style={{ color: "rgba(255,255,255,0.2)", fontSize: "1rem" }}>—</span>
-                        }
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                  {cons?.map((c) => (
+                    <li key={c} className="flex items-start gap-2 font-body text-sm" style={{ color: "rgba(255,255,255,0.25)" }}>
+                      <span style={{ marginTop: "1px", flexShrink: 0 }}>—</span>{c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
