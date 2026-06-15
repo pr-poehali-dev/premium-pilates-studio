@@ -401,15 +401,15 @@ export default function Index() {
 
         <div className="relative max-w-7xl mx-auto px-4 md:px-6 w-full">
           <p className="font-body text-xs tracking-[0.4em] uppercase mb-6 animate-fade-up" style={{ color: "var(--verve-gold)", animationDelay: "0.1s", opacity: 0, animationFillMode: "forwards" }}>
-            Пилатес на реформерах · Рязань
+            Баланс. Эстетика. Осанка
           </p>
           <h1
             className="font-display font-light leading-[0.92] mb-8 animate-fade-up"
             style={{ fontSize: "clamp(2.8rem, 11vw, 9rem)", color: "#fff", animationDelay: "0.25s", opacity: 0, animationFillMode: "forwards" }}
           >
-            Движение<br />
-            <em className="italic" style={{ color: "var(--verve-gold)" }}>рождает</em><br />
-            силу
+            Пилатес на реформерах.<br />
+            <em className="italic" style={{ color: "var(--verve-gold)" }}>Рязань,</em><br />
+            пл. Ленина
           </h1>
           <p
             className="font-body font-light text-base md:text-lg mb-10 max-w-lg leading-relaxed animate-fade-up"
