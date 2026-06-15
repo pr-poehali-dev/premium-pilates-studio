@@ -447,6 +447,60 @@ export default function Index() {
         </div>
       </div>
 
+      {/* WHY REFORMER */}
+      <section className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="reveal-section mb-10 md:mb-16">
+            <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Почему реформер</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
+              Лучше, чем<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>другие направления?</em>
+            </h2>
+          </div>
+          <div className="reveal-section overflow-x-auto">
+            <table className="w-full font-body text-sm" style={{ borderCollapse: "collapse" }}>
+              <thead>
+                <tr>
+                  <th className="text-left py-4 px-5 font-medium text-xs tracking-widest uppercase" style={{ color: "var(--verve-muted)", width: "30%" }}></th>
+                  {[
+                    { label: "Реформер", highlight: true },
+                    { label: "Йога", highlight: false },
+                    { label: "Стретчинг", highlight: false },
+                    { label: "Фитнес / тренажёры", highlight: false },
+                  ].map(({ label, highlight }) => (
+                    <th key={label} className="text-center py-4 px-3 font-medium text-xs tracking-widest uppercase rounded-t-xl" style={{ color: highlight ? "var(--verve-gold)" : "var(--verve-muted)", background: highlight ? "rgba(184,92,69,0.1)" : "transparent", border: highlight ? "1px solid rgba(184,92,69,0.2)" : "none", borderBottom: "none" }}>
+                      {label}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["Работа с глубокими мышцами", true, false, false, false],
+                  ["Коррекция осанки", true, true, false, false],
+                  ["Подходит при болях в спине", true, true, false, false],
+                  ["Индивидуальная нагрузка", true, false, false, true],
+                  ["Без риска травм", true, true, true, false],
+                  ["Видимый результат за 5–8 занятий", true, false, false, false],
+                  ["Работа над эстетикой тела", true, false, false, true],
+                ].map(([label, ...vals], i) => (
+                  <tr key={i} style={{ borderTop: "1px solid rgba(184,92,69,0.1)" }}>
+                    <td className="py-4 px-5 font-body text-sm" style={{ color: "var(--verve-cream)" }}>{label}</td>
+                    {(vals as boolean[]).map((val, j) => (
+                      <td key={j} className="text-center py-4 px-3" style={{ background: j === 0 ? "rgba(184,92,69,0.07)" : "transparent", border: j === 0 ? "1px solid rgba(184,92,69,0.2)" : "none", borderTop: "none", borderBottom: "none" }}>
+                        {val
+                          ? <span style={{ color: "var(--verve-gold)", fontSize: "1.1rem" }}>✓</span>
+                          : <span style={{ color: "rgba(255,255,255,0.2)", fontSize: "1rem" }}>—</span>
+                        }
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* ATMOSPHERE */}
       <section id="atmosphere" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
         <div className="max-w-7xl mx-auto">
