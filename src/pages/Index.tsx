@@ -27,6 +27,7 @@ const TRAININGS = [
     type: "Мини-группа",
     subtitle: "до 4 человек",
     price: "1 000 ₽",
+    oldPrice: "2 200 ₽",
     priceLabel: "первое занятие",
     badge: "Для новичков",
     features: ["Индивидуальный подход", "Атмосфера поддержки", "Общая мотивация", "Далее от 1 730 ₽"],
@@ -38,6 +39,7 @@ const TRAININGS = [
     type: "Индивидуально",
     subtitle: "только вы и тренер",
     price: "1 500 ₽",
+    oldPrice: "3 300 ₽",
     priceLabel: "первое занятие",
     badge: "Для новичков",
     features: ["100% фокус на вас", "Персональная программа", "Быстрый прогресс", "Далее от 2 590 ₽"],
@@ -809,6 +811,7 @@ export default function Index() {
                 <div className="gold-line mb-6" />
                 <div className="mb-2">
                   <span className="font-display text-2xl sm:text-3xl font-light" style={{ color: "var(--verve-gold)" }}>{t.price}</span>
+                  {t.oldPrice && <span className="font-body text-sm ml-2" style={{ textDecoration: "line-through", color: "var(--verve-muted)", opacity: 0.6 }}>{t.oldPrice}</span>}
                   <span className="font-body text-xs ml-2" style={{ color: "var(--verve-muted)" }}>/ {t.priceLabel}</span>
                 </div>
                 <p className="font-body text-xs mb-6" style={{ color: "var(--verve-muted)" }}>Специальная цена для первого визита</p>
