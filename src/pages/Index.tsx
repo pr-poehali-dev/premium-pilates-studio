@@ -874,10 +874,8 @@ export default function Index() {
               <p className="font-body font-bold text-xs tracking-[0.2em] uppercase" style={{ color: "#fff" }}>бонусами</p>
             </div>
             <div className="w-px self-stretch hidden sm:block" style={{ background: "rgba(255,255,255,0.3)" }} />
-            <p className="font-body text-sm leading-relaxed text-center sm:text-left" style={{ color: "rgba(255,255,255,0.9)" }}>
-              Дарим <strong style={{ color: "#fff" }}>1 000 бонусных рублей</strong> на следующий абонемент,
-              если покупаете в день пробного занятия или продлеваете действующий абонемент.
-            </p>
+            <p className="font-body text-sm leading-relaxed text-center sm:text-left" style={{ color: "rgba(255,255,255,0.9)" }}>Дарим 1 000 бонусных рублей на абонемент, если покупаете в день пробного занятия или продлеваете действующий абонемент.
+</p>
           </div>
 
           <div className="text-center reveal-section">
