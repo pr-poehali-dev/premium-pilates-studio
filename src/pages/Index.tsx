@@ -68,19 +68,15 @@ const TRAINERS = [
 ];
 
 const GROUP_PRICES = [
-  { name: "Разовое занятие", price: "2 200 ₽", gift: "", perClass: "" },
-  { name: "4 занятия", price: "8 800 ₽", gift: "", perClass: "2 200 ₽" },
-  { name: "6 занятий", price: "13 200 ₽", gift: "+1", perClass: "1 885 ₽" },
-  { name: "9 занятий", price: "19 800 ₽", gift: "+2", perClass: "1 800 ₽" },
-  { name: "11 занятий", price: "24 200 ₽", gift: "+3", perClass: "1 730 ₽" },
+  { name: "6 занятий", price: "13 200 ₽", gift: "+1", perClass: "1 885 ₽", totalClasses: 7, badge: null },
+  { name: "9 занятий", price: "19 800 ₽", gift: "+2", perClass: "1 800 ₽", totalClasses: 11, badge: "hit" },
+  { name: "11 занятий", price: "24 200 ₽", gift: "+3", perClass: "1 730 ₽", totalClasses: 14, badge: "best" },
 ];
 
 const SOLO_PRICES = [
-  { name: "Разовое занятие", price: "3 300 ₽", gift: "", perClass: "" },
-  { name: "4 занятия", price: "13 200 ₽", gift: "", perClass: "3 300 ₽" },
-  { name: "6 занятий", price: "19 800 ₽", gift: "+1", perClass: "2 830 ₽" },
-  { name: "9 занятий", price: "29 700 ₽", gift: "+2", perClass: "2 700 ₽" },
-  { name: "11 занятий", price: "36 300 ₽", gift: "+3", perClass: "2 590 ₽" },
+  { name: "6 занятий", price: "19 800 ₽", gift: "+1", perClass: "2 830 ₽", totalClasses: 7, badge: null },
+  { name: "9 занятий", price: "29 700 ₽", gift: "+2", perClass: "2 700 ₽", totalClasses: 11, badge: "hit" },
+  { name: "11 занятий", price: "36 300 ₽", gift: "+3", perClass: "2 590 ₽", totalClasses: 14, badge: "best" },
 ];
 
 
@@ -741,87 +737,147 @@ export default function Index() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
-        <div className="max-w-4xl mx-auto rounded-0">
+      <section id="pricing" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-cream)" }}>
+        <div className="max-w-5xl mx-auto">
           <div className="reveal-section text-center mb-10 md:mb-14">
             <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Абонементы</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-2">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-2" style={{ color: "var(--verve-dark)" }}>
               Меню<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>восстановления</em>
             </h2>
-            <p className="font-body text-sm mt-4" style={{ color: "var(--verve-muted)" }}>При покупке абонемента от 6 занятий — бонусные занятия в подарок</p>
           </div>
 
-          {/* Tab switcher */}
-          <div className="reveal-section flex justify-center mb-10">
-            <div className="flex overflow-hidden rounded-xl" style={{ border: "1px solid rgba(184,92,69,0.3)" }}>
-              <button
-                className="font-body tracking-widest uppercase px-8 py-3 transition-all duration-300 text-xs rounded-xl"
-                style={{
-                  background: priceTab === "group" ? "var(--verve-gold)" : "transparent",
-                  color: priceTab === "group" ? "#fff" : "var(--verve-gold)",
-                }}
-                onClick={() => setPriceTab("group")}
-              >
-                Группа
-              </button>
-              <button
-                className="font-body text-xs tracking-widest uppercase px-8 py-3 transition-all duration-300 rounded-xl"
-                style={{
-                  background: priceTab === "solo" ? "var(--verve-gold)" : "transparent",
-                  color: priceTab === "solo" ? "#fff" : "var(--verve-gold)",
-                }}
-                onClick={() => setPriceTab("solo")}
-              >
-                Индивидуально
-              </button>
-            </div>
-          </div>
-
-          {/* Price table */}
-          <div className="reveal-section rounded-sm overflow-hidden" style={{ border: "1px solid rgba(184,92,69,0.15)" }}>
-            {/* Header */}
-            <div className="grid grid-cols-3 px-3 md:px-6 py-3 rounded-xl" style={{ background: "var(--verve-dark-3)", borderBottom: "1px solid rgba(184,92,69,0.15)" }}>
-              <span className="font-body text-xs tracking-widest uppercase" style={{ color: "var(--verve-muted)" }}>Абонемент</span>
-              <span className="font-body text-xs tracking-widest uppercase text-center" style={{ color: "var(--verve-muted)" }}>Цена</span>
-              <span className="font-body text-xs tracking-widest uppercase text-right" style={{ color: "var(--verve-muted)" }}>За занятие</span>
-            </div>
-            {prices.map((row, i) => (
-              <div
-                key={row.name}
-                className="grid grid-cols-3 px-3 md:px-6 py-4 md:py-5 items-center transition-all duration-200 rounded-xl"
-                style={{
-                  background: i % 2 === 0 ? "var(--verve-dark)" : "var(--verve-dark-2)",
-                  borderBottom: i < prices.length - 1 ? "1px solid rgba(184,92,69,0.08)" : "none",
-                }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--verve-dark-3)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = i % 2 === 0 ? "var(--verve-dark)" : "var(--verve-dark-2)"; }}
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-                  <span className="font-body text-xs md:text-sm" style={{ color: "var(--verve-cream)" }}>{row.name}</span>
-                  {row.gift && (
-                    <span className="font-body text-xs px-1.5 py-0.5 rounded-sm w-fit" style={{ background: "rgba(184,92,69,0.15)", color: "var(--verve-gold)" }}>
-                      {row.gift} в подарок
-                    </span>
-                  )}
+          {/* В МИНИ-ГРУППЕ */}
+          <div className="reveal-section mb-6">
+            <div className="rounded-2xl p-6 md:p-8" style={{ background: "rgba(0,0,0,0.05)" }}>
+              <div className="flex items-baseline gap-3 mb-5">
+                <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase" style={{ color: "var(--verve-dark)" }}>В мини-группе</h3>
+                <span className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>До 4 человек · реформеры · внимание тренера каждому</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                {GROUP_PRICES.map((row) => (
+                  <div
+                    key={row.name}
+                    className="relative rounded-2xl p-5"
+                    style={{
+                      background: row.badge === "hit" ? "var(--verve-gold)" : "#fff",
+                      border: row.badge === "best" ? "2px solid var(--verve-gold)" : "none",
+                    }}
+                  >
+                    {row.badge === "hit" && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full font-body text-xs font-bold tracking-widest uppercase" style={{ background: "var(--verve-dark)", color: "#fff" }}>
+                        Хит продаж
+                      </div>
+                    )}
+                    {row.badge === "best" && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full font-body text-xs font-bold tracking-widest uppercase" style={{ border: "1.5px solid var(--verve-gold)", background: "#fff", color: "var(--verve-dark)" }}>
+                        Лучшая цена
+                      </div>
+                    )}
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="font-body font-bold text-sm" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-dark)" }}>{row.name}</span>
+                      <span className="font-body text-xs px-2 py-0.5 rounded-full" style={{ background: row.badge === "hit" ? "rgba(255,255,255,0.2)" : "rgba(184,92,69,0.12)", color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>
+                        {row.gift} в подарок
+                      </span>
+                    </div>
+                    <div className="font-display text-3xl md:text-4xl font-light mb-2" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>{row.price}</div>
+                    <div className="font-body text-xs" style={{ color: row.badge === "hit" ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.45)" }}>
+                      {row.perClass} / занятие · {row.totalClasses} тренировок
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "#fff" }}>
+                  <div>
+                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-dark)" }}>Разовое занятие</p>
+                    <p className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>Без абонемента</p>
+                  </div>
+                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>2 200 ₽</span>
                 </div>
-                <span className="font-display text-base md:text-lg font-light text-center" style={{ color: "var(--verve-gold)" }}>{row.price}</span>
-                <span className="font-body text-xs md:text-sm text-right" style={{ color: row.perClass ? "var(--verve-muted)" : "transparent" }}>{row.perClass || "—"}</span>
+                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "#fff" }}>
+                  <div>
+                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-dark)" }}>Сплит для двоих</p>
+                    <p className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>Тренировка на двоих</p>
+                  </div>
+                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
+                </div>
               </div>
-            ))}
-            {/* Для двоих */}
-            <div
-              className="px-6 py-5 flex items-center justify-between rounded-xl"
-              style={{ background: "var(--verve-dark-3)", borderTop: "1px solid rgba(184,92,69,0.2)" }}
-            >
-              <div>
-                <p className="font-body text-xs tracking-widest uppercase mb-1" style={{ color: "var(--verve-gold)" }}>Для двоих</p>
-                <p className="font-body text-sm" style={{ color: "var(--verve-cream)" }}>Сплит занятие</p>
-              </div>
-              <span className="font-display text-2xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
             </div>
           </div>
 
-          <div className="mt-8 text-center reveal-section">
+          {/* ИНДИВИДУАЛЬНО */}
+          <div className="reveal-section mb-8">
+            <div className="rounded-2xl p-6 md:p-8" style={{ background: "rgba(0,0,0,0.05)" }}>
+              <div className="flex items-baseline gap-3 mb-5">
+                <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase" style={{ color: "var(--verve-dark)" }}>Индивидуально</h3>
+                <span className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>Вы и тренер · программа под ваше тело и осанку</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+                {SOLO_PRICES.map((row) => (
+                  <div
+                    key={row.name}
+                    className="relative rounded-2xl p-5"
+                    style={{
+                      background: row.badge === "hit" ? "var(--verve-gold)" : "#fff",
+                      border: row.badge === "best" ? "2px solid var(--verve-gold)" : "none",
+                    }}
+                  >
+                    {row.badge === "hit" && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full font-body text-xs font-bold tracking-widest uppercase" style={{ background: "var(--verve-dark)", color: "#fff" }}>
+                        Хит продаж
+                      </div>
+                    )}
+                    {row.badge === "best" && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full font-body text-xs font-bold tracking-widest uppercase" style={{ border: "1.5px solid var(--verve-gold)", background: "#fff", color: "var(--verve-dark)" }}>
+                        Лучшая цена
+                      </div>
+                    )}
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="font-body font-bold text-sm" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-dark)" }}>{row.name}</span>
+                      <span className="font-body text-xs px-2 py-0.5 rounded-full" style={{ background: row.badge === "hit" ? "rgba(255,255,255,0.2)" : "rgba(184,92,69,0.12)", color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>
+                        {row.gift} в подарок
+                      </span>
+                    </div>
+                    <div className="font-display text-3xl md:text-4xl font-light mb-2" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>{row.price}</div>
+                    <div className="font-body text-xs" style={{ color: row.badge === "hit" ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.45)" }}>
+                      {row.perClass} / занятие · {row.totalClasses} тренировок
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "#fff" }}>
+                  <div>
+                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-dark)" }}>Разовое занятие</p>
+                    <p className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>Без абонемента</p>
+                  </div>
+                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>3 300 ₽</span>
+                </div>
+                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "#fff" }}>
+                  <div>
+                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-dark)" }}>Сплит для двоих</p>
+                    <p className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>Тренировка на двоих</p>
+                  </div>
+                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* БОНУСНЫЙ БАННЕР */}
+          <div className="reveal-section rounded-2xl px-6 py-5 md:px-10 md:py-6 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-8" style={{ background: "var(--verve-gold)" }}>
+            <div className="shrink-0 text-center sm:text-left">
+              <p className="font-display text-2xl md:text-3xl font-light" style={{ color: "#fff" }}>+1 000 ₽</p>
+              <p className="font-body font-bold text-xs tracking-[0.2em] uppercase" style={{ color: "#fff" }}>бонусами</p>
+            </div>
+            <div className="w-px self-stretch hidden sm:block" style={{ background: "rgba(255,255,255,0.3)" }} />
+            <p className="font-body text-sm leading-relaxed text-center sm:text-left" style={{ color: "rgba(255,255,255,0.9)" }}>
+              Дарим <strong style={{ color: "#fff" }}>1 000 бонусных рублей</strong> на следующий абонемент,
+              если покупаете в день пробного занятия или продлеваете действующий абонемент.
+            </p>
+          </div>
+
+          <div className="text-center reveal-section">
             <a
               href="https://apps.apple.com/ru/app/verve-пилатес-на-реформерах/id6758667943"
               target="_blank"
