@@ -612,75 +612,59 @@ export default function Index() {
         </div>
       </section>
 
-      {/* PROMO BANNER */}
-      <section id="promo" className="px-4 md:px-6 py-0">
-        <div className="max-w-7xl mx-auto reveal-section relative overflow-hidden rounded-sm" style={{ background: "var(--verve-dark)" }}>
-          {/* Декоративная линия сверху */}
-          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, var(--verve-gold), transparent)" }} />
-          {/* Фоновый паттерн */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "repeating-linear-gradient(45deg, var(--verve-gold) 0px, transparent 1px, transparent 60px)", backgroundSize: "85px 85px" }} />
-          {/* Золотое свечение справа */}
-          <div className="absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none" style={{ background: "radial-gradient(ellipse at 80% 50%, rgba(184,92,69,0.12) 0%, transparent 70%)" }} />
-
-          <div className="relative px-4 py-10 sm:px-8 sm:py-12 md:px-16 md:py-16">
-            {/* Верхняя строка */}
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10">
-              <div className="md:max-w-xl">
-                <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-xl" style={{ background: "rgba(184,92,69,0.12)", border: "1px solid rgba(184,92,69,0.3)" }}>
-                  <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ background: "var(--verve-gold)" }} />
-                  <span className="font-body text-xs tracking-[0.3em] uppercase" style={{ color: "var(--verve-gold)" }}>Только сейчас</span>
-                </div>
-                <h3 className="font-display font-light leading-[0.9] mb-4" style={{ fontSize: "clamp(2rem, 7vw, 5rem)", color: "var(--verve-cream)" }}>
-                  Твоё тело<br />
-                  <em className="italic" style={{ color: "var(--verve-gold)" }}>заслуживает</em><br />
-                  попробовать
-                </h3>
-                <p className="font-body font-light text-sm sm:text-base leading-relaxed" style={{ color: "rgba(28,20,16,0.6)" }}>
-                  Первая тренировка — по цене кофе с собой. Без абонемента, без обязательств. Просто приходи и почувствуй.
-                </p>
-              </div>
-
-              {/* Правая колонка — цены + кнопки */}
-              <div className="w-full md:w-80 shrink-0">
-                <div className="flex flex-col gap-3">
-                  <a
-                    href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-xl"
-                    style={{ background: "var(--verve-gold)", textDecoration: "none" }}
-                  >
-                    <div>
-                      <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(255,255,255,0.75)" }}>Мини-группа</p>
-                      <p className="font-display text-lg md:text-2xl font-light flex items-baseline gap-2" style={{ color: "#fff" }}>1 000 ₽<span className="font-body text-sm font-normal" style={{ textDecoration: "line-through", opacity: 0.6 }}>2 200 ₽</span></p>
-                    </div>
-                    <div className="flex items-center gap-1.5 font-body text-sm font-medium shrink-0" style={{ color: "#fff" }}>
-                      Записаться
-                      <Icon name="ArrowRight" size={15} />
-                    </div>
-                  </a>
-                  <a
-                    href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20индивидуальную%20тренировку%20за%201500р"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-xl"
-                    style={{ background: "rgba(184,92,69,0.08)", border: "1px solid rgba(184,92,69,0.3)", textDecoration: "none" }}
-                  >
-                    <div>
-                      <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(28,20,16,0.55)" }}>Индивидуально</p>
-                      <p className="font-display text-lg md:text-2xl font-light flex items-baseline gap-2" style={{ color: "var(--verve-cream)" }}>1 500 ₽<span className="font-body text-sm font-normal" style={{ textDecoration: "line-through", opacity: 0.6, color: "var(--verve-muted)" }}>3 300 ₽</span></p>
-                    </div>
-                    <div className="flex items-center gap-1.5 font-body text-sm font-medium shrink-0" style={{ color: "var(--verve-gold)" }}>
-                      Записаться
-                      <Icon name="ArrowRight" size={15} />
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
+      {/* TRAININGS */}
+      <section id="training" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="reveal-section mb-10 md:mb-16">
+            <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Форматы тренировок</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
+              Выберите свой<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>формат</em>
+            </h2>
           </div>
-          {/* Декоративная линия снизу */}
-          <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, var(--verve-gold), transparent)" }} />
+          <div className="grid md:grid-cols-2 gap-6 reveal-section">
+            {TRAININGS.map((t) => (
+              <div
+                key={t.type}
+                className="relative p-5 sm:p-8 md:p-10 overflow-hidden card-hover rounded-xl"
+                style={{
+                  background: t.accent ? "transparent" : "var(--verve-dark-3)",
+                  border: t.accent ? "1px solid var(--verve-gold)" : "1px solid rgba(184,92,69,0.15)",
+                  boxShadow: t.accent ? "inset 0 0 80px rgba(184,92,69,0.05)" : "none",
+                }}
+              >
+                {t.accent && (
+                  <div className="absolute top-5 right-5 font-body text-xs tracking-widest uppercase px-2 py-1 rounded-lg" style={{ background: "var(--verve-gold)", color: "#fff" }}>
+                    Топ
+                  </div>
+                )}
+                <p className="font-body text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--verve-gold)" }}>{t.subtitle}</p>
+                <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-light mb-4 md:mb-6" style={{ color: "var(--verve-cream)" }}>{t.type}</h3>
+                <div className="gold-line mb-6" />
+                <div className="mb-2">
+                  <span className="font-display text-2xl sm:text-3xl font-light" style={{ color: "var(--verve-gold)" }}>{t.price}</span>
+                  {t.oldPrice && <span className="font-body text-sm ml-2" style={{ textDecoration: "line-through", color: "var(--verve-muted)", opacity: 0.6 }}>{t.oldPrice}</span>}
+                  <span className="font-body text-xs ml-2" style={{ color: "var(--verve-muted)" }}>/ {t.priceLabel}</span>
+                </div>
+                <p className="font-body text-xs mb-6" style={{ color: "var(--verve-muted)" }}>Специальная цена для первого визита</p>
+                <ul className="space-y-3 mb-8">
+                  {t.features.map((f) => (
+                    <li key={f} className="flex items-center gap-3 font-body text-sm" style={{ color: "rgba(28,20,16,0.7)" }}>
+                      <span style={{ color: "var(--verve-gold)" }}>—</span> {f}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={t.btnHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="verve-btn-primary w-full flex items-center justify-center rounded-xl"
+                  style={{ textDecoration: "none" }}
+                >
+                  {t.btnLabel}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -849,62 +833,6 @@ export default function Index() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 reveal-section">
             {TRAINERS.map((tr) => (
               <TrainerCard key={tr.name} tr={tr} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TRAININGS */}
-      <section id="training" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="reveal-section mb-10 md:mb-16">
-            <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Форматы тренировок</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
-              Выберите свой<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>формат</em>
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6 reveal-section">
-            {TRAININGS.map((t) => (
-              <div
-                key={t.type}
-                className="relative p-5 sm:p-8 md:p-10 overflow-hidden card-hover rounded-xl"
-                style={{
-                  background: t.accent ? "transparent" : "var(--verve-dark-3)",
-                  border: t.accent ? "1px solid var(--verve-gold)" : "1px solid rgba(184,92,69,0.15)",
-                  boxShadow: t.accent ? "inset 0 0 80px rgba(184,92,69,0.05)" : "none",
-                }}
-              >
-                {t.accent && (
-                  <div className="absolute top-5 right-5 font-body text-xs tracking-widest uppercase px-2 py-1 rounded-lg" style={{ background: "var(--verve-gold)", color: "#fff" }}>
-                    Топ
-                  </div>
-                )}
-                <p className="font-body text-xs tracking-[0.3em] uppercase mb-3" style={{ color: "var(--verve-gold)" }}>{t.subtitle}</p>
-                <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-light mb-4 md:mb-6" style={{ color: "var(--verve-cream)" }}>{t.type}</h3>
-                <div className="gold-line mb-6" />
-                <div className="mb-2">
-                  <span className="font-display text-2xl sm:text-3xl font-light" style={{ color: "var(--verve-gold)" }}>{t.price}</span>
-                  {t.oldPrice && <span className="font-body text-sm ml-2" style={{ textDecoration: "line-through", color: "var(--verve-muted)", opacity: 0.6 }}>{t.oldPrice}</span>}
-                  <span className="font-body text-xs ml-2" style={{ color: "var(--verve-muted)" }}>/ {t.priceLabel}</span>
-                </div>
-                <p className="font-body text-xs mb-6" style={{ color: "var(--verve-muted)" }}>Специальная цена для первого визита</p>
-                <ul className="space-y-3 mb-8">
-                  {t.features.map((f) => (
-                    <li key={f} className="flex items-center gap-3 font-body text-sm" style={{ color: "rgba(28,20,16,0.7)" }}>
-                      <span style={{ color: "var(--verve-gold)" }}>—</span> {f}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={t.btnHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="verve-btn-primary w-full flex items-center justify-center rounded-xl"
-                  style={{ textDecoration: "none" }}
-                >
-                  {t.btnLabel}
-                </a>
-              </div>
             ))}
           </div>
         </div>
