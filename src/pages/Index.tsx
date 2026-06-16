@@ -392,7 +392,7 @@ export default function Index() {
       </nav>
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-end pb-20 pt-24 overflow-hidden">
+      <section className="relative min-h-screen flex items-end pb-40 pt-24 overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_IMAGE})` }} />
         <div
           className="absolute inset-0"
