@@ -486,12 +486,12 @@ export default function Index() {
                 <p className="font-body font-medium text-xs tracking-[0.3em] uppercase" style={{ color: highlight ? "var(--verve-gold)" : "var(--verve-muted)" }}>{title}</p>
                 <ul className="flex flex-col gap-2">
                   {pros?.map((p) => (
-                    <li key={p} className="flex items-start gap-2 font-body text-sm text-zinc-900" style={{ color: highlight ? "var(--verve-cream)" : "rgba(255,255,255,0.5)" }}>
+                    <li key={p} className="flex items-start gap-2 font-body text-sm" style={{ color: highlight ? "var(--verve-cream)" : "rgba(0,0,0,0.7)" }}>
                       <span style={{ color: "var(--verve-gold)", marginTop: "1px", flexShrink: 0 }}>✓</span>{p}
                     </li>
                   ))}
                   {cons?.map((c) => (
-                    <li key={c} className="flex items-start gap-2 font-body text-sm text-zinc-900" style={{ color: "rgba(255,255,255,0.25)" }}>
+                    <li key={c} className="flex items-start gap-2 font-body text-sm" style={{ color: "rgba(0,0,0,0.35)" }}>
                       <span style={{ marginTop: "1px", flexShrink: 0 }}>—</span>{c}
                     </li>
                   ))}
