@@ -106,13 +106,13 @@ function AtmosphereVideoCarousel() {
   }, [current]);
 
   return (
-    <div className="sm:col-span-2 relative overflow-hidden rounded-xl" style={{ minHeight: "240px", maxHeight: "520px", border: "1px solid rgba(184,92,69,0.12)" }}>
+    <div className="sm:col-span-2 relative overflow-hidden rounded-xl" style={{ minHeight: "420px", maxHeight: "520px", border: "1px solid rgba(184,92,69,0.12)" }}>
       <video
         ref={videoRef}
         key={ATMOSPHERE_VIDEOS[current]}
         src={ATMOSPHERE_VIDEOS[current]}
         className="w-full h-full object-cover"
-        style={{ minHeight: "320px", maxHeight: "520px" }}
+        style={{ minHeight: "420px", maxHeight: "520px" }}
         autoPlay
         muted
         loop
