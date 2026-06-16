@@ -417,9 +417,10 @@ export default function Index() {
             Восстановление осанки и глубокого кора через работу на реформере.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-up" style={{ animationDelay: "0.55s", opacity: 0, animationFillMode: "forwards" }}>
-            <button className="verve-btn-primary flex items-center justify-center gap-3 rounded-xl" onClick={() => scrollTo("#promo")} className="verve-btn-primary flex items-center justify-center gap-3">
+            <button className="verve-btn-primary flex items-center justify-center gap-3 rounded-xl" onClick={() => scrollTo("#promo")}>
               <Icon name="Gift" size={16} />
-              Дарим пробную тренировку
+              Пробная тренировка 1000р
+              <span style={{ textDecoration: "line-through", opacity: 0.6, fontWeight: 400, fontSize: "0.85em" }}>2200р</span>
             </button>
           </div>
 
