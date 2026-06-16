@@ -636,7 +636,7 @@ export default function Index() {
                   >
                     <div>
                       <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(255,255,255,0.75)" }}>Мини-группа</p>
-                      <p className="font-display text-lg md:text-2xl font-light" style={{ color: "#fff" }}>1 000 ₽</p>
+                      <p className="font-display text-lg md:text-2xl font-light flex items-baseline gap-2" style={{ color: "#fff" }}>1 000 ₽<span className="font-body text-sm font-normal" style={{ textDecoration: "line-through", opacity: 0.6 }}>2 200 ₽</span></p>
                     </div>
                     <div className="flex items-center gap-1.5 font-body text-sm font-medium shrink-0" style={{ color: "#fff" }}>
                       Записаться
@@ -652,7 +652,7 @@ export default function Index() {
                   >
                     <div>
                       <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(28,20,16,0.55)" }}>Индивидуально</p>
-                      <p className="font-display text-lg md:text-2xl font-light" style={{ color: "var(--verve-cream)" }}>1 500 ₽</p>
+                      <p className="font-display text-lg md:text-2xl font-light flex items-baseline gap-2" style={{ color: "var(--verve-cream)" }}>1 500 ₽<span className="font-body text-sm font-normal" style={{ textDecoration: "line-through", opacity: 0.6, color: "var(--verve-muted)" }}>3 300 ₽</span></p>
                     </div>
                     <div className="flex items-center gap-1.5 font-body text-sm font-medium shrink-0" style={{ color: "var(--verve-gold)" }}>
                       Записаться
@@ -962,9 +962,9 @@ export default function Index() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6 mt-8 md:mt-12">
             {[
-              { price: "1 000 ₽", label: "пробная в группе", href: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р" },
-              { price: "1 500 ₽", label: "пробная индивидуальная", href: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20индивидуальную%20тренировку%20за%201500р" },
-            ].map(({ price, label, href }) => (
+              { price: "1 000 ₽", oldPrice: "2 200 ₽", label: "пробная в группе", href: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р" },
+              { price: "1 500 ₽", oldPrice: "3 300 ₽", label: "пробная индивидуальная", href: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20индивидуальную%20тренировку%20за%201500р" },
+            ].map(({ price, oldPrice, label, href }) => (
               <a
                 key={label}
                 href={href}
@@ -973,7 +973,10 @@ export default function Index() {
                 className="p-4 md:p-6 card-hover block rounded-xl"
                 style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.15)", textDecoration: "none" }}
               >
-                <div className="font-display text-xl md:text-3xl font-light mb-1" style={{ color: "var(--verve-gold)" }}>{price}</div>
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="font-display text-xl md:text-3xl font-light" style={{ color: "var(--verve-gold)" }}>{price}</span>
+                  <span className="font-body text-sm" style={{ textDecoration: "line-through", color: "var(--verve-muted)", opacity: 0.6 }}>{oldPrice}</span>
+                </div>
                 <p className="font-body text-xs tracking-wider uppercase" style={{ color: "var(--verve-muted)" }}>{label}</p>
               </a>
             ))}
