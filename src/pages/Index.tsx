@@ -449,61 +449,6 @@ export default function Index() {
         </div>
       </div>
 
-      {/* WHY REFORMER */}
-      <section className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="reveal-section mb-10 md:mb-16">
-            <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Почему реформер</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
-              Лучше, чем<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>другие направления?</em>
-            </h2>
-          </div>
-          <div className="reveal-section grid grid-cols-1 md:grid-cols-4 gap-4">
-            {[
-              {
-                title: "Реформер",
-                highlight: true,
-                pros: ["Работа с глубокими мышцами", "Коррекция осанки", "Безопасно при болях в спине", "Индивидуальная нагрузка", "Видимый результат за 5–8 занятий", "Эстетика и форма тела"],
-              },
-              {
-                title: "Йога",
-                highlight: false,
-                pros: ["Гибкость и растяжка", "Медитация и дыхание"],
-                cons: ["Нет силовой нагрузки", "Нет работы с осанкой", "Долгий путь к результату"],
-              },
-              {
-                title: "Стретчинг",
-                highlight: false,
-                pros: ["Улучшает гибкость"],
-                cons: ["Только растяжка", "Нет укрепления мышц", "Нет коррекции тела"],
-              },
-              {
-                title: "Фитнес / тренажёры",
-                highlight: false,
-                pros: ["Рост мышц", "Кардио-нагрузка"],
-                cons: ["Риск травм", "Нет работы с осанкой", "Не подходит при болях в спине"],
-              },
-            ].map(({ title, highlight, pros, cons }) => (
-              <div key={title} className="rounded-2xl p-6 flex flex-col gap-4" style={{ background: highlight ? "rgba(184,92,69,0.12)" : "var(--verve-dark-3)", border: highlight ? "1px solid rgba(184,92,69,0.4)" : "1px solid rgba(184,92,69,0.1)" }}>
-                <p className="font-body font-medium text-xs tracking-[0.3em] uppercase" style={{ color: highlight ? "var(--verve-gold)" : "var(--verve-muted)" }}>{title}</p>
-                <ul className="flex flex-col gap-2">
-                  {pros?.map((p) => (
-                    <li key={p} className="flex items-start gap-2 font-body text-sm" style={{ color: highlight ? "var(--verve-cream)" : "rgba(0,0,0,0.7)" }}>
-                      <span style={{ color: "var(--verve-gold)", marginTop: "1px", flexShrink: 0 }}>✓</span>{p}
-                    </li>
-                  ))}
-                  {cons?.map((c) => (
-                    <li key={c} className="flex items-start gap-2 font-body text-sm" style={{ color: "rgba(0,0,0,0.35)" }}>
-                      <span style={{ marginTop: "1px", flexShrink: 0 }}>—</span>{c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ATMOSPHERE */}
       <section id="atmosphere" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
         <div className="max-w-7xl mx-auto">
