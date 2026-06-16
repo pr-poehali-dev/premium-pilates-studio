@@ -532,6 +532,78 @@ export default function Index() {
         </div>
       </section>
 
+      {/* PROMO BANNER */}
+      <section id="promo" className="px-4 md:px-6 py-0">
+        <div className="max-w-7xl mx-auto reveal-section relative overflow-hidden rounded-sm" style={{ background: "var(--verve-dark)" }}>
+          {/* Декоративная линия сверху */}
+          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, var(--verve-gold), transparent)" }} />
+          {/* Фоновый паттерн */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "repeating-linear-gradient(45deg, var(--verve-gold) 0px, transparent 1px, transparent 60px)", backgroundSize: "85px 85px" }} />
+          {/* Золотое свечение справа */}
+          <div className="absolute right-0 top-0 bottom-0 w-1/2 pointer-events-none" style={{ background: "radial-gradient(ellipse at 80% 50%, rgba(184,92,69,0.12) 0%, transparent 70%)" }} />
+
+          <div className="relative px-4 py-10 sm:px-8 sm:py-12 md:px-16 md:py-16">
+            {/* Верхняя строка */}
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10">
+              <div className="md:max-w-xl">
+                <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-xl" style={{ background: "rgba(184,92,69,0.12)", border: "1px solid rgba(184,92,69,0.3)" }}>
+                  <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ background: "var(--verve-gold)" }} />
+                  <span className="font-body text-xs tracking-[0.3em] uppercase" style={{ color: "var(--verve-gold)" }}>Только сейчас</span>
+                </div>
+                <h3 className="font-display font-light leading-[0.9] mb-4" style={{ fontSize: "clamp(2rem, 7vw, 5rem)", color: "var(--verve-cream)" }}>
+                  Твоё тело<br />
+                  <em className="italic" style={{ color: "var(--verve-gold)" }}>заслуживает</em><br />
+                  попробовать
+                </h3>
+                <p className="font-body font-light text-sm sm:text-base leading-relaxed" style={{ color: "rgba(28,20,16,0.6)" }}>
+                  Первая тренировка — по цене кофе с собой. Без абонемента, без обязательств. Просто приходи и почувствуй.
+                </p>
+              </div>
+
+              {/* Правая колонка — цены + кнопки */}
+              <div className="w-full md:w-80 shrink-0">
+                <div className="flex flex-col gap-3">
+                  <a
+                    href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-xl"
+                    style={{ background: "var(--verve-gold)", textDecoration: "none" }}
+                  >
+                    <div>
+                      <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(255,255,255,0.75)" }}>Мини-группа</p>
+                      <p className="font-display text-lg md:text-2xl font-light flex items-baseline gap-2" style={{ color: "#fff" }}>1 000 ₽<span className="font-body text-sm font-normal" style={{ textDecoration: "line-through", opacity: 0.6 }}>2 200 ₽</span></p>
+                    </div>
+                    <div className="flex items-center gap-1.5 font-body text-sm font-medium shrink-0" style={{ color: "#fff" }}>
+                      Записаться
+                      <Icon name="ArrowRight" size={15} />
+                    </div>
+                  </a>
+                  <a
+                    href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20индивидуальную%20тренировку%20за%201500р"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-xl"
+                    style={{ background: "rgba(184,92,69,0.08)", border: "1px solid rgba(184,92,69,0.3)", textDecoration: "none" }}
+                  >
+                    <div>
+                      <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(28,20,16,0.55)" }}>Индивидуально</p>
+                      <p className="font-display text-lg md:text-2xl font-light flex items-baseline gap-2" style={{ color: "var(--verve-cream)" }}>1 500 ₽<span className="font-body text-sm font-normal" style={{ textDecoration: "line-through", opacity: 0.6, color: "var(--verve-muted)" }}>3 300 ₽</span></p>
+                    </div>
+                    <div className="flex items-center gap-1.5 font-body text-sm font-medium shrink-0" style={{ color: "var(--verve-gold)" }}>
+                      Записаться
+                      <Icon name="ArrowRight" size={15} />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* Декоративная линия снизу */}
+          <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, var(--verve-gold), transparent)" }} />
+        </div>
+      </section>
+
       {/* ABOUT */}
       <section id="about" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
         <div className="max-w-7xl mx-auto">
