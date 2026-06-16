@@ -449,6 +449,33 @@ export default function Index() {
         </div>
       </div>
 
+      {/* REFORMER WORKS */}
+      <section id="reformer" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="reveal-section text-center mb-10 md:mb-16">
+            <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Пилатес на реформерах</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
+              С чем работает<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>реформер</em>
+            </h2>
+          </div>
+          <div className="gold-line mb-16 reveal-section" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px reveal-section" style={{ background: "rgba(184,92,69,0.15)" }}>
+            {REFORMER_WORKS.map((item) => (
+              <div
+                key={item.title}
+                className="flex flex-col items-center justify-center py-5 md:py-8 px-2 md:px-4 text-center transition-all duration-300"
+                style={{ background: "var(--verve-dark)" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--verve-dark-3)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--verve-dark)"; }}
+              >
+                <div className="mb-4" style={{ color: "var(--verve-gold)" }}><Icon name={item.icon} size={24} fallback="Circle" /></div>
+                <span className="font-body text-xs md:text-sm font-medium leading-tight" style={{ color: "var(--verve-cream)" }}>{item.title}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ATMOSPHERE */}
       <section id="atmosphere" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
         <div className="max-w-7xl mx-auto">
@@ -581,33 +608,6 @@ export default function Index() {
                 );
               })}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* REFORMER WORKS */}
-      <section id="reformer" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="reveal-section text-center mb-10 md:mb-16">
-            <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Пилатес на реформерах</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
-              С чем работает<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>реформер</em>
-            </h2>
-          </div>
-          <div className="gold-line mb-16 reveal-section" />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px reveal-section" style={{ background: "rgba(184,92,69,0.15)" }}>
-            {REFORMER_WORKS.map((item) => (
-              <div
-                key={item.title}
-                className="flex flex-col items-center justify-center py-5 md:py-8 px-2 md:px-4 text-center transition-all duration-300"
-                style={{ background: "var(--verve-dark)" }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--verve-dark-3)"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "var(--verve-dark)"; }}
-              >
-                <div className="mb-4" style={{ color: "var(--verve-gold)" }}><Icon name={item.icon} size={24} fallback="Circle" /></div>
-                <span className="font-body text-xs md:text-sm font-medium leading-tight" style={{ color: "var(--verve-cream)" }}>{item.title}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
