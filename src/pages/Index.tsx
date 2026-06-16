@@ -668,6 +668,23 @@ export default function Index() {
         </div>
       </section>
 
+      {/* TRAINERS */}
+      <section id="trainers" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="reveal-section text-center mb-10 md:mb-16">
+            <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Наша команда</p>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
+              Сертифицированные<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>тренеры</em>
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 reveal-section">
+            {TRAINERS.map((tr) => (
+              <TrainerCard key={tr.name} tr={tr} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PRICING */}
       <section id="pricing" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-cream)" }}>
         <div className="max-w-5xl mx-auto">
@@ -817,23 +834,6 @@ export default function Index() {
               <Icon name="CreditCard" size={16} />
               Купить абонемент
             </button>
-          </div>
-        </div>
-      </section>
-
-      {/* TRAINERS */}
-      <section id="trainers" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark-2)" }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="reveal-section text-center mb-10 md:mb-16">
-            <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Наша команда</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight">
-              Сертифицированные<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>тренеры</em>
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 reveal-section">
-            {TRAINERS.map((tr) => (
-              <TrainerCard key={tr.name} tr={tr} />
-            ))}
           </div>
         </div>
       </section>
