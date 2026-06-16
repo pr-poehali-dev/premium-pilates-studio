@@ -740,67 +740,68 @@ export default function Index() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
+      <section id="pricing" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-cream)" }}>
         <div className="max-w-5xl mx-auto">
           <div className="reveal-section text-center mb-10 md:mb-14">
             <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Абонементы</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-2" style={{ color: "var(--verve-cream)" }}>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-2" style={{ color: "var(--verve-dark)" }}>
               Меню<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>восстановления</em>
             </h2>
           </div>
 
           {/* В МИНИ-ГРУППЕ */}
           <div className="reveal-section mb-6">
-            <div className="rounded-2xl p-6 md:p-8" style={{ background: "rgba(0,0,0,0.05)" }}>
-              <div className="flex items-baseline gap-3 mb-5">
-                <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase" style={{ color: "var(--verve-dark)" }}>В мини-группе</h3>
-                <span className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>До 4 человек </span>
+            <div className="rounded-2xl p-6 md:p-8" style={{ background: "rgba(28,20,16,0.06)", border: "1px solid rgba(28,20,16,0.08)" }}>
+              <div className="flex items-baseline gap-3 mb-6">
+                <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase" style={{ color: "var(--verve-cream)" }}>В мини-группе</h3>
+                <span className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>До 4 человек · реформеры · внимание тренера каждому</span>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                 {GROUP_PRICES.map((row) => (
                   <div
                     key={row.name}
-                    className="relative rounded-2xl p-5"
+                    className="relative rounded-2xl p-5 pt-7"
                     style={{
-                      background: row.badge === "hit" ? "var(--verve-gold)" : "#fff",
-                      border: row.badge === "best" ? "2px solid var(--verve-gold)" : "none",
+                      background: row.badge === "hit" ? "var(--verve-gold)" : "var(--verve-dark)",
+                      border: row.badge === "best" ? "2px solid var(--verve-gold)" : row.badge === null ? "1px solid rgba(28,20,16,0.12)" : "none",
+                      boxShadow: row.badge === "hit" ? "0 8px 32px rgba(184,92,69,0.35)" : "0 2px 12px rgba(0,0,0,0.06)",
                     }}
                   >
                     {row.badge === "hit" && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full font-body text-xs font-bold tracking-widest uppercase" style={{ background: "var(--verve-dark)", color: "#fff" }}>
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 rounded-full font-body text-xs font-bold tracking-widest uppercase" style={{ background: "var(--verve-cream)", color: "var(--verve-dark)" }}>
                         Хит продаж
                       </div>
                     )}
                     {row.badge === "best" && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full font-body text-xs font-bold tracking-widest uppercase" style={{ border: "1.5px solid var(--verve-gold)", background: "#fff", color: "var(--verve-dark)" }}>
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 rounded-full font-body text-xs font-bold tracking-widest uppercase" style={{ background: "var(--verve-gold)", color: "#fff" }}>
                         Лучшая цена
                       </div>
                     )}
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="font-body font-bold text-sm" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-dark)" }}>{row.name}</span>
-                      <span className="font-body text-xs px-2 py-0.5 rounded-full" style={{ background: row.badge === "hit" ? "rgba(255,255,255,0.2)" : "rgba(184,92,69,0.12)", color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>
+                    <div className="flex items-center flex-wrap gap-2 mb-3">
+                      <span className="font-body font-bold text-sm" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-cream)" }}>{row.name}</span>
+                      <span className="font-body text-xs px-2 py-0.5 rounded-full" style={{ background: row.badge === "hit" ? "rgba(255,255,255,0.25)" : "rgba(184,92,69,0.15)", color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>
                         {row.gift} в подарок
                       </span>
                     </div>
                     <div className="font-display text-3xl md:text-4xl font-light mb-2" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>{row.price}</div>
-                    <div className="font-body text-xs" style={{ color: row.badge === "hit" ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.45)" }}>
+                    <div className="font-body text-xs" style={{ color: row.badge === "hit" ? "rgba(255,255,255,0.7)" : "var(--verve-muted)" }}>
                       {row.perClass} / занятие · {row.totalClasses} тренировок
                     </div>
                   </div>
                 ))}
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "#fff" }}>
+                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
                   <div>
-                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-dark)" }}>Разовое занятие</p>
-                    <p className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>Без абонемента</p>
+                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Разовое занятие</p>
+                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Без абонемента</p>
                   </div>
                   <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>2 200 ₽</span>
                 </div>
-                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "#fff" }}>
+                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
                   <div>
-                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-dark)" }}>Сплит для двоих</p>
-                    <p className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>Тренировка на двоих</p>
+                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Сплит для двоих</p>
+                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Тренировка на двоих</p>
                   </div>
                   <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
                 </div>
@@ -810,56 +811,57 @@ export default function Index() {
 
           {/* ИНДИВИДУАЛЬНО */}
           <div className="reveal-section mb-8">
-            <div className="rounded-2xl p-6 md:p-8" style={{ background: "rgba(0,0,0,0.05)" }}>
-              <div className="flex items-baseline gap-3 mb-5">
-                <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase" style={{ color: "var(--verve-dark)" }}>Индивидуально</h3>
-                <span className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>Вы и тренер</span>
+            <div className="rounded-2xl p-6 md:p-8" style={{ background: "rgba(28,20,16,0.06)", border: "1px solid rgba(28,20,16,0.08)" }}>
+              <div className="flex items-baseline gap-3 mb-6">
+                <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase" style={{ color: "var(--verve-cream)" }}>Индивидуально</h3>
+                <span className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>Вы и тренер · программа под ваше тело и осанку</span>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                 {SOLO_PRICES.map((row) => (
                   <div
                     key={row.name}
-                    className="relative rounded-2xl p-5"
+                    className="relative rounded-2xl p-5 pt-7"
                     style={{
-                      background: row.badge === "hit" ? "var(--verve-gold)" : "#fff",
-                      border: row.badge === "best" ? "2px solid var(--verve-gold)" : "none",
+                      background: row.badge === "hit" ? "var(--verve-gold)" : "var(--verve-dark)",
+                      border: row.badge === "best" ? "2px solid var(--verve-gold)" : row.badge === null ? "1px solid rgba(28,20,16,0.12)" : "none",
+                      boxShadow: row.badge === "hit" ? "0 8px 32px rgba(184,92,69,0.35)" : "0 2px 12px rgba(0,0,0,0.06)",
                     }}
                   >
                     {row.badge === "hit" && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full font-body text-xs font-bold tracking-widest uppercase" style={{ background: "var(--verve-dark)", color: "#fff" }}>
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 rounded-full font-body text-xs font-bold tracking-widest uppercase" style={{ background: "var(--verve-cream)", color: "var(--verve-dark)" }}>
                         Хит продаж
                       </div>
                     )}
                     {row.badge === "best" && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full font-body text-xs font-bold tracking-widest uppercase" style={{ border: "1.5px solid var(--verve-gold)", background: "#fff", color: "var(--verve-dark)" }}>
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 rounded-full font-body text-xs font-bold tracking-widest uppercase" style={{ background: "var(--verve-gold)", color: "#fff" }}>
                         Лучшая цена
                       </div>
                     )}
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="font-body font-bold text-sm" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-dark)" }}>{row.name}</span>
-                      <span className="font-body text-xs px-2 py-0.5 rounded-full" style={{ background: row.badge === "hit" ? "rgba(255,255,255,0.2)" : "rgba(184,92,69,0.12)", color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>
+                    <div className="flex items-center flex-wrap gap-2 mb-3">
+                      <span className="font-body font-bold text-sm" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-cream)" }}>{row.name}</span>
+                      <span className="font-body text-xs px-2 py-0.5 rounded-full" style={{ background: row.badge === "hit" ? "rgba(255,255,255,0.25)" : "rgba(184,92,69,0.15)", color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>
                         {row.gift} в подарок
                       </span>
                     </div>
                     <div className="font-display text-3xl md:text-4xl font-light mb-2" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>{row.price}</div>
-                    <div className="font-body text-xs" style={{ color: row.badge === "hit" ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.45)" }}>
+                    <div className="font-body text-xs" style={{ color: row.badge === "hit" ? "rgba(255,255,255,0.7)" : "var(--verve-muted)" }}>
                       {row.perClass} / занятие · {row.totalClasses} тренировок
                     </div>
                   </div>
                 ))}
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "#fff" }}>
+                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
                   <div>
-                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-dark)" }}>Разовое занятие</p>
-                    <p className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>Без абонемента</p>
+                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Разовое занятие</p>
+                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Без абонемента</p>
                   </div>
                   <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>3 300 ₽</span>
                 </div>
-                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "#fff" }}>
+                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
                   <div>
-                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-dark)" }}>Сплит для двоих</p>
-                    <p className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>Тренировка на двоих</p>
+                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Сплит для двоих</p>
+                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Тренировка на двоих</p>
                   </div>
                   <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
                 </div>
