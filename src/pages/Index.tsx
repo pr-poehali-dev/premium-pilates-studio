@@ -699,8 +699,8 @@ export default function Index() {
           <div className="reveal-section mb-6">
             <div className="rounded-2xl p-6 md:p-8" style={{ background: "rgba(28,20,16,0.06)", border: "1px solid rgba(28,20,16,0.08)" }}>
               <div className="flex items-baseline gap-3 mb-6">
-                <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase" style={{ color: "var(--verve-cream)" }}>В мини-группе</h3>
-                <span className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>До 4 человек · реформеры · внимание тренера каждому</span>
+                <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase text-[#7a6a58]" style={{ color: "var(--verve-cream)" }}>В мини-группе</h3>
+                <span className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>До 4 человек</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                 {GROUP_PRICES.map((row) => (
@@ -759,8 +759,8 @@ export default function Index() {
           <div className="reveal-section mb-8">
             <div className="rounded-2xl p-6 md:p-8" style={{ background: "rgba(28,20,16,0.06)", border: "1px solid rgba(28,20,16,0.08)" }}>
               <div className="flex items-baseline gap-3 mb-6">
-                <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase" style={{ color: "var(--verve-cream)" }}>Индивидуально</h3>
-                <span className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>Вы и тренер · программа под ваше тело и осанку</span>
+                <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase text-[#7a6a58]" style={{ color: "var(--verve-cream)" }}>Индивидуально</h3>
+                <span className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>Вы и тренер</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                 {SOLO_PRICES.map((row) => (
