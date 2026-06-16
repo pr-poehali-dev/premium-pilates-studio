@@ -813,7 +813,7 @@ export default function Index() {
             <div className="rounded-2xl p-6 md:p-8" style={{ background: "rgba(0,0,0,0.05)" }}>
               <div className="flex items-baseline gap-3 mb-5">
                 <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase" style={{ color: "var(--verve-dark)" }}>Индивидуально</h3>
-                <span className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>Вы и тренер · программа под ваше тело и осанку</span>
+                <span className="font-body text-xs" style={{ color: "rgba(0,0,0,0.4)" }}>Вы и тренер</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
                 {SOLO_PRICES.map((row) => (
