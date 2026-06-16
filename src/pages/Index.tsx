@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/f2d891b8-3b78-4383-8f8b-b3cda2893ba6.jpg";
-const HERO_IMAGE_MOBILE = "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/8377d439-59e4-4c57-9095-6372f6aea334.jpg";
 const PRICE_IMAGE = "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/9e154c6d-0a4a-4667-8ced-515f53e698c0.jpg";
 
 const NAV_LINKS = [
@@ -394,8 +393,7 @@ export default function Index() {
 
       {/* HERO */}
       <section className="relative min-h-screen flex items-end pb-20 pt-24 overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-top sm:hidden" style={{ backgroundImage: `url(${HERO_IMAGE_MOBILE})` }} />
-        <div className="absolute inset-0 bg-cover bg-center hidden sm:block" style={{ backgroundImage: `url(${HERO_IMAGE})` }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_IMAGE})` }} />
         <div
           className="absolute inset-0"
           style={{ background: "linear-gradient(to bottom, rgba(15,13,10,0.3) 0%, rgba(15,13,10,0.65) 50%, rgba(15,13,10,0.95) 100%)" }}
