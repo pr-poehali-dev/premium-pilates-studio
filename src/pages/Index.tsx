@@ -312,6 +312,9 @@ export default function Index() {
   const [scrolled, setScrolled] = useState(false);
   const [priceTab, setPriceTab] = useState<"group" | "solo">("group");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [buyModal, setBuyModal] = useState(false);
+  const [buyForm, setBuyForm] = useState({ name: "", phone: "" });
+  const [buyDone, setBuyDone] = useState(false);
   useReveal();
 
   useEffect(() => {
@@ -737,11 +740,11 @@ export default function Index() {
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-cream)" }}>
+      <section id="pricing" className="py-16 md:py-28 px-4 md:px-6" style={{ background: "var(--verve-dark)" }}>
         <div className="max-w-5xl mx-auto">
           <div className="reveal-section text-center mb-10 md:mb-14">
             <p className="font-body text-xs tracking-[0.4em] uppercase mb-5" style={{ color: "var(--verve-gold)" }}>Абонементы</p>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-2" style={{ color: "var(--verve-dark)" }}>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-2" style={{ color: "var(--verve-cream)" }}>
               Меню<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>восстановления</em>
             </h2>
           </div>
@@ -878,16 +881,13 @@ export default function Index() {
           </div>
 
           <div className="text-center reveal-section">
-            <a
-              href="https://apps.apple.com/ru/app/verve-пилатес-на-реформерах/id6758667943"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
               className="verve-btn-primary inline-flex items-center gap-3 text-xs rounded-xl"
-              style={{ textDecoration: "none" }}
+              onClick={() => setBuyModal(true)}
             >
-              <Icon name="Smartphone" size={16} />
-              Купить абонемент в приложении
-            </a>
+              <Icon name="CreditCard" size={16} />
+              Купить абонемент
+            </button>
           </div>
         </div>
       </section>
@@ -1194,6 +1194,73 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      {/* BUY MODAL */}
+      {buyModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(6px)" }}
+          onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "" }); }}
+        >
+          <div
+            className="w-full max-w-md rounded-2xl p-8 relative"
+            style={{ background: "var(--verve-dark)" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "" }); }}
+              className="absolute top-4 right-4 flex items-center justify-center rounded-full"
+              style={{ width: 32, height: 32, background: "rgba(0,0,0,0.08)", color: "var(--verve-cream)" }}
+            >
+              <Icon name="X" size={16} />
+            </button>
+
+            {buyDone ? (
+              <div className="text-center py-6">
+                <div className="mb-4" style={{ color: "var(--verve-gold)" }}><Icon name="CheckCircle" size={48} fallback="Check" /></div>
+                <h3 className="font-display text-2xl font-light mb-2" style={{ color: "var(--verve-cream)" }}>Заявка отправлена!</h3>
+                <p className="font-body text-sm" style={{ color: "var(--verve-muted)" }}>Мы свяжемся с вами в ближайшее время</p>
+              </div>
+            ) : (
+              <>
+                <p className="font-body text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "var(--verve-gold)" }}>Абонемент</p>
+                <h3 className="font-display text-2xl md:text-3xl font-light mb-6" style={{ color: "var(--verve-cream)" }}>Оставьте контакт — мы всё расскажем</h3>
+                <div className="flex flex-col gap-3">
+                  <input
+                    type="text"
+                    placeholder="Ваше имя"
+                    value={buyForm.name}
+                    onChange={(e) => setBuyForm((f) => ({ ...f, name: e.target.value }))}
+                    className="w-full px-4 py-3 rounded-xl font-body text-sm outline-none"
+                    style={{ background: "var(--verve-dark-2)", border: "1px solid rgba(184,92,69,0.2)", color: "var(--verve-cream)" }}
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Номер телефона"
+                    value={buyForm.phone}
+                    onChange={(e) => setBuyForm((f) => ({ ...f, phone: e.target.value }))}
+                    className="w-full px-4 py-3 rounded-xl font-body text-sm outline-none"
+                    style={{ background: "var(--verve-dark-2)", border: "1px solid rgba(184,92,69,0.2)", color: "var(--verve-cream)" }}
+                  />
+                  <button
+                    className="verve-btn-primary w-full rounded-xl mt-2"
+                    disabled={!buyForm.name || !buyForm.phone}
+                    onClick={() => {
+                      if (!buyForm.name || !buyForm.phone) return;
+                      const text = encodeURIComponent(`🤎 Заявка на абонемент\nИмя: ${buyForm.name}\nТелефон: ${buyForm.phone}`);
+                      window.open(`https://t.me/verve_pilates?text=${text}`, "_blank");
+                      setBuyDone(true);
+                    }}
+                    style={{ opacity: !buyForm.name || !buyForm.phone ? 0.5 : 1 }}
+                  >
+                    Отправить заявку
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
