@@ -966,13 +966,16 @@ export default function Index() {
               <Icon name="Smartphone" size={16} />
               Скачать приложение
             </a>
-            <button
-              onClick={() => openLead("Написать администратору (Booking)")}
+            <a
+              href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Расскажите%20подробнее%20о%20формате%20групповой%20и%20индивидуальной%20тренировки"
+              target="_blank"
+              rel="noopener noreferrer"
               className="verve-btn-outline flex items-center justify-center gap-3 rounded-xl"
+              style={{ textDecoration: "none" }}
             >
               <Icon name="MessageCircle" size={16} />
               Написать администратору
-            </button>
+            </a>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6 mt-8 md:mt-12">
             {[
