@@ -3,6 +3,7 @@ import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/f2d891b8-3b78-4383-8f8b-b3cda2893ba6.jpg";
 const PRICE_IMAGE = "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/9e154c6d-0a4a-4667-8ced-515f53e698c0.jpg";
+const SUBMIT_LEAD_URL = "https://functions.poehali.dev/ac25a1db-d6fd-4176-835d-eecbeaacd850";
 
 const NAV_LINKS = [
   { label: "О студии", href: "#about" },
@@ -33,7 +34,7 @@ const TRAININGS = [
     features: ["Индивидуальный подход", "Атмосфера поддержки", "Общая мотивация", "Далее от 1 730 ₽"],
     accent: false,
     btnLabel: "Хочу на групповую!",
-    btnHref: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р",
+    source: "Групповая тренировка 1000р",
   },
   {
     type: "Индивидуально",
@@ -45,7 +46,7 @@ const TRAININGS = [
     features: ["100% фокус на вас", "Персональная программа", "Быстрый прогресс", "Далее от 2 590 ₽"],
     accent: true,
     btnLabel: "Хочу на индив!",
-    btnHref: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20индивидуальную%20тренировку%20за%201500р",
+    source: "Индивидуальная тренировка 1500р",
   },
 ];
 
@@ -314,6 +315,8 @@ export default function Index() {
   const [buyModal, setBuyModal] = useState(false);
   const [buyForm, setBuyForm] = useState({ name: "", phone: "" });
   const [buyDone, setBuyDone] = useState(false);
+  const [buySending, setBuySending] = useState(false);
+  const [leadSource, setLeadSource] = useState("");
   useReveal();
 
   useEffect(() => {
@@ -326,6 +329,27 @@ export default function Index() {
     setMenuOpen(false);
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const openLead = (source: string) => {
+    setLeadSource(source);
+    setBuyModal(true);
+  };
+
+  const submitLead = async () => {
+    if (!buyForm.name || !buyForm.phone) return;
+    setBuySending(true);
+    try {
+      await fetch(SUBMIT_LEAD_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: buyForm.name, phone: buyForm.phone, source: leadSource }),
+      });
+    } catch {
+      // отправка не критична для UX — заявку всё равно считаем принятой
+    }
+    setBuySending(false);
+    setBuyDone(true);
   };
 
   const prices = priceTab === "group" ? GROUP_PRICES : SOLO_PRICES;
@@ -417,7 +441,7 @@ export default function Index() {
             Восстановление осанки и глубокого кора через работу на реформере.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 animate-fade-up" style={{ animationDelay: "0.55s", opacity: 0, animationFillMode: "forwards" }}>
-            <button className="verve-btn-primary flex items-center justify-center gap-3 rounded-xl" onClick={() => scrollTo("#promo")}>
+            <button className="verve-btn-primary flex items-center justify-center gap-3 rounded-xl" onClick={() => openLead("Пробная тренировка 1000р (Hero)")}>
               <Icon name="Gift" size={16} />
               Пробная тренировка 1000р
               <span style={{ textDecoration: "line-through", opacity: 0.6, fontWeight: 400, fontSize: "0.85em" }}>2200р</span>
@@ -425,10 +449,10 @@ export default function Index() {
           </div>
 
           <div className="mt-10 md:mt-16 flex gap-5 md:gap-10 animate-fade-up" style={{ animationDelay: "0.7s", opacity: 0, animationFillMode: "forwards" }}>
-            <a href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+            <button onClick={() => openLead("Мини-группа (Hero статистика)")} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}>
               <div className="font-display text-lg md:text-2xl font-light" style={{ color: "var(--verve-gold)" }}>4 человека</div>
               <div className="font-body text-xs tracking-wider uppercase mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>мини-группы</div>
-            </a>
+            </button>
             <div>
               <div className="font-display text-lg md:text-2xl font-light" style={{ color: "var(--verve-gold)" }}>вы и тренер</div>
               <div className="font-body text-xs tracking-wider uppercase mt-1" style={{ color: "rgba(255,255,255,0.6)" }}>индивидуальные</div>
@@ -533,12 +557,10 @@ export default function Index() {
               {/* Правая колонка — цены + кнопки */}
               <div className="w-full md:w-80 shrink-0">
                 <div className="flex flex-col gap-3">
-                  <a
-                    href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => openLead("Мини-группа 1000р (Promo)")}
                     className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-xl"
-                    style={{ background: "var(--verve-gold)", textDecoration: "none" }}
+                    style={{ background: "var(--verve-gold)", border: "none", cursor: "pointer", width: "100%" }}
                   >
                     <div>
                       <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(255,255,255,0.75)" }}>Мини-группа</p>
@@ -548,13 +570,11 @@ export default function Index() {
                       Записаться
                       <Icon name="ArrowRight" size={15} />
                     </div>
-                  </a>
-                  <a
-                    href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20индивидуальную%20тренировку%20за%201500р"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  </button>
+                  <button
+                    onClick={() => openLead("Индивидуально 1500р (Promo)")}
                     className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-xl"
-                    style={{ background: "rgba(184,92,69,0.08)", border: "1px solid rgba(184,92,69,0.3)", textDecoration: "none" }}
+                    style={{ background: "rgba(184,92,69,0.08)", border: "1px solid rgba(184,92,69,0.3)", cursor: "pointer", width: "100%" }}
                   >
                     <div>
                       <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(28,20,16,0.55)" }}>Индивидуально</p>
@@ -564,7 +584,7 @@ export default function Index() {
                       Записаться
                       <Icon name="ArrowRight" size={15} />
                     </div>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -594,8 +614,8 @@ export default function Index() {
             <div className="reveal-section grid grid-cols-1 sm:grid-cols-2 gap-3">
               {BENEFITS.map((b) => {
                 const isGroup = b.title === "Мини-группы до 4 человек";
-                const Wrapper = isGroup ? "a" : "div";
-                const wrapperProps = isGroup ? { href: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р", target: "_blank", rel: "noopener noreferrer", style: { textDecoration: "none" } } : {};
+                const Wrapper = isGroup ? "button" : "div";
+                const wrapperProps = isGroup ? { onClick: () => openLead("Мини-группа (О студии)"), style: { textDecoration: "none", background: "none", border: "none", padding: 0, cursor: "pointer", width: "100%", textAlign: "left" as const } } : {};
                 return (
                   <Wrapper key={b.title} {...wrapperProps}>
                     <div className="card-hover p-3 sm:p-4 md:p-5 rounded-xl" style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)" }}>
@@ -652,15 +672,12 @@ export default function Index() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={t.btnHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => openLead(t.source)}
                   className="verve-btn-primary w-full flex items-center justify-center rounded-xl"
-                  style={{ textDecoration: "none" }}
                 >
                   {t.btnLabel}
-                </a>
+                </button>
               </div>
             ))}
           </div>
@@ -828,7 +845,7 @@ export default function Index() {
           <div className="text-center reveal-section">
             <button
               className="verve-btn-primary inline-flex items-center gap-3 text-xs rounded-xl"
-              onClick={() => setBuyModal(true)}
+              onClick={() => openLead("Купить абонемент (Прайсинг)")}
             >
               <Icon name="CreditCard" size={16} />
               Купить абонемент
@@ -949,36 +966,31 @@ export default function Index() {
               <Icon name="Smartphone" size={16} />
               Скачать приложение
             </a>
-            <a
-              href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20записаться%20на%20тренировку"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => openLead("Написать администратору (Booking)")}
               className="verve-btn-outline flex items-center justify-center gap-3 rounded-xl"
-              style={{ textDecoration: "none" }}
             >
               <Icon name="MessageCircle" size={16} />
               Написать администратору
-            </a>
+            </button>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6 mt-8 md:mt-12">
             {[
-              { price: "1 000 ₽", oldPrice: "2 200 ₽", label: "пробная в группе", href: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20групповую%20тренировку%20за%201000р" },
-              { price: "1 500 ₽", oldPrice: "3 300 ₽", label: "пробная индивидуальная", href: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20забрать%20подарок%20и%20записаться%20на%20индивидуальную%20тренировку%20за%201500р" },
-            ].map(({ price, oldPrice, label, href }) => (
-              <a
+              { price: "1 000 ₽", oldPrice: "2 200 ₽", label: "пробная в группе", source: "Пробная в группе 1000р (Booking)" },
+              { price: "1 500 ₽", oldPrice: "3 300 ₽", label: "пробная индивидуальная", source: "Пробная индивидуальная 1500р (Booking)" },
+            ].map(({ price, oldPrice, label, source }) => (
+              <button
                 key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => openLead(source)}
                 className="p-4 md:p-6 card-hover block rounded-xl"
-                style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.15)", textDecoration: "none" }}
+                style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.15)", textDecoration: "none", cursor: "pointer", width: "100%", textAlign: "left" }}
               >
                 <div className="flex items-baseline gap-2 mb-1">
                   <span className="font-display text-xl md:text-3xl font-light" style={{ color: "var(--verve-gold)" }}>{price}</span>
                   <span className="font-body text-sm" style={{ textDecoration: "line-through", color: "var(--verve-muted)", opacity: 0.6 }}>{oldPrice}</span>
                 </div>
                 <p className="font-body text-xs tracking-wider uppercase" style={{ color: "var(--verve-muted)" }}>{label}</p>
-              </a>
+              </button>
             ))}
           </div>
         </div>
@@ -997,7 +1009,6 @@ export default function Index() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 reveal-section">
             {[
               { icon: "Phone", label: "Позвонить", href: "tel:+79209734563" },
-              { icon: "MessageCircle", label: "Telegram запись", href: "https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20записаться%20на%20тренировку" },
               { icon: "Send", label: "Telegram канал", href: "https://t.me/vervepilates_rzn" },
               { icon: "Smartphone", label: "Приложение", href: "https://apps.apple.com/ru/app/verve-пилатес-на-реформерах/id6758667943" },
             ].map((s) => (
@@ -1013,6 +1024,14 @@ export default function Index() {
                 <span className="font-body text-sm" style={{ color: "var(--verve-cream)" }}>{s.label}</span>
               </a>
             ))}
+            <button
+              onClick={() => openLead("Записаться (Контакты)")}
+              className="card-hover flex items-center gap-3 p-3 sm:p-4 rounded-xl"
+              style={{ background: "var(--verve-dark-3)", border: "1px solid rgba(184,92,69,0.12)", cursor: "pointer", textAlign: "left" }}
+            >
+              <div className="shrink-0" style={{ color: "var(--verve-gold)" }}><Icon name="MessageCircle" size={18} fallback="Link" /></div>
+              <span className="font-body text-sm" style={{ color: "var(--verve-cream)" }}>Записаться</span>
+            </button>
           </div>
 
           {/* Map placeholder */}
@@ -1051,9 +1070,9 @@ export default function Index() {
           </div>
           <p className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>© 2026 VERVE · Краснорядская 3 · 9:00–21:00</p>
           <div className="flex gap-4">
-            <a href="https://t.me/verve_pilates?text=Здравствуйте!🤎%20Хочу%20записаться%20на%20тренировку" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-lg" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
+            <button onClick={() => openLead("Записаться (Футер)")} className="card-hover p-2 rounded-lg" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)", border: "none", cursor: "pointer" }}>
               <Icon name="MessageCircle" size={18} />
-            </a>
+            </button>
             <a href="https://t.me/vervepilates_rzn" target="_blank" rel="noopener noreferrer" className="card-hover p-2 rounded-lg" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}>
               <Icon name="Send" size={18} />
             </a>
@@ -1095,7 +1114,7 @@ export default function Index() {
               </div>
             ) : (
               <>
-                <p className="font-body text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "var(--verve-gold)" }}>Абонемент</p>
+                <p className="font-body text-xs tracking-[0.3em] uppercase mb-2" style={{ color: "var(--verve-gold)" }}>{leadSource || "Запись"}</p>
                 <h3 className="font-display text-2xl md:text-3xl font-light mb-6" style={{ color: "var(--verve-cream)" }}>Оставьте контакт — мы всё расскажем</h3>
                 <div className="flex flex-col gap-3">
                   <input
@@ -1116,16 +1135,11 @@ export default function Index() {
                   />
                   <button
                     className="verve-btn-primary w-full rounded-xl mt-2"
-                    disabled={!buyForm.name || !buyForm.phone}
-                    onClick={() => {
-                      if (!buyForm.name || !buyForm.phone) return;
-                      const text = encodeURIComponent(`🤎 Заявка на абонемент\nИмя: ${buyForm.name}\nТелефон: ${buyForm.phone}`);
-                      window.open(`https://t.me/verve_pilates?text=${text}`, "_blank");
-                      setBuyDone(true);
-                    }}
-                    style={{ opacity: !buyForm.name || !buyForm.phone ? 0.5 : 1 }}
+                    disabled={!buyForm.name || !buyForm.phone || buySending}
+                    onClick={submitLead}
+                    style={{ opacity: !buyForm.name || !buyForm.phone || buySending ? 0.5 : 1 }}
                   >
-                    Отправить заявку
+                    {buySending ? "Отправляем..." : "Отправить заявку"}
                   </button>
                 </div>
               </>

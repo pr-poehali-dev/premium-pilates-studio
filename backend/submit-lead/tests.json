@@ -1,0 +1,26 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "POST valid lead",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Иван", "phone": "+79001234567", "source": "hero"},
+      "expectedStatus": 200,
+      "expectedBody": {"status": "ok"},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "POST missing fields",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": ""},
+      "expectedStatus": 400
+    }
+  ]
+}
