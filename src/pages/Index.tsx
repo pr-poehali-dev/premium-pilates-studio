@@ -70,15 +70,19 @@ const TRAINERS = [
 ];
 
 const GROUP_PRICES = [
-  { name: "6 занятий", price: "13 200 ₽", gift: "+1", perClass: "1 885 ₽", totalClasses: 7, badge: null },
-  { name: "9 занятий", price: "19 800 ₽", gift: "+2", perClass: "1 800 ₽", totalClasses: 11, badge: "hit" },
-  { name: "11 занятий", price: "24 200 ₽", gift: "+3", perClass: "1 730 ₽", totalClasses: 14, badge: "best" },
+  { name: "1 занятие", price: "2 300 ₽", perClass: "2 300 ₽", totalClasses: 1, badge: null },
+  { name: "4 занятия", price: "9 200 ₽", perClass: "2 300 ₽", totalClasses: 4, badge: null },
+  { name: "7 занятий", price: "13 800 ₽", perClass: "1 970 ₽", totalClasses: 7, badge: "hit" },
+  { name: "11 занятий", price: "20 700 ₽", perClass: "1 880 ₽", totalClasses: 11, badge: null },
+  { name: "14 занятий", price: "25 300 ₽", perClass: "1 800 ₽", totalClasses: 14, badge: "best" },
 ];
 
 const SOLO_PRICES = [
-  { name: "6 занятий", price: "19 800 ₽", gift: "+1", perClass: "2 830 ₽", totalClasses: 7, badge: null },
-  { name: "9 занятий", price: "29 700 ₽", gift: "+2", perClass: "2 700 ₽", totalClasses: 11, badge: "hit" },
-  { name: "11 занятий", price: "36 300 ₽", gift: "+3", perClass: "2 590 ₽", totalClasses: 14, badge: "best" },
+  { name: "1 занятие", price: "3 900 ₽", perClass: "3 900 ₽", totalClasses: 1, badge: null },
+  { name: "4 занятия", price: "15 600 ₽", perClass: "3 900 ₽", totalClasses: 4, badge: null },
+  { name: "7 занятий", price: "23 400 ₽", perClass: "3 340 ₽", totalClasses: 7, badge: "hit" },
+  { name: "11 занятий", price: "35 100 ₽", perClass: "3 190 ₽", totalClasses: 11, badge: null },
+  { name: "14 занятий", price: "42 900 ₽", perClass: "3 060 ₽", totalClasses: 14, badge: "best" },
 ];
 
 
@@ -720,7 +724,7 @@ export default function Index() {
                 <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase" style={{ color: "var(--verve-dark)" }}>В мини-группе</h3>
                 <span className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>До 4 человек</span>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-4">
                 {GROUP_PRICES.map((row) => (
                   <div
                     key={row.name}
@@ -741,34 +745,22 @@ export default function Index() {
                         Лучшая цена
                       </div>
                     )}
-                    <div className="flex items-center flex-wrap gap-2 mb-3">
+                    <div className="mb-3">
                       <span className="font-body font-bold text-sm" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-cream)" }}>{row.name}</span>
-                      <span className="font-body text-xs px-2 py-0.5 rounded-full" style={{ background: row.badge === "hit" ? "rgba(255,255,255,0.25)" : "rgba(184,92,69,0.15)", color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>
-                        {row.gift} в подарок
-                      </span>
                     </div>
-                    <div className="font-display text-3xl md:text-4xl font-light mb-2" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>{row.price}</div>
+                    <div className="font-display text-2xl md:text-3xl font-light mb-2" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>{row.price}</div>
                     <div className="font-body text-xs" style={{ color: row.badge === "hit" ? "rgba(255,255,255,0.7)" : "var(--verve-muted)" }}>
-                      {row.perClass} / занятие · {row.totalClasses} тренировок
+                      {row.perClass} / занятие
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
-                  <div>
-                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Разовое занятие</p>
-                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Без абонемента</p>
-                  </div>
-                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>2 200 ₽</span>
+              <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
+                <div>
+                  <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Сплит для двоих</p>
+                  <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Тренировка на двоих</p>
                 </div>
-                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
-                  <div>
-                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Сплит для двоих</p>
-                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Тренировка на двоих</p>
-                  </div>
-                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
-                </div>
+                <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
               </div>
             </div>
           </div>
@@ -780,7 +772,7 @@ export default function Index() {
                 <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase" style={{ color: "var(--verve-dark)" }}>Индивидуально</h3>
                 <span className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>Вы и тренер</span>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-4">
                 {SOLO_PRICES.map((row) => (
                   <div
                     key={row.name}
@@ -801,34 +793,22 @@ export default function Index() {
                         Лучшая цена
                       </div>
                     )}
-                    <div className="flex items-center flex-wrap gap-2 mb-3">
+                    <div className="mb-3">
                       <span className="font-body font-bold text-sm" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-cream)" }}>{row.name}</span>
-                      <span className="font-body text-xs px-2 py-0.5 rounded-full" style={{ background: row.badge === "hit" ? "rgba(255,255,255,0.25)" : "rgba(184,92,69,0.15)", color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>
-                        {row.gift} в подарок
-                      </span>
                     </div>
-                    <div className="font-display text-3xl md:text-4xl font-light mb-2" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>{row.price}</div>
+                    <div className="font-display text-2xl md:text-3xl font-light mb-2" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>{row.price}</div>
                     <div className="font-body text-xs" style={{ color: row.badge === "hit" ? "rgba(255,255,255,0.7)" : "var(--verve-muted)" }}>
-                      {row.perClass} / занятие · {row.totalClasses} тренировок
+                      {row.perClass} / занятие
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
-                  <div>
-                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Разовое занятие</p>
-                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Без абонемента</p>
-                  </div>
-                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>3 300 ₽</span>
+              <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
+                <div>
+                  <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Сплит для двоих</p>
+                  <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Тренировка на двоих</p>
                 </div>
-                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
-                  <div>
-                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Сплит для двоих</p>
-                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Тренировка на двоих</p>
-                  </div>
-                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
-                </div>
+                <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
               </div>
             </div>
           </div>
