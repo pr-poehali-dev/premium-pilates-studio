@@ -69,15 +69,15 @@ const TRAINERS = [
 ];
 
 const GROUP_PRICES = [
-  { name: "6 занятий", price: "13 200 ₽", gift: "+1", perClass: "1 885 ₽", totalClasses: 7, badge: null },
-  { name: "9 занятий", price: "19 800 ₽", gift: "+2", perClass: "1 800 ₽", totalClasses: 11, badge: "hit" },
-  { name: "11 занятий", price: "24 200 ₽", gift: "+3", perClass: "1 730 ₽", totalClasses: 14, badge: "best" },
+  { name: "6 занятий", price: "13 800 ₽", gift: "+1", perClass: "1 970 ₽", totalClasses: 7, badge: null },
+  { name: "9 занятий", price: "20 700 ₽", gift: "+2", perClass: "1 880 ₽", totalClasses: 11, badge: "hit" },
+  { name: "11 занятий", price: "25 300 ₽", gift: "+3", perClass: "1 800 ₽", totalClasses: 14, badge: "best" },
 ];
 
 const SOLO_PRICES = [
-  { name: "6 занятий", price: "19 800 ₽", gift: "+1", perClass: "2 830 ₽", totalClasses: 7, badge: null },
-  { name: "9 занятий", price: "29 700 ₽", gift: "+2", perClass: "2 700 ₽", totalClasses: 11, badge: "hit" },
-  { name: "11 занятий", price: "36 300 ₽", gift: "+3", perClass: "2 590 ₽", totalClasses: 14, badge: "best" },
+  { name: "6 занятий", price: "23 400 ₽", gift: "+1", perClass: "3 340 ₽", totalClasses: 7, badge: null },
+  { name: "9 занятий", price: "35 100 ₽", gift: "+2", perClass: "3 190 ₽", totalClasses: 11, badge: "hit" },
+  { name: "11 занятий", price: "42 900 ₽", gift: "+3", perClass: "3 060 ₽", totalClasses: 14, badge: "best" },
 ];
 
 
