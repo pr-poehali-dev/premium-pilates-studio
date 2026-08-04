@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/f2d891b8-3b78-4383-8f8b-b3cda2893ba6.jpg";
@@ -70,19 +69,15 @@ const TRAINERS = [
 ];
 
 const GROUP_PRICES = [
-  { name: "1 занятие", price: "2 300 ₽", perClass: "2 300 ₽", totalClasses: 1, badge: null },
-  { name: "4 занятия", price: "9 200 ₽", perClass: "2 300 ₽", totalClasses: 4, badge: null },
-  { name: "7 занятий", price: "13 800 ₽", perClass: "1 970 ₽", totalClasses: 7, badge: "hit" },
-  { name: "11 занятий", price: "20 700 ₽", perClass: "1 880 ₽", totalClasses: 11, badge: null },
-  { name: "14 занятий", price: "25 300 ₽", perClass: "1 800 ₽", totalClasses: 14, badge: "best" },
+  { name: "6 занятий", price: "13 200 ₽", gift: "+1", perClass: "1 885 ₽", totalClasses: 7, badge: null },
+  { name: "9 занятий", price: "19 800 ₽", gift: "+2", perClass: "1 800 ₽", totalClasses: 11, badge: "hit" },
+  { name: "11 занятий", price: "24 200 ₽", gift: "+3", perClass: "1 730 ₽", totalClasses: 14, badge: "best" },
 ];
 
 const SOLO_PRICES = [
-  { name: "1 занятие", price: "3 900 ₽", perClass: "3 900 ₽", totalClasses: 1, badge: null },
-  { name: "4 занятия", price: "15 600 ₽", perClass: "3 900 ₽", totalClasses: 4, badge: null },
-  { name: "7 занятий", price: "23 400 ₽", perClass: "3 340 ₽", totalClasses: 7, badge: "hit" },
-  { name: "11 занятий", price: "35 100 ₽", perClass: "3 190 ₽", totalClasses: 11, badge: null },
-  { name: "14 занятий", price: "42 900 ₽", perClass: "3 060 ₽", totalClasses: 14, badge: "best" },
+  { name: "6 занятий", price: "19 800 ₽", gift: "+1", perClass: "2 830 ₽", totalClasses: 7, badge: null },
+  { name: "9 занятий", price: "29 700 ₽", gift: "+2", perClass: "2 700 ₽", totalClasses: 11, badge: "hit" },
+  { name: "11 занятий", price: "36 300 ₽", gift: "+3", perClass: "2 590 ₽", totalClasses: 14, badge: "best" },
 ];
 
 
@@ -322,7 +317,6 @@ export default function Index() {
   const [buyDone, setBuyDone] = useState(false);
   const [buySending, setBuySending] = useState(false);
   const [leadSource, setLeadSource] = useState("");
-  const [consent, setConsent] = useState(false);
   useReveal();
 
   useEffect(() => {
@@ -343,7 +337,7 @@ export default function Index() {
   };
 
   const submitLead = async () => {
-    if (!buyForm.name || !buyForm.phone || !consent) return;
+    if (!buyForm.name || !buyForm.phone) return;
     setBuySending(true);
     try {
       await fetch(SUBMIT_LEAD_URL, {
@@ -724,7 +718,7 @@ export default function Index() {
                 <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase" style={{ color: "var(--verve-dark)" }}>В мини-группе</h3>
                 <span className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>До 4 человек</span>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                 {GROUP_PRICES.map((row) => (
                   <div
                     key={row.name}
@@ -745,22 +739,34 @@ export default function Index() {
                         Лучшая цена
                       </div>
                     )}
-                    <div className="mb-3">
+                    <div className="flex items-center flex-wrap gap-2 mb-3">
                       <span className="font-body font-bold text-sm" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-cream)" }}>{row.name}</span>
+                      <span className="font-body text-xs px-2 py-0.5 rounded-full" style={{ background: row.badge === "hit" ? "rgba(255,255,255,0.25)" : "rgba(184,92,69,0.15)", color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>
+                        {row.gift} в подарок
+                      </span>
                     </div>
-                    <div className="font-display text-2xl md:text-3xl font-light mb-2" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>{row.price}</div>
+                    <div className="font-display text-3xl md:text-4xl font-light mb-2" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>{row.price}</div>
                     <div className="font-body text-xs" style={{ color: row.badge === "hit" ? "rgba(255,255,255,0.7)" : "var(--verve-muted)" }}>
-                      {row.perClass} / занятие
+                      {row.perClass} / занятие · {row.totalClasses} тренировок
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
-                <div>
-                  <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Сплит для двоих</p>
-                  <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Тренировка на двоих</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
+                  <div>
+                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Разовое занятие</p>
+                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Без абонемента</p>
+                  </div>
+                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>2 200 ₽</span>
                 </div>
-                <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
+                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
+                  <div>
+                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Сплит для двоих</p>
+                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Тренировка на двоих</p>
+                  </div>
+                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
+                </div>
               </div>
             </div>
           </div>
@@ -772,7 +778,7 @@ export default function Index() {
                 <h3 className="font-body font-bold text-sm tracking-[0.2em] uppercase" style={{ color: "var(--verve-dark)" }}>Индивидуально</h3>
                 <span className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>Вы и тренер</span>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                 {SOLO_PRICES.map((row) => (
                   <div
                     key={row.name}
@@ -793,22 +799,34 @@ export default function Index() {
                         Лучшая цена
                       </div>
                     )}
-                    <div className="mb-3">
+                    <div className="flex items-center flex-wrap gap-2 mb-3">
                       <span className="font-body font-bold text-sm" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-cream)" }}>{row.name}</span>
+                      <span className="font-body text-xs px-2 py-0.5 rounded-full" style={{ background: row.badge === "hit" ? "rgba(255,255,255,0.25)" : "rgba(184,92,69,0.15)", color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>
+                        {row.gift} в подарок
+                      </span>
                     </div>
-                    <div className="font-display text-2xl md:text-3xl font-light mb-2" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>{row.price}</div>
+                    <div className="font-display text-3xl md:text-4xl font-light mb-2" style={{ color: row.badge === "hit" ? "#fff" : "var(--verve-gold)" }}>{row.price}</div>
                     <div className="font-body text-xs" style={{ color: row.badge === "hit" ? "rgba(255,255,255,0.7)" : "var(--verve-muted)" }}>
-                      {row.perClass} / занятие
+                      {row.perClass} / занятие · {row.totalClasses} тренировок
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
-                <div>
-                  <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Сплит для двоих</p>
-                  <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Тренировка на двоих</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
+                  <div>
+                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Разовое занятие</p>
+                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Без абонемента</p>
+                  </div>
+                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>3 300 ₽</span>
                 </div>
-                <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
+                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
+                  <div>
+                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Сплит для двоих</p>
+                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Тренировка на двоих</p>
+                  </div>
+                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1076,7 +1094,7 @@ export default function Index() {
         <div
           className="fixed inset-0 z-50 flex items-center justify-center px-4"
           style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(6px)" }}
-          onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "" }); setConsent(false); }}
+          onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "" }); }}
         >
           <div
             className="w-full max-w-md rounded-2xl p-8 relative"
@@ -1084,7 +1102,7 @@ export default function Index() {
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "" }); setConsent(false); }}
+              onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "" }); }}
               className="absolute top-4 right-4 flex items-center justify-center rounded-full"
               style={{ width: 32, height: 32, background: "rgba(0,0,0,0.08)", color: "var(--verve-cream)" }}
             >
@@ -1118,26 +1136,11 @@ export default function Index() {
                     className="w-full px-4 py-3 rounded-xl font-body text-sm outline-none"
                     style={{ background: "var(--verve-dark-2)", border: "1px solid rgba(184,92,69,0.2)", color: "var(--verve-cream)" }}
                   />
-                  <label className="flex items-start gap-2.5 mt-1 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={consent}
-                      onChange={(e) => setConsent(e.target.checked)}
-                      className="mt-0.5 shrink-0"
-                      style={{ width: 16, height: 16, accentColor: "var(--verve-gold)" }}
-                    />
-                    <span className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>
-                      Я согласен(на) на{" "}
-                      <Link to="/privacy" target="_blank" style={{ color: "var(--verve-gold)", textDecoration: "underline" }}>
-                        обработку персональных данных
-                      </Link>
-                    </span>
-                  </label>
                   <button
-                    className="verve-btn-primary w-full rounded-xl mt-1"
-                    disabled={!buyForm.name || !buyForm.phone || !consent || buySending}
+                    className="verve-btn-primary w-full rounded-xl mt-2"
+                    disabled={!buyForm.name || !buyForm.phone || buySending}
                     onClick={submitLead}
-                    style={{ opacity: !buyForm.name || !buyForm.phone || !consent || buySending ? 0.5 : 1 }}
+                    style={{ opacity: !buyForm.name || !buyForm.phone || buySending ? 0.5 : 1 }}
                   >
                     {buySending ? "Отправляем..." : "Отправить заявку"}
                   </button>
