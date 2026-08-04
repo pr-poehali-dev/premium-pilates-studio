@@ -758,7 +758,7 @@ export default function Index() {
                     <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Разовое занятие</p>
                     <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Без абонемента</p>
                   </div>
-                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>2 200 ₽</span>
+                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>2 300 ₽</span>
                 </div>
                 <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
                   <div>
