@@ -28,7 +28,7 @@ const TRAININGS = [
     type: "Мини-группа",
     subtitle: "до 4 человек",
     price: "1 000 ₽",
-    oldPrice: "2 200 ₽",
+    oldPrice: "2 300 ₽",
     priceLabel: "первое занятие",
     badge: "Для новичков",
     features: ["Индивидуальный подход", "Атмосфера поддержки", "Общая мотивация", "Далее от 1 730 ₽"],
@@ -40,7 +40,7 @@ const TRAININGS = [
     type: "Индивидуально",
     subtitle: "только вы и тренер",
     price: "1 500 ₽",
-    oldPrice: "3 300 ₽",
+    oldPrice: "3 900 ₽",
     priceLabel: "первое занятие",
     badge: "Для новичков",
     features: ["100% фокус на вас", "Персональная программа", "Быстрый прогресс", "Далее от 2 590 ₽"],
@@ -444,7 +444,7 @@ export default function Index() {
             <button className="verve-btn-primary flex items-center justify-center gap-3 rounded-xl" onClick={() => openLead("Пробная тренировка 1000р (Hero)")}>
               <Icon name="Gift" size={16} />
               Пробная тренировка 1000р
-              <span style={{ textDecoration: "line-through", opacity: 0.6, fontWeight: 400, fontSize: "0.85em" }}>2200р</span>
+              <span style={{ textDecoration: "line-through", opacity: 0.6, fontWeight: 400, fontSize: "0.85em" }}>2300р</span>
             </button>
           </div>
 
@@ -564,7 +564,7 @@ export default function Index() {
                   >
                     <div>
                       <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(255,255,255,0.75)" }}>Мини-группа</p>
-                      <p className="font-display text-lg md:text-2xl font-light flex items-baseline gap-2" style={{ color: "#fff" }}>1 000 ₽<span className="font-body text-sm font-normal" style={{ textDecoration: "line-through", opacity: 0.6 }}>2 200 ₽</span></p>
+                      <p className="font-display text-lg md:text-2xl font-light flex items-baseline gap-2" style={{ color: "#fff" }}>1 000 ₽<span className="font-body text-sm font-normal" style={{ textDecoration: "line-through", opacity: 0.6 }}>2 300 ₽</span></p>
                     </div>
                     <div className="flex items-center gap-1.5 font-body text-sm font-medium shrink-0" style={{ color: "#fff" }}>
                       Записаться
@@ -578,7 +578,7 @@ export default function Index() {
                   >
                     <div>
                       <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(28,20,16,0.55)" }}>Индивидуально</p>
-                      <p className="font-display text-lg md:text-2xl font-light flex items-baseline gap-2" style={{ color: "var(--verve-cream)" }}>1 500 ₽<span className="font-body text-sm font-normal" style={{ textDecoration: "line-through", opacity: 0.6, color: "var(--verve-muted)" }}>3 300 ₽</span></p>
+                      <p className="font-display text-lg md:text-2xl font-light flex items-baseline gap-2" style={{ color: "var(--verve-cream)" }}>1 500 ₽<span className="font-body text-sm font-normal" style={{ textDecoration: "line-through", opacity: 0.6, color: "var(--verve-muted)" }}>3 900 ₽</span></p>
                     </div>
                     <div className="flex items-center gap-1.5 font-body text-sm font-medium shrink-0" style={{ color: "var(--verve-gold)" }}>
                       Записаться
@@ -818,7 +818,7 @@ export default function Index() {
                     <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Разовое занятие</p>
                     <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Без абонемента</p>
                   </div>
-                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>3 300 ₽</span>
+                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>3 900 ₽</span>
                 </div>
                 <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
                   <div>
@@ -979,8 +979,8 @@ export default function Index() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6 mt-8 md:mt-12">
             {[
-              { price: "1 000 ₽", oldPrice: "2 200 ₽", label: "пробная в группе", source: "Пробная в группе 1000р (Booking)" },
-              { price: "1 500 ₽", oldPrice: "3 300 ₽", label: "пробная индивидуальная", source: "Пробная индивидуальная 1500р (Booking)" },
+              { price: "1 000 ₽", oldPrice: "2 300 ₽", label: "пробная в группе", source: "Пробная в группе 1000р (Booking)" },
+              { price: "1 500 ₽", oldPrice: "3 900 ₽", label: "пробная индивидуальная", source: "Пробная индивидуальная 1500р (Booking)" },
             ].map(({ price, oldPrice, label, source }) => (
               <button
                 key={label}
