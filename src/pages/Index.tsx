@@ -1126,7 +1126,38 @@ export default function Index() {
               <div className="text-center py-6">
                 <div className="mb-4" style={{ color: "var(--verve-gold)" }}><Icon name="CheckCircle" size={48} fallback="Check" /></div>
                 <h3 className="font-display text-2xl font-light mb-2" style={{ color: "var(--verve-cream)" }}>Заявка отправлена!</h3>
-                <p className="font-body text-sm" style={{ color: "var(--verve-muted)" }}>Мы свяжемся с вами в ближайшее время</p>
+                <p className="font-body text-sm mb-6" style={{ color: "var(--verve-muted)" }}>Мы свяжемся с вами в ближайшее время</p>
+
+                <p className="font-body text-xs tracking-widest uppercase mb-3" style={{ color: "var(--verve-muted)" }}>А пока подпишитесь на нас</p>
+                <div className="flex items-center justify-center gap-3">
+                  <a
+                    href="https://vk.com/vervepilates"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card-hover flex items-center justify-center rounded-full"
+                    style={{ width: 44, height: 44, background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}
+                  >
+                    <Icon name="Users" size={20} />
+                  </a>
+                  <a
+                    href="https://t.me/vervepilates_rzn"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card-hover flex items-center justify-center rounded-full"
+                    style={{ width: 44, height: 44, background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}
+                  >
+                    <Icon name="Send" size={20} />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/pilates.reformer.rzn/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card-hover flex items-center justify-center rounded-full"
+                    style={{ width: 44, height: 44, background: "var(--verve-dark-3)", color: "var(--verve-gold)" }}
+                  >
+                    <Icon name="Instagram" size={20} />
+                  </a>
+                </div>
               </div>
             ) : (
               <>
