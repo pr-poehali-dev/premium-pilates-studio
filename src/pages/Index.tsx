@@ -314,7 +314,7 @@ export default function Index() {
   const [priceTab, setPriceTab] = useState<"group" | "solo">("group");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [buyModal, setBuyModal] = useState(false);
-  const [buyForm, setBuyForm] = useState({ name: "", phone: "+7 ", comment: "" });
+  const [buyForm, setBuyForm] = useState({ name: "", phone: "+7", comment: "" });
   const [buyDone, setBuyDone] = useState(false);
   const [buySending, setBuySending] = useState(false);
   const [consentAgreed, setConsentAgreed] = useState(false);
@@ -338,9 +338,21 @@ export default function Index() {
     setBuyModal(true);
   };
 
+  const formatPhone = (subscriberDigits: string) => {
+    let out = "+7";
+    if (subscriberDigits.length > 0) out += ` (${subscriberDigits.slice(0, 3)}`;
+    if (subscriberDigits.length >= 3) out += ")";
+    if (subscriberDigits.length > 3) out += ` ${subscriberDigits.slice(3, 6)}`;
+    if (subscriberDigits.length > 6) out += `-${subscriberDigits.slice(6, 8)}`;
+    if (subscriberDigits.length > 8) out += `-${subscriberDigits.slice(8, 10)}`;
+    return out;
+  };
+
   const handlePhoneChange = (raw: string) => {
-    const digits = raw.replace(/\D/g, "").replace(/^7/, "");
-    setBuyForm((f) => ({ ...f, phone: digits ? `+7 ${digits}` : "+7 " }));
+    let digits = raw.replace(/\D/g, "");
+    if (digits.startsWith("7") || digits.startsWith("8")) digits = digits.slice(1);
+    digits = digits.slice(0, 10);
+    setBuyForm((f) => ({ ...f, phone: formatPhone(digits) }));
   };
 
   const submitLead = async () => {
@@ -1113,7 +1125,7 @@ export default function Index() {
         <div
           className="fixed inset-0 z-50 flex items-center justify-center px-4"
           style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(6px)" }}
-          onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "+7 ", comment: "" }); setConsentAgreed(false); }}
+          onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "+7", comment: "" }); setConsentAgreed(false); }}
         >
           <div
             className="w-full max-w-md rounded-2xl p-8 relative"
@@ -1121,7 +1133,7 @@ export default function Index() {
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "+7 ", comment: "" }); setConsentAgreed(false); }}
+              onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "+7", comment: "" }); setConsentAgreed(false); }}
               className="absolute top-4 right-4 flex items-center justify-center rounded-full"
               style={{ width: 32, height: 32, background: "rgba(0,0,0,0.08)", color: "var(--verve-cream)" }}
             >
@@ -1180,7 +1192,7 @@ export default function Index() {
                   />
                   <input
                     type="tel"
-                    placeholder="+7 999 123 45 67"
+                    placeholder="+7 (999) 123-45-67"
                     value={buyForm.phone}
                     onChange={(e) => handlePhoneChange(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl font-body text-sm outline-none"
