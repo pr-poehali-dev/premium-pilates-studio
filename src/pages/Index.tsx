@@ -314,7 +314,7 @@ export default function Index() {
   const [priceTab, setPriceTab] = useState<"group" | "solo">("group");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [buyModal, setBuyModal] = useState(false);
-  const [buyForm, setBuyForm] = useState({ name: "", phone: "" });
+  const [buyForm, setBuyForm] = useState({ name: "", phone: "+7 ", comment: "" });
   const [buyDone, setBuyDone] = useState(false);
   const [buySending, setBuySending] = useState(false);
   const [consentAgreed, setConsentAgreed] = useState(false);
@@ -338,14 +338,20 @@ export default function Index() {
     setBuyModal(true);
   };
 
+  const handlePhoneChange = (raw: string) => {
+    const digits = raw.replace(/\D/g, "").replace(/^7/, "");
+    setBuyForm((f) => ({ ...f, phone: digits ? `+7 ${digits}` : "+7 " }));
+  };
+
   const submitLead = async () => {
-    if (!buyForm.name || !buyForm.phone || !consentAgreed) return;
+    const phoneDigits = buyForm.phone.replace(/\D/g, "");
+    if (!buyForm.name || phoneDigits.length < 11 || !consentAgreed) return;
     setBuySending(true);
     try {
       await fetch(SUBMIT_LEAD_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: buyForm.name, phone: buyForm.phone, source: leadSource }),
+        body: JSON.stringify({ name: buyForm.name, phone: buyForm.phone, comment: buyForm.comment, source: leadSource }),
       });
     } catch {
       // отправка не критична для UX — заявку всё равно считаем принятой
@@ -1107,7 +1113,7 @@ export default function Index() {
         <div
           className="fixed inset-0 z-50 flex items-center justify-center px-4"
           style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(6px)" }}
-          onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "" }); setConsentAgreed(false); }}
+          onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "+7 ", comment: "" }); setConsentAgreed(false); }}
         >
           <div
             className="w-full max-w-md rounded-2xl p-8 relative"
@@ -1115,7 +1121,7 @@ export default function Index() {
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "" }); setConsentAgreed(false); }}
+              onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "+7 ", comment: "" }); setConsentAgreed(false); }}
               className="absolute top-4 right-4 flex items-center justify-center rounded-full"
               style={{ width: 32, height: 32, background: "rgba(0,0,0,0.08)", color: "var(--verve-cream)" }}
             >
@@ -1174,10 +1180,18 @@ export default function Index() {
                   />
                   <input
                     type="tel"
-                    placeholder="Номер телефона"
+                    placeholder="+7 999 123 45 67"
                     value={buyForm.phone}
-                    onChange={(e) => setBuyForm((f) => ({ ...f, phone: e.target.value }))}
+                    onChange={(e) => handlePhoneChange(e.target.value)}
                     className="w-full px-4 py-3 rounded-xl font-body text-sm outline-none"
+                    style={{ background: "var(--verve-dark-2)", border: "1px solid rgba(184,92,69,0.2)", color: "var(--verve-cream)" }}
+                  />
+                  <textarea
+                    placeholder="Комментарий (необязательно)"
+                    value={buyForm.comment}
+                    onChange={(e) => setBuyForm((f) => ({ ...f, comment: e.target.value }))}
+                    rows={3}
+                    className="w-full px-4 py-3 rounded-xl font-body text-sm outline-none resize-none"
                     style={{ background: "var(--verve-dark-2)", border: "1px solid rgba(184,92,69,0.2)", color: "var(--verve-cream)" }}
                   />
                   <label className="flex items-start gap-2.5 mt-1 cursor-pointer select-none">
@@ -1203,9 +1217,9 @@ export default function Index() {
                   </label>
                   <button
                     className="verve-btn-primary w-full rounded-xl mt-2"
-                    disabled={!buyForm.name || !buyForm.phone || !consentAgreed || buySending}
+                    disabled={!buyForm.name || buyForm.phone.replace(/\D/g, "").length < 11 || !consentAgreed || buySending}
                     onClick={submitLead}
-                    style={{ opacity: !buyForm.name || !buyForm.phone || !consentAgreed || buySending ? 0.5 : 1 }}
+                    style={{ opacity: !buyForm.name || buyForm.phone.replace(/\D/g, "").length < 11 || !consentAgreed || buySending ? 0.5 : 1 }}
                   >
                     {buySending ? "Отправляем..." : "Отправить заявку"}
                   </button>

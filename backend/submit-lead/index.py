@@ -33,6 +33,7 @@ def handler(event: dict, context) -> dict:
 
     name = (data.get('name') or '').strip()
     phone = (data.get('phone') or '').strip()
+    comment = (data.get('comment') or '').strip()
     source = (data.get('source') or '').strip()
 
     if not name or not phone:
@@ -44,7 +45,7 @@ def handler(event: dict, context) -> dict:
 
     script_url = os.environ.get('GOOGLE_APPS_SCRIPT_URL', '')
     if script_url:
-        payload = json.dumps({'name': name, 'phone': phone, 'source': source}).encode('utf-8')
+        payload = json.dumps({'name': name, 'phone': phone, 'comment': comment, 'source': source}).encode('utf-8')
         req = urllib.request.Request(
             script_url,
             data=payload,
@@ -52,9 +53,9 @@ def handler(event: dict, context) -> dict:
             method='POST'
         )
         try:
-            with urllib.request.urlopen(req, timeout=10) as resp:
+            with urllib.request.urlopen(req, timeout=3) as resp:
                 resp.read()
-        except urllib.error.URLError:
+        except Exception:
             pass
 
     return {
