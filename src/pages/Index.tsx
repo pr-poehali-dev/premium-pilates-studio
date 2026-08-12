@@ -316,6 +316,7 @@ export default function Index() {
   const [buyForm, setBuyForm] = useState({ name: "", phone: "" });
   const [buyDone, setBuyDone] = useState(false);
   const [buySending, setBuySending] = useState(false);
+  const [consentAgreed, setConsentAgreed] = useState(false);
   const [leadSource, setLeadSource] = useState("");
   useReveal();
 
@@ -337,7 +338,7 @@ export default function Index() {
   };
 
   const submitLead = async () => {
-    if (!buyForm.name || !buyForm.phone) return;
+    if (!buyForm.name || !buyForm.phone || !consentAgreed) return;
     setBuySending(true);
     try {
       await fetch(SUBMIT_LEAD_URL, {
@@ -350,6 +351,7 @@ export default function Index() {
     }
     setBuySending(false);
     setBuyDone(true);
+    setConsentAgreed(false);
   };
 
   const prices = priceTab === "group" ? GROUP_PRICES : SOLO_PRICES;
@@ -1094,7 +1096,7 @@ export default function Index() {
         <div
           className="fixed inset-0 z-50 flex items-center justify-center px-4"
           style={{ background: "rgba(0,0,0,0.6)", backdropFilter: "blur(6px)" }}
-          onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "" }); }}
+          onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "" }); setConsentAgreed(false); }}
         >
           <div
             className="w-full max-w-md rounded-2xl p-8 relative"
@@ -1102,7 +1104,7 @@ export default function Index() {
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "" }); }}
+              onClick={() => { setBuyModal(false); setBuyDone(false); setBuyForm({ name: "", phone: "" }); setConsentAgreed(false); }}
               className="absolute top-4 right-4 flex items-center justify-center rounded-full"
               style={{ width: 32, height: 32, background: "rgba(0,0,0,0.08)", color: "var(--verve-cream)" }}
             >
@@ -1136,11 +1138,23 @@ export default function Index() {
                     className="w-full px-4 py-3 rounded-xl font-body text-sm outline-none"
                     style={{ background: "var(--verve-dark-2)", border: "1px solid rgba(184,92,69,0.2)", color: "var(--verve-cream)" }}
                   />
+                  <label className="flex items-start gap-2.5 mt-1 cursor-pointer select-none">
+                    <input
+                      type="checkbox"
+                      checked={consentAgreed}
+                      onChange={(e) => setConsentAgreed(e.target.checked)}
+                      className="mt-0.5 shrink-0"
+                      style={{ width: 16, height: 16, accentColor: "var(--verve-gold)" }}
+                    />
+                    <span className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>
+                      Я согласен(а) на обработку персональных данных
+                    </span>
+                  </label>
                   <button
                     className="verve-btn-primary w-full rounded-xl mt-2"
-                    disabled={!buyForm.name || !buyForm.phone || buySending}
+                    disabled={!buyForm.name || !buyForm.phone || !consentAgreed || buySending}
                     onClick={submitLead}
-                    style={{ opacity: !buyForm.name || !buyForm.phone || buySending ? 0.5 : 1 }}
+                    style={{ opacity: !buyForm.name || !buyForm.phone || !consentAgreed || buySending ? 0.5 : 1 }}
                   >
                     {buySending ? "Отправляем..." : "Отправить заявку"}
                   </button>
