@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/f2d891b8-3b78-4383-8f8b-b3cda2893ba6.jpg";
@@ -1073,7 +1074,17 @@ export default function Index() {
             <span className="font-display text-2xl tracking-[0.3em] font-light block mb-1" style={{ color: "var(--verve-gold)" }}>VERVE</span>
             <p className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>Pilates Reformer Studio · Рязань</p>
           </div>
-          <p className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>© 2026 VERVE · Краснорядская 3 · 9:00–21:00</p>
+          <div className="flex flex-col items-center md:items-start gap-2">
+            <p className="font-body text-xs" style={{ color: "var(--verve-muted)" }}>© 2026 VERVE · Краснорядская 3 · 9:00–21:00</p>
+            <div className="flex gap-4">
+              <Link to="/privacy" className="font-body text-xs underline" style={{ color: "var(--verve-muted)" }}>
+                Политика конфиденциальности
+              </Link>
+              <Link to="/offer" className="font-body text-xs underline" style={{ color: "var(--verve-muted)" }}>
+                Публичная оферта
+              </Link>
+            </div>
+          </div>
           <div className="flex gap-4">
             <button onClick={() => openLead("Записаться (Футер)")} className="card-hover p-2 rounded-lg" style={{ background: "var(--verve-dark-3)", color: "var(--verve-gold)", border: "none", cursor: "pointer" }}>
               <Icon name="MessageCircle" size={18} />
@@ -1147,7 +1158,16 @@ export default function Index() {
                       style={{ width: 16, height: 16, accentColor: "var(--verve-gold)" }}
                     />
                     <span className="font-body text-xs leading-relaxed" style={{ color: "var(--verve-muted)" }}>
-                      Я согласен(а) на обработку персональных данных
+                      Я согласен(а) с{" "}
+                      <Link
+                        to="/privacy"
+                        target="_blank"
+                        onClick={(e) => e.stopPropagation()}
+                        className="underline"
+                        style={{ color: "var(--verve-gold)" }}
+                      >
+                        политикой обработки персональных данных
+                      </Link>
                     </span>
                   </label>
                   <button
