@@ -37,18 +37,6 @@ const TRAININGS = [
     btnLabel: "Хочу на групповую!",
     source: "Групповая тренировка 1000р",
   },
-  {
-    type: "Индивидуально",
-    subtitle: "только вы и тренер",
-    price: "1 500 ₽",
-    oldPrice: "3 900 ₽",
-    priceLabel: "первое занятие",
-    badge: "Для новичков",
-    features: ["100% фокус на вас", "Персональная программа", "Быстрый прогресс", "Далее от 2 590 ₽"],
-    accent: true,
-    btnLabel: "Хочу на индив!",
-    source: "Индивидуальная тренировка 1500р",
-  },
 ];
 
 const REFORMER_WORKS = [
@@ -592,20 +580,6 @@ export default function Index() {
                       <Icon name="ArrowRight" size={15} />
                     </div>
                   </button>
-                  <button
-                    onClick={() => openLead("Индивидуально 1500р (Promo)")}
-                    className="flex items-center justify-between gap-3 px-4 py-4 md:px-7 md:py-5 transition-all duration-300 rounded-xl"
-                    style={{ background: "rgba(184,92,69,0.08)", border: "1px solid rgba(184,92,69,0.3)", cursor: "pointer", width: "100%" }}
-                  >
-                    <div>
-                      <p className="font-body text-xs tracking-widest uppercase mb-0.5" style={{ color: "rgba(28,20,16,0.55)" }}>Индивидуально</p>
-                      <p className="font-display text-lg md:text-2xl font-light flex items-baseline gap-2" style={{ color: "var(--verve-cream)" }}>1 500 ₽<span className="font-body text-sm font-normal" style={{ textDecoration: "line-through", opacity: 0.6, color: "var(--verve-muted)" }}>3 900 ₽</span></p>
-                    </div>
-                    <div className="flex items-center gap-1.5 font-body text-sm font-medium shrink-0" style={{ color: "var(--verve-gold)" }}>
-                      Записаться
-                      <Icon name="ArrowRight" size={15} />
-                    </div>
-                  </button>
                 </div>
               </div>
             </div>
@@ -661,7 +635,7 @@ export default function Index() {
               Выберите свой<br /><em className="italic" style={{ color: "var(--verve-gold)" }}>формат</em>
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 reveal-section">
+          <div className="grid grid-cols-1 max-w-xl gap-6 reveal-section">
             {TRAININGS.map((t) => (
               <div
                 key={t.type}
@@ -998,10 +972,9 @@ export default function Index() {
               Написать администратору
             </a>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6 mt-8 md:mt-12">
+          <div className="grid grid-cols-1 max-w-xs mx-auto mt-8 md:mt-12">
             {[
               { price: "1 000 ₽", oldPrice: "2 300 ₽", label: "пробная в группе", source: "Пробная в группе 1000р (Booking)" },
-              { price: "1 500 ₽", oldPrice: "3 900 ₽", label: "пробная индивидуальная", source: "Пробная индивидуальная 1500р (Booking)" },
             ].map(({ price, oldPrice, label, source }) => (
               <button
                 key={label}
