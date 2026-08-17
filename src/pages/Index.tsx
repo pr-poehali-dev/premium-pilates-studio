@@ -747,20 +747,13 @@ export default function Index() {
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3">
                 <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
                   <div>
                     <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Разовое занятие</p>
                     <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Без абонемента</p>
                   </div>
                   <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>2 300 ₽</span>
-                </div>
-                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
-                  <div>
-                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Сплит для двоих</p>
-                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Тренировка на двоих</p>
-                  </div>
-                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
                 </div>
               </div>
             </div>
@@ -807,20 +800,13 @@ export default function Index() {
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3">
                 <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
                   <div>
                     <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Разовое занятие</p>
                     <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Без абонемента</p>
                   </div>
                   <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>3 900 ₽</span>
-                </div>
-                <div className="rounded-2xl px-5 py-4 flex items-center justify-between" style={{ background: "var(--verve-dark)", border: "1px solid rgba(28,20,16,0.12)" }}>
-                  <div>
-                    <p className="font-body font-medium text-sm" style={{ color: "var(--verve-cream)" }}>Сплит для двоих</p>
-                    <p className="font-body text-xs mt-0.5" style={{ color: "var(--verve-muted)" }}>Тренировка на двоих</p>
-                  </div>
-                  <span className="font-display text-xl font-light" style={{ color: "var(--verve-gold)" }}>5 000 ₽</span>
                 </div>
               </div>
             </div>
