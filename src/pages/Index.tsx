@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+import { useSeo } from "@/hooks/use-seo";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/f2d891b8-3b78-4383-8f8b-b3cda2893ba6.jpg";
 const PRICE_IMAGE = "https://cdn.poehali.dev/projects/9556b583-e694-4699-9529-1e9cde5e7cbf/bucket/9e154c6d-0a4a-4667-8ced-515f53e698c0.jpg";
@@ -308,6 +309,11 @@ export default function Index() {
   const [consentAgreed, setConsentAgreed] = useState(false);
   const [leadSource, setLeadSource] = useState("");
   useReveal();
+  useSeo({
+    title: "Пилатес на реформерах в Рязани — студия VERVE, пл. Ленина | Пробное занятие 1000 ₽",
+    description: "Студия пилатеса на реформерах VERVE в центре Рязани (Краснорядская, 3). Мини-группы до 4 человек и индивидуальные тренировки. Восстановление осанки и мышечного кора. Первое занятие — 1000 ₽.",
+    canonical: "https://vervepilates.ru/",
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -424,6 +430,7 @@ export default function Index() {
         )}
       </nav>
 
+      <main>
       {/* HERO */}
       <section className="relative min-h-screen flex items-end pb-20 pt-24 overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${HERO_IMAGE})` }} />
@@ -897,28 +904,41 @@ export default function Index() {
                 className="overflow-hidden rounded-xl"
                 style={{ border: "1px solid rgba(184,92,69,0.15)", background: openFaq === i ? "var(--verve-dark-3)" : "var(--verve-dark)" }}
               >
-                <button
-                  className="w-full flex items-center justify-between gap-4 px-5 py-5 text-left transition-all duration-200 rounded-xl"
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  style={{ background: "none", border: "none", cursor: "pointer" }}
-                >
-                  <span className="font-body font-medium text-sm sm:text-base leading-snug" style={{ color: "var(--verve-cream)" }}>{item.q}</span>
-                  <span
-                    className="shrink-0 flex items-center justify-center w-7 h-7 rounded-sm transition-transform duration-300"
-                    style={{
-                      background: openFaq === i ? "var(--verve-gold)" : "rgba(184,92,69,0.12)",
-                      transform: openFaq === i ? "rotate(45deg)" : "rotate(0deg)",
-                    }}
+                <h3 style={{ margin: 0 }}>
+                  <button
+                    className="w-full flex items-center justify-between gap-4 px-5 py-5 text-left transition-all duration-200 rounded-xl"
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    aria-expanded={openFaq === i}
+                    aria-controls={`faq-answer-${i}`}
+                    style={{ background: "none", border: "none", cursor: "pointer", font: "inherit" }}
                   >
-                    <Icon name="Plus" size={14} style={{ color: openFaq === i ? "#fff" : "var(--verve-gold)" }} />
-                  </span>
-                </button>
-                {openFaq === i && (
+                    <span className="font-body font-medium text-sm sm:text-base leading-snug" style={{ color: "var(--verve-cream)" }}>{item.q}</span>
+                    <span
+                      className="shrink-0 flex items-center justify-center w-7 h-7 rounded-sm transition-transform duration-300"
+                      style={{
+                        background: openFaq === i ? "var(--verve-gold)" : "rgba(184,92,69,0.12)",
+                        transform: openFaq === i ? "rotate(45deg)" : "rotate(0deg)",
+                      }}
+                    >
+                      <Icon name="Plus" size={14} style={{ color: openFaq === i ? "#fff" : "var(--verve-gold)" }} />
+                    </span>
+                  </button>
+                </h3>
+                <div
+                  id={`faq-answer-${i}`}
+                  role="region"
+                  style={{
+                    maxHeight: openFaq === i ? "400px" : "0px",
+                    opacity: openFaq === i ? 1 : 0,
+                    overflow: "hidden",
+                    transition: "max-height 0.3s ease, opacity 0.2s ease",
+                  }}
+                >
                   <div className="px-5 pb-5">
                     <div className="gold-line mb-4" />
                     <p className="font-body font-light text-sm leading-relaxed" style={{ color: "rgba(28,20,16,0.7)" }}>{item.a}</p>
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>
@@ -1043,6 +1063,7 @@ export default function Index() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* FOOTER */}
       <footer className="py-8 md:py-10 px-4 md:px-6" style={{ borderTop: "1px solid rgba(184,92,69,0.2)", background: "var(--verve-dark)" }}>

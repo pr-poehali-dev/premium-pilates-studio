@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
+import { useSeo } from "@/hooks/use-seo";
 
 const Privacy = () => {
+  useSeo({
+    title: "Политика обработки персональных данных — VERVE Pilates",
+    description: "Политика обработки персональных данных студии пилатеса VERVE в Рязани.",
+    canonical: "https://vervepilates.ru/privacy",
+    noindex: true,
+  });
   return (
     <div style={{ background: "var(--verve-dark)", minHeight: "100vh" }}>
       <div className="max-w-3xl mx-auto px-4 md:px-6 py-10 md:py-16">
